@@ -9,21 +9,25 @@ public class Album : MonoBehaviour
     public GameObject photoGridParent;
     [HideInInspector]
     public Image[] photoAlbumImage = new Image[15];
-    [HideInInspector]
-    public Photo[] photos = new Photo[15];
+    //public Photo[] photoCollection;
     public Button showAlbumButton;
     public GameObject albumViewerCanvas;
     public GameObject photoAlbumViewer;
+    private Photo emptyPhoto;
+    private int selectedPhotoIndex = 0;
 
     private void Start()
     {
         EventManager.instance.TakePicture += FillPhotoAlbum;
-        int i = 0;
 
+        int i = 0;
         foreach (Transform child in photoGridParent.transform) {
             photoAlbumImage[i] = child.GetChild(0).gameObject.GetComponent<Image>();
             i++;
         }
+
+        emptyPhoto = new Photo();
+        emptyPhoto.photoIsSaved = false;
     }
 
     private void OnDestroy()
@@ -33,16 +37,25 @@ public class Album : MonoBehaviour
 
     public void FillPhotoAlbum() {
 
-        photos = SnapshotController.photoList.ToArray();
-
-        for (int i = 0; i < photos.Length; i++) {
-            Sprite photoSprite = Sprite.Create(photos[i].picture, new Rect(0.0f, 0.0f, photos[i].picture.width, photos[i].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
-            photoAlbumImage[i].sprite = photoSprite;
+        bool photoAlbumIsSaved = false;
+        
+        for (int i = 0; i < Loader.photoCollection.Length; i++)
+        {
+            if (photoAlbumIsSaved == false) {
+                if (Loader.photoCollection[i].photoIsSaved == false) {
+                    Loader.photoCollection[i] = SnapshotController.newPhoto;
+                    Sprite photoSprite = Sprite.Create(Loader.photoCollection[i].picture, new Rect(0.0f, 0.0f, Loader.photoCollection[i].picture.width, Loader.photoCollection[i].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
+                    photoAlbumImage[i].sprite = photoSprite;
+                    Loader.photoCollection[i].photoIsSaved = true;
+                    Loader.photoCollection[i].indexPhoto = i;
+                    photoAlbumIsSaved = true;
+                }
+            }
         }
     }
 
     public void ShowAlbum() {
-        Debug.Log("Entramos al show album");
+
         if (!IngameUIController.instance.albumIsOpen)
         {
             IngameUIController.instance.albumIsOpen = true;
@@ -56,10 +69,15 @@ public class Album : MonoBehaviour
         }
     }
 
-    public void CheckSelectedPhoto() {
-        albumViewerCanvas.SetActive(true);
-        Sprite photoSprite = Sprite.Create(photos[0].picture, new Rect(0.0f, 0.0f, photos[0].picture.width, photos[0].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
-        photoAlbumViewer.GetComponent<Image>().sprite =  photoAlbumImage[0].sprite = photoSprite;
+    public void CheckSelectedPhoto(int indexOfPhoto) {
+
+        if (Loader.photoCollection[indexOfPhoto].photoIsSaved)
+        {
+            selectedPhotoIndex = indexOfPhoto;
+            albumViewerCanvas.SetActive(true);
+            Sprite photoSprite = Sprite.Create(Loader.photoCollection[indexOfPhoto].picture, new Rect(0.0f, 0.0f, Loader.photoCollection[indexOfPhoto].picture.width, Loader.photoCollection[indexOfPhoto].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
+            photoAlbumViewer.gameObject.GetComponent<Image>().sprite = photoAlbumImage[indexOfPhoto].sprite;
+        }
     }
 
     public void KeepPhoto() {
@@ -68,6 +86,10 @@ public class Album : MonoBehaviour
 
     public void DeletePhoto()
     {
+        SnapshotController.photosTakenQuantity--;
+        Debug.Log("Borramos la foto de la posición: " + selectedPhotoIndex);
+        Loader.photoCollection[selectedPhotoIndex] = emptyPhoto;
+        photoAlbumImage[selectedPhotoIndex].sprite = null;
         albumViewerCanvas.SetActive(false);
     }
 }

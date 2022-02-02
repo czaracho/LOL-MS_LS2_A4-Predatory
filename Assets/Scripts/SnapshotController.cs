@@ -14,7 +14,9 @@ public class SnapshotController : MonoBehaviour
     private static SnapshotController instance;
     private bool takeScreenshotOnNextFrame;
     int screenshotId = 0;
+    public static int photosTakenQuantity = 0;
     Texture2D renderResult;
+    public static Photo newPhoto;
 
     [SerializeField] private Image photoDisplayArea;
     [SerializeField] private GameObject photoFrame;
@@ -24,14 +26,12 @@ public class SnapshotController : MonoBehaviour
 
     [HideInInspector]
     public static bool canTakePicture;
-    public static List<Photo> photoList;  //current level photo list
     Rect rect;
 
     RaycastHit hit;
     [SerializeField] private float range;
 
     private Organism targetedOrganism;
-
 
 
     private void Awake()
@@ -43,8 +43,9 @@ public class SnapshotController : MonoBehaviour
     private void Start()
     {
         polaroidUI.SetActive(true);
-        photoList = new List<Photo>();
+        newPhoto = new Photo();
         EventManager.instance.ShowPolaroidUI += ShowPolaroidUI;
+
     }
 
     private void OnDestroy()
@@ -63,7 +64,7 @@ public class SnapshotController : MonoBehaviour
             rect = new Rect(0, 0, renderTexture.width, renderTexture.height);
             renderResult.ReadPixels(rect, 0, 0);
 
-            byte[] byteArray = renderResult.EncodeToPNG();
+            //byte[] byteArray = renderResult.EncodeToPNG();
             //System.IO.File.WriteAllBytes(Application.dataPath + "/Pictures/" + screenshotId.ToString() + "CameraScreenshot.png", byteArray);
             //Debug.Log("Saved CameraScreenshot.png");
 
@@ -78,24 +79,35 @@ public class SnapshotController : MonoBehaviour
             {
                 if (hit.transform.tag == "Animal")
                 {
+                    Debug.Log("sacamos foto a un animal");
                     Organism animal = hit.transform.gameObject.GetComponent<Organism>();
-                    Photo newPhoto = new Photo();
                     newPhoto.id = screenshotId;
-                    newPhoto.type = animal.organismType.ToString();
-                    newPhoto.name = animal.organismSubtype.ToString() + screenshotId.ToString();
+                    newPhoto.animalType = animal.organismType;
+                    newPhoto.animalName = animal.organismName;
+                    newPhoto.infoId = animal.infoId;
                     newPhoto.picture = renderResult;
-                    photoList.Add(newPhoto);
+                }
+                else
+                {
+                    Debug.Log("sacamos foto a algo que no es animal x");
+                    newPhoto.id = screenshotId;
+                    newPhoto.animalType = Organism.Type.typeGeneric;
+                    newPhoto.animalName = "newPhoto_" + screenshotId.ToString();
+                    newPhoto.infoId = "no_id";
+                    newPhoto.picture = renderResult;
                 }
             }
             else {
-                Photo newPhoto = new Photo();
+                Debug.Log("sacamos foto a algo que no está en el rango de la cámara");
                 newPhoto.id = screenshotId;
-                newPhoto.type = "generic";
-                newPhoto.name = "newPhoto_" + screenshotId.ToString();
+                newPhoto.animalType = Organism.Type.typeGeneric;
+                newPhoto.animalName = "newPhoto_" + screenshotId.ToString();
+                newPhoto.infoId = "no_id";
                 newPhoto.picture = renderResult;
-                photoList.Add(newPhoto);
             }
-
+            
+            screenshotId++;
+            photosTakenQuantity++;
 
             //renderResult.LoadImage(byteArray);
 
@@ -103,9 +115,9 @@ public class SnapshotController : MonoBehaviour
             //tex.LoadRawTextureData(byteArray);
             //tex.Apply();
 
-            ShowPhoto(renderResult);
+            ShowPhoto(newPhoto.picture);
             EventManager.instance.OnTakePicture();
-            screenshotId++;
+            
         }
     }
 
@@ -150,9 +162,9 @@ public class SnapshotController : MonoBehaviour
         {
             if (!viewingPhoto)
             {
-                if (photoList.Count < 15) {
-                    polaroidUI.SetActive(false);
+                if (photosTakenQuantity < 15) {
                     //Take Screenshot
+                    polaroidUI.SetActive(false);
                     viewingPhoto = true;
                     TakeScreenshot_Static(1024, 576);
                 }                

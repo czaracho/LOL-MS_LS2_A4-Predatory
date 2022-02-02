@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Photo : MonoBehaviour
 {
-    public int id;
-    public string type;
-    public string name;
+    public int id;              //id of the photo
+    public Organism.Type animalType;         //predator etc
+    public string animalName;         //animal name
     [HideInInspector]
-    public string infoId;
-    public Texture2D picture;
-
+    public string infoId;       //id of the info
+    public Texture2D picture;   //picture of the animal
+    [HideInInspector]
+    public bool photoIsSaved = false;
+    public int indexPhoto;
 }

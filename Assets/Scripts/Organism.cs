@@ -5,24 +5,17 @@ using UnityEngine;
 public class Organism : MonoBehaviour
 {
     public enum Type { 
-        type1,
-        type2,
-        type3,
-        type4
+        lion,
+        hyena,
+        elephant,
+        deer,
+        ant,
+        typeGeneric
     }
 
-    public enum SubType
-    {
-        subtype1,
-        subtype2,
-        subtype3,
-        subtype4
-    }
-
+    public string organismName;
     public Type organismType;
-    public SubType organismSubtype;
     public GameObject organismNameUI;
 
     public string infoId;   //example: info_tiger
-
 }

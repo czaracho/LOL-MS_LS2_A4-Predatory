@@ -34,10 +34,12 @@ public class IngameUIController : MonoBehaviour
     }
 
     public void ShowIngameUI(bool show) {
-        IngameUI.SetActive(show);
+        
     }
 
     public void HideAnimalNames() { 
         
     }
+
+
 }
