@@ -10,12 +10,11 @@ public class Organism : MonoBehaviour
         elephant,
         deer,
         ant,
+        rhino,
+        pecker,
         typeGeneric
     }
-
-    public string organismName;
-    public Type organismType;
+    public Type organismName;
     public GameObject organismNameUI;
-
     public string infoId;   //example: info_tiger
 }

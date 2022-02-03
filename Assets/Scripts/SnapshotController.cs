@@ -79,29 +79,24 @@ public class SnapshotController : MonoBehaviour
             {
                 if (hit.transform.tag == "Animal")
                 {
-                    Debug.Log("sacamos foto a un animal");
                     Organism animal = hit.transform.gameObject.GetComponent<Organism>();
                     newPhoto.id = screenshotId;
-                    newPhoto.animalType = animal.organismType;
+                    newPhoto.animalName = animal.organismName;
                     newPhoto.animalName = animal.organismName;
                     newPhoto.infoId = animal.infoId;
                     newPhoto.picture = renderResult;
                 }
                 else
                 {
-                    Debug.Log("sacamos foto a algo que no es animal x");
                     newPhoto.id = screenshotId;
-                    newPhoto.animalType = Organism.Type.typeGeneric;
-                    newPhoto.animalName = "newPhoto_" + screenshotId.ToString();
+                    newPhoto.animalName = Organism.Type.typeGeneric;
                     newPhoto.infoId = "no_id";
                     newPhoto.picture = renderResult;
                 }
             }
             else {
-                Debug.Log("sacamos foto a algo que no está en el rango de la cámara");
                 newPhoto.id = screenshotId;
-                newPhoto.animalType = Organism.Type.typeGeneric;
-                newPhoto.animalName = "newPhoto_" + screenshotId.ToString();
+                newPhoto.animalName = Organism.Type.typeGeneric;
                 newPhoto.infoId = "no_id";
                 newPhoto.picture = renderResult;
             }
@@ -163,7 +158,6 @@ public class SnapshotController : MonoBehaviour
             if (!viewingPhoto)
             {
                 if (photosTakenQuantity < 15) {
-                    //Take Screenshot
                     polaroidUI.SetActive(false);
                     viewingPhoto = true;
                     TakeScreenshot_Static(1024, 576);

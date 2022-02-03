@@ -6,7 +6,8 @@ public class GameManagerScript : MonoBehaviour
 {
     //vamos a poner todo lo relacionado a los objetivos
     public Organism[] organismsForObjectives;
-
+    int objectivesAccomplishedCounter = 0;
+    public bool objectivesAccomplished = false;
 
     private void Start()
     {
@@ -18,7 +19,23 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
-    public void checkObjectives() { 
-            
+    public void checkObjectives() {
+
+        if (!objectivesAccomplished) {
+            for (int i = 0; i < organismsForObjectives.Length; i++)
+            {
+                for (int j = 0; i < Loader.photoCollection.Length; j++)
+                {
+                    if (organismsForObjectives[i].organismName == Loader.photoCollection[j].animalName)
+                    {
+                        objectivesAccomplishedCounter++;
+                    }
+                }
+            }
+        }
+
+        if (objectivesAccomplishedCounter == organismsForObjectives.Length) {
+            Debug.Log("Todos los objetivos cumplidos");
+        }
     }
 }
