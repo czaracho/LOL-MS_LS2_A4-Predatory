@@ -9,7 +9,6 @@ public class Album : MonoBehaviour
     public GameObject photoGridParent;
     [HideInInspector]
     public Image[] photoAlbumImage = new Image[15];
-    //public Photo[] photoCollection;
     public Button showAlbumButton;
     public GameObject albumViewerCanvas;
     public GameObject photoAlbumViewer;
@@ -27,6 +26,10 @@ public class Album : MonoBehaviour
         }
 
         emptyPhoto = new Photo();
+        emptyPhoto.animalName = Organism.Type.typeGeneric;
+        emptyPhoto.checkedForReview = false;
+        emptyPhoto.indexPhoto = 0;
+        emptyPhoto.picture = null;
         emptyPhoto.photoIsSaved = false;
     }
 
@@ -37,21 +40,33 @@ public class Album : MonoBehaviour
 
     public void FillPhotoAlbum() {
 
-        bool photoAlbumIsSaved = false;
-        
         for (int i = 0; i < Loader.photoCollection.Length; i++)
         {
-            if (photoAlbumIsSaved == false) {
-                if (Loader.photoCollection[i].photoIsSaved == false) {
-                    Loader.photoCollection[i] = SnapshotController.newPhoto;
-                    Sprite photoSprite = Sprite.Create(Loader.photoCollection[i].picture, new Rect(0.0f, 0.0f, Loader.photoCollection[i].picture.width, Loader.photoCollection[i].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
-                    photoAlbumImage[i].sprite = photoSprite;
-                    Loader.photoCollection[i].photoIsSaved = true;
-                    Loader.photoCollection[i].indexPhoto = i;
-                    photoAlbumIsSaved = true;
-                }
+
+            if (Loader.photoCollection[i].photoIsSaved == false)
+            {
+                Loader.photoCollection[i].animalName = SnapshotController.newPhoto.animalName;
+                Loader.photoCollection[i].picture = SnapshotController.newPhoto.picture;
+                Loader.photoCollection[i].photoIsSaved = true;
+                Loader.photoCollection[i].indexPhoto = i;
+
+                Sprite photoSprite = Sprite.Create(Loader.photoCollection[i].picture, new Rect(0.0f, 0.0f, Loader.photoCollection[i].picture.width, Loader.photoCollection[i].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
+                photoAlbumImage[i].sprite = photoSprite;
+
+                Debug.Log("animalName: " + Loader.photoCollection[i].animalName.ToString());
+                Debug.Log("Guardamos la foto en la posición: " + i);
+                Debug.Log("Loader.photoCollection[i].photoIsSaved " + Loader.photoCollection[i].photoIsSaved);
+
+
+                break;
             }
         }
+
+        Debug.Log("Al final queda como: ");
+        for (int i = 0; i < Loader.photoCollection.Length; i++) {
+            Debug.Log("Loader.photoCollection[" + i + "]:" + Loader.photoCollection[i].animalName);
+        }
+
     }
 
     public void ShowAlbum() {

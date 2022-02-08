@@ -12,4 +12,6 @@ public class Photo : MonoBehaviour
     [HideInInspector]
     public bool photoIsSaved = false;
     public int indexPhoto;
+    [HideInInspector]
+    public bool checkedForReview = false;
 }

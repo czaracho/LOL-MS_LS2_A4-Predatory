@@ -9,6 +9,9 @@ public class CamerasController : MonoBehaviour
     public GameObject thirdPersonCamera;
     public GameObject firstPersonCharacter;
     public GameObject polaroidCameraUI;
+
+    public GameObject[] thirdPersonCanvases;
+    public GameObject fpsCanvas;
     public bool isThirdPerson = true;
 
     private void Update()
@@ -35,6 +38,13 @@ public class CamerasController : MonoBehaviour
             firstPersonCharacter.SetActive(true);
             thirdPersonCamera.SetActive(false);
             isThirdPerson = false;
+
+            for (int i = 0; i < thirdPersonCanvases.Length; i++) {
+                thirdPersonCanvases[i].SetActive(false);
+            }
+
+            fpsCanvas.SetActive(true);
+
             EventManager.instance.OnShowIngameUI(false);
 
             Cursor.visible = false;
@@ -51,6 +61,13 @@ public class CamerasController : MonoBehaviour
             firstPersonCharacter.SetActive(false);
             isThirdPerson = true;
             EventManager.instance.OnShowIngameUI(true);
+
+            for (int i = 0; i < thirdPersonCanvases.Length; i++)
+            {
+                thirdPersonCanvases[i].SetActive(true);
+            }
+
+            fpsCanvas.SetActive(false);
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;

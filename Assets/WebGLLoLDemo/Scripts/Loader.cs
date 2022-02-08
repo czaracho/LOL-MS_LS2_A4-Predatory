@@ -59,7 +59,7 @@ public class Loader : MonoBehaviour
 #endif
 
 		// Initialize the object, passing in the WebGL
-		LOLSDK.Init(webGL, "com.legends-of-learning.unity.sdk.v5.1.potionworkshop");
+		LOLSDK.Init(webGL, "com.legends-of-learning.unity.sdk.v5.1.catsafari");
 
 		// Register event handlers
 		LOLSDK.Instance.StartGameReceived += new StartGameReceivedHandler(this.HandleStartGame);
@@ -79,7 +79,7 @@ public class Loader : MonoBehaviour
 		if (_loaderCounter == 2)
 		{
 			_loaderCounter = 3;
-			SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+			//SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
 		}
 	}
 
@@ -117,8 +117,6 @@ public class Loader : MonoBehaviour
 
 		string startDataFilePath = Path.Combine(Application.streamingAssetsPath, startGameJSONFilePath);
 		string langCode = "en";
-
-		Debug.Log(File.Exists(startDataFilePath));
 
 		if (File.Exists(startDataFilePath))
 		{

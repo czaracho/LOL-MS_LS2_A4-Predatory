@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IngameUIController : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class IngameUIController : MonoBehaviour
     public bool albumIsOpen = false;
     public static IngameUIController instance;
     public List<GameObject> animalNamesUI = new List<GameObject>();
-
+    public GameObject notificationBlock;
 
     private void Awake()
     {
@@ -39,6 +40,14 @@ public class IngameUIController : MonoBehaviour
 
     public void HideAnimalNames() { 
         
+    }
+
+    public void ShowNotificationText() {
+        notificationBlock.gameObject.SetActive(true);
+    }
+
+    public void HideNotificationText() {
+        notificationBlock.gameObject.SetActive(false);
     }
 
 
