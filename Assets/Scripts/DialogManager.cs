@@ -24,6 +24,8 @@ public class DialogManager : MonoBehaviour
 
     JSONNode _lang;
 
+    public GameManagerScript gameManagerScript;
+
     private void Start()
     {
         //sentences = new Queue<string>();
@@ -95,7 +97,8 @@ public class DialogManager : MonoBehaviour
         dialogBox.SetActive(false);
         catPebblesPortrait.gameObject.SetActive(false);
         catLanaPortrait.gameObject.SetActive(false);
-        Debug.Log("end of conversation");
+        EventManager.instance.OnShowPromptActionUI(true);
+        gameManagerScript.playerIsTalking = false;
     }
 
     IEnumerator TypeWritter(string dialogLine) {

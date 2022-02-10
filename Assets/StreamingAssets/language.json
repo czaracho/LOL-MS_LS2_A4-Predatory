@@ -15,6 +15,17 @@
 	  "ldline_lana_savanna_3":"Hey, they look disgusting! Go and take new ones!",
 	  "pdline_pebbles_savanna_2": "Oh come on, don't be mad at me",
 	  "pdline_pebbles_savanna_3": "I'll see what I can do",
-	  "ldline_lanna_savanna_4": "Hurry!"
+	  "ldline_lanna_savanna_4": "Hurry!",
+	  "predator": "predator",
+	  "prey": "prey",
+	  "lets_see": "Let's see...",
+	  "objective_accomplished": "Nice, you have all of the requested photos. Let's go to the board.",
+	  "objective_check": "We still need: ",
+	  "info_lion": "The world's most social felines, lions roam the savannas and grasslands of the African continent, hunting cooperatively and raising cubs in prides."
+	  "Prime habitat for lions is open woodlands, thick grassland, and brush habitat, where there is enough cover for hunting and denning." 
+	  "These areas of grassland habitat also provide food for the herbivores that lions prey upon."
+	  "Lions hunt antelope and other ungulates, baby elephants or rhinos, rodents, reptiles, insects, and even crocodiles." 
+	  "They also scavenge or steal prey from leopards, cheetahs, hyenas, or African hunting dogs (also called painted dogs), even eating food that has spoiled." 
+	  "Lions digest their food quickly, which allows them to return soon for a second helping after gorging themselves the first time.",
    }
 }

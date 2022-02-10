@@ -197,6 +197,7 @@ public class FirstPersonController : MonoBehaviour
         }
 
         #endregion
+
     }
 
     float camRotation;
@@ -238,10 +239,12 @@ public class FirstPersonController : MonoBehaviour
                 if (!isZoomed)
                 {
                     isZoomed = true;
+                    EventManager.instance.OnAddCameraZoom(true);
                 }
                 else
                 {
                     isZoomed = false;
+                    EventManager.instance.OnAddCameraZoom(false);
                 }
             }
 
@@ -252,10 +255,12 @@ public class FirstPersonController : MonoBehaviour
                 if(Input.GetKeyDown(zoomKey))
                 {
                     isZoomed = true;
+                    EventManager.instance.OnAddCameraZoom(true);
                 }
                 else if(Input.GetKeyUp(zoomKey))
                 {
                     isZoomed = false;
+                    EventManager.instance.OnAddCameraZoom(false);
                 }
             }
 

@@ -9,8 +9,8 @@ public class IngameUIController : MonoBehaviour
     [HideInInspector]
     public bool albumIsOpen = false;
     public static IngameUIController instance;
-    public List<GameObject> animalNamesUI = new List<GameObject>();
     public GameObject notificationBlock;
+    public GameObject animalNamesLabelCanvas;
 
     private void Awake()
     {
@@ -26,28 +26,38 @@ public class IngameUIController : MonoBehaviour
 
     private void Start()
     {
-        EventManager.instance.ShowIngameUI += ShowIngameUI;
+        EventManager.instance.ShowPromptActionUI += ShowNotificationText;
+        EventManager.instance.ShowAnimalNames += ShowAnimalNames;
+
+
     }
 
     private void OnDestroy()
     {
-        EventManager.instance.ShowIngameUI -= ShowIngameUI;
+        EventManager.instance.ShowPromptActionUI -= ShowNotificationText;
+        EventManager.instance.ShowAnimalNames -= ShowAnimalNames;
     }
 
-    public void ShowIngameUI(bool show) {
-        
+
+    public void ShowNotificationText(bool show) {
+
+        if (show)
+        {
+            notificationBlock.gameObject.SetActive(true);
+        }
+        else {
+            notificationBlock.gameObject.SetActive(false);
+        }
     }
 
-    public void HideAnimalNames() { 
-        
-    }
+    public void ShowAnimalNames(bool show) {
 
-    public void ShowNotificationText() {
-        notificationBlock.gameObject.SetActive(true);
-    }
-
-    public void HideNotificationText() {
-        notificationBlock.gameObject.SetActive(false);
+        if (show){
+            animalNamesLabelCanvas.SetActive(true);
+        }
+        else {
+            animalNamesLabelCanvas.SetActive(false);
+        }
     }
 
 

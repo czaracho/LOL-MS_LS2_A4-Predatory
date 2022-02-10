@@ -26,7 +26,7 @@ public class Album : MonoBehaviour
         }
 
         emptyPhoto = new Photo();
-        emptyPhoto.animalName = Organism.Type.typeGeneric;
+        emptyPhoto.animalName = Organism.AnimalName.typeGeneric;
         emptyPhoto.checkedForReview = false;
         emptyPhoto.indexPhoto = 0;
         emptyPhoto.picture = null;
@@ -53,19 +53,19 @@ public class Album : MonoBehaviour
                 Sprite photoSprite = Sprite.Create(Loader.photoCollection[i].picture, new Rect(0.0f, 0.0f, Loader.photoCollection[i].picture.width, Loader.photoCollection[i].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
                 photoAlbumImage[i].sprite = photoSprite;
 
-                Debug.Log("animalName: " + Loader.photoCollection[i].animalName.ToString());
-                Debug.Log("Guardamos la foto en la posición: " + i);
-                Debug.Log("Loader.photoCollection[i].photoIsSaved " + Loader.photoCollection[i].photoIsSaved);
+                //Debug.Log("animalName: " + Loader.photoCollection[i].animalName.ToString());
+                //Debug.Log("Guardamos la foto en la posición: " + i);
+                //Debug.Log("Loader.photoCollection[i].photoIsSaved " + Loader.photoCollection[i].photoIsSaved);
 
 
                 break;
             }
         }
 
-        Debug.Log("Al final queda como: ");
-        for (int i = 0; i < Loader.photoCollection.Length; i++) {
-            Debug.Log("Loader.photoCollection[" + i + "]:" + Loader.photoCollection[i].animalName);
-        }
+        //Debug.Log("Al final queda como: ");
+        //for (int i = 0; i < Loader.photoCollection.Length; i++) {
+        //    Debug.Log("Loader.photoCollection[" + i + "]:" + Loader.photoCollection[i].animalName);
+        //}
 
     }
 

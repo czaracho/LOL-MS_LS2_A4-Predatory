@@ -22,6 +22,9 @@ public class EventManager : MonoBehaviour
     public event Action TakePicture;
     public event Action<bool> ShowPolaroidUI;
     public event Action<bool> ShowIngameUI;
+    public event Action<bool> ShowPromptActionUI;
+    public event Action<bool> AddCameraZoom;
+    public event Action<bool> ShowAnimalNames;
 
 
     public void OnTakePicture()
@@ -38,5 +41,17 @@ public class EventManager : MonoBehaviour
     public void OnShowIngameUI(bool show)
     {
         ShowIngameUI?.Invoke(show);
+    }
+
+    public void OnShowPromptActionUI (bool show) {
+        ShowPromptActionUI?.Invoke(show);
+    }
+
+    public void OnAddCameraZoom(bool isZoomed) {
+        AddCameraZoom?.Invoke(isZoomed);
+    }
+
+    public void OnShowAnimalNames(bool show) {
+        ShowAnimalNames?.Invoke(show);
     }
 }

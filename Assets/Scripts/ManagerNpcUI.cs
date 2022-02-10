@@ -14,7 +14,7 @@ public class ManagerNpcUI : MonoBehaviour
     public float positionOffsetX = 0;
     private bool playerOnRange = false;
     public DialogTrigger dialogTrigger;
-    private bool playerHasStartedDialog = false;
+    public GameManagerScript gameManagerScript;
 
     private void Start()
     {
@@ -25,8 +25,9 @@ public class ManagerNpcUI : MonoBehaviour
     {
         if (playerOnRange) {
 
-            if (Input.GetKeyDown(KeyCode.E) && !playerHasStartedDialog) {
-                playerHasStartedDialog = true;
+            if (Input.GetKeyDown(KeyCode.E) && !gameManagerScript.playerIsTalking) {
+                gameManagerScript.playerIsTalking = true;
+                EventManager.instance.OnShowPromptActionUI(false);
                 dialogTrigger.TriggerDialogue();
             }
         }
@@ -35,14 +36,14 @@ public class ManagerNpcUI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         playerOnRange = true;
-        IngameUIController.instance.ShowNotificationText();
+        EventManager.instance.OnShowPromptActionUI(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
         playerOnRange = false;
-        playerHasStartedDialog = false;
-        IngameUIController.instance.HideNotificationText();
+        gameManagerScript.playerIsTalking = false;
+        EventManager.instance.OnShowPromptActionUI(false);
     }
 
     private void LateUpdate()

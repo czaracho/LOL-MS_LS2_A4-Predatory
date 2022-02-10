@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.Scripting;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class SnapshotController : MonoBehaviour
 {
@@ -30,8 +31,13 @@ public class SnapshotController : MonoBehaviour
 
     RaycastHit hit;
     [SerializeField] private float range;
+    private float originalRange;
 
     private Organism targetedOrganism;
+
+    public FirstPersonController fpsController;
+
+    public Image flashImage;
 
 
     private void Awake()
@@ -42,15 +48,20 @@ public class SnapshotController : MonoBehaviour
 
     private void Start()
     {
+        DOTween.Init();
         polaroidUI.SetActive(true);
         newPhoto = new Photo();
+        originalRange = range;
         EventManager.instance.ShowPolaroidUI += ShowPolaroidUI;
+        EventManager.instance.AddCameraZoom += AddCameraRange;
+
 
     }
 
     private void OnDestroy()
     {
         EventManager.instance.ShowPolaroidUI -= ShowPolaroidUI;
+        EventManager.instance.AddCameraZoom -= AddCameraRange;
     }
 
     private void OnPostRender()
@@ -81,22 +92,23 @@ public class SnapshotController : MonoBehaviour
                 {
                     Organism animal = hit.transform.gameObject.GetComponent<Organism>();
                     newPhoto.id = screenshotId;
-                    newPhoto.animalName = animal.organismName;
-                    newPhoto.animalName = animal.organismName;
+                    newPhoto.animalName = animal.animalName;
+                    newPhoto.animalName = animal.animalName;
                     newPhoto.infoId = animal.infoId;
                     newPhoto.picture = renderResult;
                 }
                 else
                 {
                     newPhoto.id = screenshotId;
-                    newPhoto.animalName = Organism.Type.typeGeneric;
+                    newPhoto.animalName = Organism.AnimalName.typeGeneric;
                     newPhoto.infoId = "no_id";
                     newPhoto.picture = renderResult;
                 }
+
             }
             else {
                 newPhoto.id = screenshotId;
-                newPhoto.animalName = Organism.Type.typeGeneric;
+                newPhoto.animalName = Organism.AnimalName.typeGeneric;
                 newPhoto.infoId = "no_id";
                 newPhoto.picture = renderResult;
             }
@@ -110,9 +122,11 @@ public class SnapshotController : MonoBehaviour
             //tex.LoadRawTextureData(byteArray);
             //tex.Apply();
 
-            ShowPhoto(newPhoto.picture);
-            EventManager.instance.OnTakePicture();
+            //Camera flash
+            flashImage.DOColor(Color.white, 0.15f).SetLoops(2, LoopType.Yoyo).OnComplete(() => { ShowPhoto(newPhoto.picture); });
             
+            EventManager.instance.OnTakePicture();
+            StartCoroutine(WaitForPolaroidClose(1.5f));
         }
     }
 
@@ -142,6 +156,13 @@ public class SnapshotController : MonoBehaviour
                     targetedOrganism.organismNameUI.SetActive(true);
                 }
             }
+            else {
+                if (targetedOrganism != null)
+                {
+                    targetedOrganism.organismNameUI.SetActive(false);
+                    targetedOrganism = null;
+                }
+            }
         }
         else {
 
@@ -161,12 +182,7 @@ public class SnapshotController : MonoBehaviour
                     polaroidUI.SetActive(false);
                     viewingPhoto = true;
                     TakeScreenshot_Static(1024, 576);
-                }                
-            }
-            else
-            {
-                polaroidUI.SetActive(true);
-                RemovePhoto();
+                }
             }
         }
     }
@@ -192,6 +208,32 @@ public class SnapshotController : MonoBehaviour
         }
         else {
             polaroidUI.SetActive(false);
+        }
+    }
+
+    IEnumerator WaitForPolaroidClose(float waitTime) {
+        
+        fpsController.cameraCanMove = false;
+        fpsController.playerCanMove = false;
+        EventManager.instance.OnShowAnimalNames(false);
+
+        yield return new WaitForSeconds(waitTime);
+        
+        fpsController.cameraCanMove = true;
+        fpsController.playerCanMove = true;
+        polaroidUI.SetActive(true);
+        EventManager.instance.OnShowAnimalNames(true);
+        RemovePhoto();
+    }
+
+    public void AddCameraRange(bool isZoomed) {
+
+        if (isZoomed)
+        {
+            range = originalRange * 1.5f;
+        }
+        else {
+            range = originalRange;
         }
     }
 }

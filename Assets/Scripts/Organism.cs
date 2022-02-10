@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Organism : MonoBehaviour
 {
-    public enum Type { 
+    public enum AnimalName { 
         lion,
         hyena,
         elephant,
@@ -14,7 +14,14 @@ public class Organism : MonoBehaviour
         pecker,
         typeGeneric
     }
-    public Type organismName;
+
+    public enum AnimalType { 
+        predator,
+        prey
+    }
+    
+    public AnimalName animalName;
+    public AnimalType animalType;
     public GameObject organismNameUI;
-    public string infoId;   //example: info_tiger
+    public string infoId;  
 }
