@@ -17,11 +17,13 @@ public class Organism : MonoBehaviour
 
     public enum AnimalType { 
         predator,
-        prey
+        prey,
+        plant
     }
     
     public AnimalName animalName;
     public AnimalType animalType;
     public GameObject organismNameUI;
-    public string infoId;  
+    public string infoId;
+    public bool checkedObjective;
 }
