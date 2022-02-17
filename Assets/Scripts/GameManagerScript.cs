@@ -13,10 +13,24 @@ public class GameManagerScript : MonoBehaviour
     public bool objectivesAccomplished = false;
     [HideInInspector]
     public bool playerIsTalking = false;
+    [HideInInspector]
+    public bool isCheckingObjectives = false;
+
+    public enum GameAction
+    {
+        none,
+        checkObjective,
+        levelCompleted,
+        objectivesNonCompleted
+    }
+
+    [HideInInspector]
+    public GameAction gameAction = GameAction.none;
+
 
     private void Start()
     {
-        JSONNode _lang;
+
         Loader.photoCollection = new Photo[15];
 
         for (int i = 0; i < Loader.photoCollection.Length; i++)
@@ -24,17 +38,6 @@ public class GameManagerScript : MonoBehaviour
             Loader.photoCollection[i] = new Photo();
             Loader.photoCollection[i].photoIsSaved = false;
             Loader.photoCollection[i].animalName = Organism.AnimalName.typeGeneric;
-        }
-
-        //dialog dialog = sentences.Dequeue();
-        //string dialogeLine = _lang[dialog.sentenceId];
-        //currentTalkingCat = dialog.GetCharacterName();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O)) {
-            checkObjectives();
         }
     }
 
@@ -58,29 +61,55 @@ public class GameManagerScript : MonoBehaviour
                         {
                             objectivesAccomplished = true;
                             ObjectivesAccomplished();
-                            break;
+                            return;
                         }
                     }
                 }
             }
 
             int uncheckedObjectiveCounter = 0;
+            List<Organism> organismList = new List<Organism>();
 
             for (int i = 0; i < organismsForObjectives.Length; i++) {
+
                 if (!organismsForObjectives[i].checkedObjective) {
+                    organismList.Add(organismsForObjectives[i]);
                     uncheckedObjectiveCounter++;
                 }
-            }            
+
+                organismsForObjectives[i].checkedObjective = false;
+            }
+
+            ObjectivesUnaccomplished(organismList);
         }
     }
 
     public void ObjectivesAccomplished() {
-        Debug.Log("Todos los objetivos cumplidos");
+
+        Dialogue endDialog = new Dialogue();
+        endDialog.sentences = new dialog[1];
+        endDialog.sentences[0] = new dialog();
+        endDialog.sentences[0].sentenceId = "ldline_objective_accomplished";
+
+        FindObjectOfType<DialogManager>().StartDialogue(endDialog, GameAction.levelCompleted);
+
     }
 
-    public void ObjectivesUnaccomplished(int quantity) {
-        Debug.Log("Objectives not accomplished");
+    public void ObjectivesUnaccomplished(List<Organism> organisms) {
+        
+        Debug.Log("Objectives unnacomplished");
 
 
+        Dialogue endDialog = new Dialogue();
+        endDialog.sentences = new dialog[1];
+        endDialog.sentences[0] = new dialog();
+        endDialog.sentences[0].sentenceId = "ldline_objective_failed_1";
+
+        FindObjectOfType<DialogManager>().StartDialogue(endDialog, GameAction.objectivesNonCompleted);
+    }
+
+    public void SetGameAction(GameAction newGameAction) {
+        gameAction = newGameAction;
     }
 }
+

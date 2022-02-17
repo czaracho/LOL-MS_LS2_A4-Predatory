@@ -344,6 +344,7 @@ MonoBehaviour:
   animalType: 1
   organismNameUI: {fileID: 857517585}
   infoId: Deer
+  checkedObjective: 0
 --- !u!1 &41429055
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,6 +835,7 @@ Transform:
   - {fileID: 295795882}
   - {fileID: 230360257}
   - {fileID: 140513143}
+  - {fileID: 2080310008}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4076,7 +4078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -4457,13 +4459,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - sentenceId: ldline_lanna_savanna_1
-    - sentenceId: pdline_pebbles_savanna_1
-    - sentenceId: ldline_lana_savanna_2
-    - sentenceId: ldline_lana_savanna_3
-    - sentenceId: pdline_pebbles_savanna_2
-    - sentenceId: pdline_pebbles_savanna_3
-    - sentenceId: ldline_lanna_savanna_4
+    - sentenceId: ldline_1
+    - sentenceId: pdline_1
+    - sentenceId: ldline_2
+  action: 1
 --- !u!1001 &595090408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4941,6 +4940,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651296099}
   m_CullTransparentMesh: 0
+--- !u!1 &654697685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 654697687}
+  - component: {fileID: 654697686}
+  m_Layer: 0
+  m_Name: Objectives
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &654697686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654697685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb5864a5f9350a4c80c2a07c7ed1d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - sentenceId: savanna_objective_1
+    - sentenceId: savanna_objective_2
+  action: 0
+--- !u!4 &654697687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654697685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.616554, y: -0.028956482, z: 2.966737}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &674440885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7599,6 +7646,7 @@ MonoBehaviour:
   animalType: 0
   organismNameUI: {fileID: 159706042}
   infoId: dogid
+  checkedObjective: 0
 --- !u!65 &900864421
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12407,6 +12455,7 @@ MonoBehaviour:
     - sentenceId: pdline_pebbles_savanna_2
     - sentenceId: pdline_pebbles_savanna_3
     - sentenceId: ldline_lanna_savanna_4
+  action: 0
 --- !u!1 &1730308594
 GameObject:
   m_ObjectHideFlags: 0
@@ -12516,6 +12565,7 @@ MonoBehaviour:
   animalType: 1
   organismNameUI: {fileID: 409157311}
   infoId: elephantid
+  checkedObjective: 0
 --- !u!65 &1730348310
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13638,11 +13688,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906854513}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9454959648c8e3849b8432e3bcbbe34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectivesDialogue: {fileID: 0}
   catLanaPortrait: {fileID: 1656331926}
   catPebblesPortrait: {fileID: 2051352896}
   dialogBox: {fileID: 1310681320}
@@ -13775,6 +13826,7 @@ MonoBehaviour:
   animalType: 0
   organismNameUI: {fileID: 1233345757}
   infoId: dogid
+  checkedObjective: 0
 --- !u!65 &1919194316
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14700,6 +14752,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067067346}
   m_CullTransparentMesh: 0
+--- !u!1 &2080310007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2080310008}
+  - component: {fileID: 2080310009}
+  m_Layer: 0
+  m_Name: DialogController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2080310008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080310007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 132849595}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2080310009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080310007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9454959648c8e3849b8432e3bcbbe34a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectivesDialogue: {fileID: 654697686}
+  catLanaPortrait: {fileID: 1656331926}
+  catPebblesPortrait: {fileID: 2051352896}
+  dialogBox: {fileID: 1310681320}
+  dialogText: {fileID: 1644912964}
+  nextButton: {fileID: 549445198}
+  hightlightedColor: {r: 1, g: 1, b: 1, a: 1}
+  darkerColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
+  gameManagerScript: {fileID: 5238138501977325316}
 --- !u!1001 &2081477794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15709,7 +15813,7 @@ PrefabInstance:
     - target: {fileID: 731538311353358520, guid: 0f206e72561cd28428d6ce02b71a82e6,
         type: 3}
       propertyPath: organismsForObjectives.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 731538311353358520, guid: 0f206e72561cd28428d6ce02b71a82e6,
         type: 3}

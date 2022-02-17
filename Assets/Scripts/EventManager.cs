@@ -25,6 +25,7 @@ public class EventManager : MonoBehaviour
     public event Action<bool> ShowPromptActionUI;
     public event Action<bool> AddCameraZoom;
     public event Action<bool> ShowAnimalNames;
+    public event Action<string> SetGameAction;
 
 
     public void OnTakePicture()
@@ -53,5 +54,9 @@ public class EventManager : MonoBehaviour
 
     public void OnShowAnimalNames(bool show) {
         ShowAnimalNames?.Invoke(show);
+    }
+
+    public void OnSetGameAction(string action) {
+        SetGameAction?.Invoke(action);
     }
 }
