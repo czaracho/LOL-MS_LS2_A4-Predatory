@@ -17,6 +17,12 @@ public class CamerasController : MonoBehaviour
     public GameManagerScript gameManager;
     public FirstPersonController fpsController;
 
+    private void Start()
+    {
+        EventManager.instance.ShowIngameUI += ShowIngameTpsCanvas;
+        EventManager.instance.ShowFpsUI += ShowFPSCanvas;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) {      
@@ -47,8 +53,7 @@ public class CamerasController : MonoBehaviour
                     thirdPersonCanvases[i].SetActive(false);
                 }
 
-                fpsCanvas.SetActive(true);
-
+                EventManager.instance.OhShowFpsUI(true);
                 EventManager.instance.OnShowIngameUI(false);
 
                 firstPersonCharacter.transform.position = new Vector3(thirdPersonCharacter.transform.position.x, thirdPersonCharacter.transform.position.y + 0.5f, thirdPersonCharacter.transform.position.z) ;
@@ -67,17 +72,12 @@ public class CamerasController : MonoBehaviour
                 thirdPersonCamera.SetActive(true);
                 firstPersonCharacter.SetActive(false);
                 isThirdPerson = true;
-                EventManager.instance.OnShowIngameUI(true);
 
                 thirdPersonCharacter.transform.position = new Vector3(firstPersonCharacter.transform.position.x, thirdPersonCharacter.transform.position.y, firstPersonCharacter.transform.position.z);
                 thirdPersonCharacter.transform.rotation = firstPersonCharacter.transform.rotation;
 
-                for (int i = 0; i < thirdPersonCanvases.Length; i++)
-                {
-                    thirdPersonCanvases[i].SetActive(true);
-                }
-
-                fpsCanvas.SetActive(false);
+                EventManager.instance.OhShowFpsUI(false);
+                EventManager.instance.OnShowIngameUI(true);
 
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
@@ -85,4 +85,33 @@ public class CamerasController : MonoBehaviour
             }
         }
     }
+
+    public void ShowIngameTpsCanvas(bool show) {
+
+        if (show)
+        {
+            for (int i = 0; i < thirdPersonCanvases.Length; i++)
+            {
+                thirdPersonCanvases[i].SetActive(true);
+            }
+        }
+        else {
+            for (int i = 0; i < thirdPersonCanvases.Length; i++)
+            {
+                thirdPersonCanvases[i].SetActive(false);
+            }
+        }
+
+
+    }
+
+    public void ShowFPSCanvas(bool show) {
+
+        if (show) {
+            fpsCanvas.SetActive(true);
+        }
+        else
+            fpsCanvas.SetActive(false);
+    }
+
 }

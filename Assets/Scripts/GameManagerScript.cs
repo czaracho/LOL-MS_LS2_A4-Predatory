@@ -13,14 +13,18 @@ public class GameManagerScript : MonoBehaviour
     public bool objectivesAccomplished = false;
     [HideInInspector]
     public bool playerIsTalking = false;
+    public bool levelHasObjectives = false;
     [HideInInspector]
     public bool isCheckingObjectives = false;
+    public GameObject outerGate;
 
     public enum GameAction
     {
         none,
+        start,
         checkObjective,
         levelCompleted,
+        continueGame,
         objectivesNonCompleted
     }
 
@@ -38,6 +42,10 @@ public class GameManagerScript : MonoBehaviour
             Loader.photoCollection[i] = new Photo();
             Loader.photoCollection[i].photoIsSaved = false;
             Loader.photoCollection[i].animalName = Organism.AnimalName.typeGeneric;
+        }
+
+        if (levelHasObjectives) { 
+        
         }
     }
 
@@ -110,6 +118,10 @@ public class GameManagerScript : MonoBehaviour
 
     public void SetGameAction(GameAction newGameAction) {
         gameAction = newGameAction;
+    }
+
+    public void OpenGate() {
+        outerGate.SetActive(false);
     }
 }
 

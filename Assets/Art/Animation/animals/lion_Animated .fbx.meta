@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: dc24b522ab4d58f4c8941983e0a8fe73
+guid: 3f93f210b4a6ca74886d09fb19cec4c9
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
+      74: -8181449541876455364
+    second: Armature|eat
+  - first:
       74: -1978303741906493279
     second: Armature|idle
-  - first:
-      74: -3909388775170043600
-    second: Armature|idle 02
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -38,11 +38,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|idle
-      takeName: Armature|idle
+      name: Armature|eat
+      takeName: Armature|eat
       internalID: 0
       firstFrame: 0
-      lastFrame: 79
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -67,11 +67,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|idle 02
-      takeName: Armature|idle 02
+      name: Armature|idle
+      takeName: Armature|idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 159
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

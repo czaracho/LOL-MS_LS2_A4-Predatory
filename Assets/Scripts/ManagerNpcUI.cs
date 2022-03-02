@@ -13,8 +13,10 @@ public class ManagerNpcUI : MonoBehaviour
     public float positionOffsetY = 0;
     public float positionOffsetX = 0;
     private bool playerOnRange = false;
-    public DialogTrigger dialogTrigger;
+    public DialogTrigger[] dialogTrigger;
     public GameManagerScript gameManagerScript;
+    private int currentConversationId = 0;
+    //public bool reviewedObjectives = false;
 
     private void Start()
     {
@@ -25,10 +27,16 @@ public class ManagerNpcUI : MonoBehaviour
     {
         if (playerOnRange) {
 
-            if (Input.GetKeyDown(KeyCode.E) && !gameManagerScript.playerIsTalking) {
+            if (Input.GetKeyDown(KeyCode.E) && !gameManagerScript.playerIsTalking)
+            {
                 gameManagerScript.playerIsTalking = true;
                 EventManager.instance.OnShowPromptActionUI(false);
-                dialogTrigger.TriggerDialogue();
+
+                dialogTrigger[currentConversationId].TriggerDialogue();
+
+                if (currentConversationId < dialogTrigger.Length -1) {
+                    currentConversationId++;
+                }
             }
         }
     }
@@ -53,6 +61,4 @@ public class ManagerNpcUI : MonoBehaviour
         dist = Mathf.Clamp(dist, 0.5f, 0.75f);
         uiUse.transform.localScale = new Vector3(dist, dist,0);
     }
-
-
 }

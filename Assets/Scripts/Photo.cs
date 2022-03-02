@@ -9,7 +9,6 @@ public class Photo : MonoBehaviour
     [HideInInspector]
     public string infoId;       //id of the info
     public Texture2D picture;   //picture of the animal
-    [HideInInspector]
     public bool photoIsSaved = false;
     public int indexPhoto;
     [HideInInspector]

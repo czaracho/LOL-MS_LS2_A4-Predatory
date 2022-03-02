@@ -1,14 +1,17 @@
 fileFormatVersion: 2
-guid: dc24b522ab4d58f4c8941983e0a8fe73
+guid: 2eb8e132e33092045a387aeacb317e87
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: -1978303741906493279
-    second: Armature|idle
+      74: 8406360129791286164
+    second: idle.001
   - first:
-      74: -3909388775170043600
-    second: Armature|idle 02
+      74: -3419257869308726280
+    second: walk
+  - first:
+      74: 1472749881304621239
+    second: Armature|idle.001
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -38,11 +41,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|idle
-      takeName: Armature|idle
+      name: idle.001
+      takeName: idle.001
       internalID: 0
       firstFrame: 0
-      lastFrame: 79
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -67,18 +70,47 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|idle 02
-      takeName: Armature|idle 02
+      name: walk
+      takeName: walk
       internalID: 0
       firstFrame: 0
-      lastFrame: 159
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|idle.001
+      takeName: Armature|idle.001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

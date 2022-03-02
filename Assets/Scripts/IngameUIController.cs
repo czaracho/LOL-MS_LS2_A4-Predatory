@@ -11,6 +11,10 @@ public class IngameUIController : MonoBehaviour
     public static IngameUIController instance;
     public GameObject notificationBlock;
     public GameObject animalNamesLabelCanvas;
+    public GameObject objectivesList;
+    public GameObject playerCat;
+    public GameObject playerStartPosition;
+    public GameObject ingameCanvas;
 
     private void Awake()
     {
@@ -60,5 +64,8 @@ public class IngameUIController : MonoBehaviour
         }
     }
 
-
+    public void CellphoneTeleportCat() {
+        Debug.Log("Gato teletransportado");
+        playerCat.transform.position = playerStartPosition.transform.position;
+    }
 }

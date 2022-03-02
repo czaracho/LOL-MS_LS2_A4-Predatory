@@ -7,7 +7,8 @@ public class DialogTrigger : MonoBehaviour
     public Dialogue dialogue;
     public GameManagerScript.GameAction action;
 
-    public void TriggerDialogue() {
+    public void TriggerDialogue()
+    {
         FindObjectOfType<DialogManager>().StartDialogue(dialogue, action);
     }
 }

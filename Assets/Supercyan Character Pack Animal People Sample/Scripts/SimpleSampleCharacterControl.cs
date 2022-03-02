@@ -42,6 +42,8 @@ namespace Supercyan.AnimalPeopleSample
         private bool m_jumpInput = false;
 
         private bool m_isGrounded;
+        [HideInInspector]
+        public bool playerCanMoveTps = true;
 
         private List<Collider> m_collisions = new List<Collider>();
 
@@ -118,6 +120,11 @@ namespace Supercyan.AnimalPeopleSample
 
         private void FixedUpdate()
         {
+            if (!playerCanMoveTps) {
+                m_animator.SetFloat("MoveSpeed", 0);
+                return;
+            }
+
             m_animator.SetBool("Grounded", m_isGrounded);
 
             switch (m_controlMode)
@@ -161,7 +168,6 @@ namespace Supercyan.AnimalPeopleSample
 
             transform.position += transform.forward * m_currentV * m_moveSpeed * Time.deltaTime;
             transform.Rotate(0, m_currentH * m_turnSpeed * Time.deltaTime, 0);
-
             m_animator.SetFloat("MoveSpeed", m_currentV);
 
             //JumpingAndLanding();

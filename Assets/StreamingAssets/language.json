@@ -9,12 +9,15 @@
     }
   },
    "en":{
-      "ldline_1":"Hey, did you got all the photos?",
-	  "pdline_1": "yeah, take a look at these bunch",
-	  "ldline_2":"Alright, let me see...",
+	  "ldline_1":"Ok, we need to take pictures to complete the objectives for the research",
+	  "ldline_2":"Once you have all the pictures, come to me to review them",
+	  "ldline_3":"You can also use your phone and I'll pick you if you don't want to walk all the way here",
+	  "ldline_4":"So please, go for a walk and and take the pictures we need",
+      "ldline_5":"Hey, did you got all the photos?",
+	  "ldline_6":"Alright, let me see...",
 	  "predator": "predator",
-	  "prey": "prey",
-	  "plant": "plant",
+	  "type_prey": "prey",
+	  "type_plant": "plant",
 	  "lets_see": "Let's see...",
 	  "objectives": "Objectives",
 	  "ldline_objective_accomplished": "Nice, you have all of the requested photos. Let's go to the board.",
@@ -23,11 +26,18 @@
 	  "types": "types",
 	  "savanna_objective_1": "Take photos of 2 types of predator",
 	  "savanna_objective_2": "Take photos of 2 types of prey",
+	  "savanna_objective_3": "Take photos of 2 animals in a symbiotic relationship",
 	  "info_lion": "The world's most social felines, lions roam the savannas and grasslands of the African continent, hunting cooperatively and raising cubs in prides."
 	  "Prime habitat for lions is open woodlands, thick grassland, and brush habitat, where there is enough cover for hunting and denning." 
 	  "These areas of grassland habitat also provide food for the herbivores that lions prey upon."
 	  "Lions hunt antelope and other ungulates, baby elephants or rhinos, rodents, reptiles, insects, and even crocodiles." 
 	  "They also scavenge or steal prey from leopards, cheetahs, hyenas, or African hunting dogs (also called painted dogs), even eating food that has spoiled." 
 	  "Lions digest their food quickly, which allows them to return soon for a second helping after gorging themselves the first time.",
+	  "name_buffalo": "buffalo",
+	  "name_antelope": "antelope",
+	  "name_lion": "lion",
+	  "name_rhinoceros": "buffalo",
+	  "name_pecker": "pecker",
+	  "name_hyena": "hyena"
    }
 }

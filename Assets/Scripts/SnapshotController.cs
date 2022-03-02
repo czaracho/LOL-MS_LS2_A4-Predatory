@@ -14,7 +14,8 @@ public class SnapshotController : MonoBehaviour
     private Camera myCamera;
     private static SnapshotController instance;
     private bool takeScreenshotOnNextFrame;
-    int screenshotId = 0;
+    [HideInInspector]
+    public int screenshotId = 0;
     public static int photosTakenQuantity = 0;
     Texture2D renderResult;
     public static Photo newPhoto;
@@ -153,13 +154,13 @@ public class SnapshotController : MonoBehaviour
                 if (targetedOrganism == null && !viewingPhoto)
                 {
                     targetedOrganism = hit.transform.gameObject.GetComponent<Organism>();
-                    targetedOrganism.organismNameUI.SetActive(true);
+                    targetedOrganism.organismNameUI.transform.gameObject.SetActive(true);
                 }
             }
             else {
                 if (targetedOrganism != null)
                 {
-                    targetedOrganism.organismNameUI.SetActive(false);
+                    targetedOrganism.organismNameUI.transform.gameObject.SetActive(false);
                     targetedOrganism = null;
                 }
             }
@@ -168,7 +169,7 @@ public class SnapshotController : MonoBehaviour
 
             if (targetedOrganism != null)
             {
-                targetedOrganism.organismNameUI.SetActive(false);
+                targetedOrganism.organismNameUI.transform.gameObject.SetActive(false);
                 targetedOrganism = null;
             }
         }

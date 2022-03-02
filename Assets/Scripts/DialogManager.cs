@@ -6,14 +6,12 @@ using SimpleJSON;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
-
+using Supercyan.AnimalPeopleSample;
 
 public class DialogManager : MonoBehaviour
 {
     //private Queue<string> sentences;
     private Queue<dialog> sentences;
-    private Queue<dialog> objectivesAccomplishedSentences;
-    private Queue<dialog> objectivesUnacomplishedSentences;
 
     public DialogTrigger objectivesDialogue;
 
@@ -24,8 +22,11 @@ public class DialogManager : MonoBehaviour
     public Button nextButton;
     public Color hightlightedColor;
     public Color darkerColor;
+    private bool canGoNextSentence;
 
     private string currentTalkingCat = "";
+
+    public SimpleSampleCharacterControl tpsController;
 
     JSONNode _lang;
 
@@ -37,10 +38,20 @@ public class DialogManager : MonoBehaviour
         dialogText.text = "";
         _lang = SharedState.LanguageDefs;
         nextButton.onClick.AddListener(DisplayNextSentence);
+        tpsController = FindObjectOfType<SimpleSampleCharacterControl>();
     }
 
     public void StartDialogue(Dialogue dialogue, GameManagerScript.GameAction gameAction) {
-        
+
+        tpsController.playerCanMoveTps = false;
+        EventManager.instance.OnShowIngameUI(false);
+
+        if (sentences == null)
+        {
+            sentences = new Queue<dialog>();
+        }
+
+        canGoNextSentence = true;
         gameManagerScript.gameAction = gameAction;
         catLanaPortrait.gameObject.SetActive(false);
         catPebblesPortrait.gameObject.SetActive(false);
@@ -59,17 +70,30 @@ public class DialogManager : MonoBehaviour
     }
 
     public void DisplayNextSentence() {
-        
+
+
+        if (!canGoNextSentence)
+            return;
+
         if (sentences.Count == 0) {
             EndDialogue();
             return;
         }
 
+
         dialog dialog = sentences.Dequeue();
+
+
+        if (_lang == null)
+        {
+            _lang = SharedState.LanguageDefs;
+        }
+
+
         string dialogeLine = _lang[dialog.sentenceId];
         currentTalkingCat = dialog.GetCharacterName();
 
-        string nextLine = "";
+        string nextLine;
         //pdline = pebbles dialog line
         //ldline = lana dialog line
         if (currentTalkingCat == "pdline")
@@ -106,6 +130,7 @@ public class DialogManager : MonoBehaviour
             nextLine = " - " + dialogeLine;
         }
 
+
         StartCoroutine(TypeWritter(nextLine)); 
     }
 
@@ -116,33 +141,45 @@ public class DialogManager : MonoBehaviour
         catLanaPortrait.gameObject.SetActive(false);
         EventManager.instance.OnShowPromptActionUI(true);
         gameManagerScript.playerIsTalking = false;
+        tpsController.playerCanMoveTps = true;
 
         CheckEndDialogAction();        
     }
 
     IEnumerator TypeWritter(string dialogLine) {
-
+        
         dialogText.text = "";
+
+        canGoNextSentence = false;
 
         foreach (char character in dialogLine) {
             dialogText.text = dialogText.text + character;
             yield return new WaitForSeconds(0.01f / 2);
         }
+
+        canGoNextSentence = true;
     }
 
     private void CheckEndDialogAction() {
 
         switch (gameManagerScript.gameAction) {
+            case GameManagerScript.GameAction.start:
+                gameManagerScript.OpenGate();
+                EventManager.instance.OnShowIngameUI(true);
+                break;
+            case GameManagerScript.GameAction.continueGame:
+                EventManager.instance.OnShowIngameUI(true);
+                break;
             case GameManagerScript.GameAction.levelCompleted:
-                Debug.Log("level completed bro");
                 break;
             case GameManagerScript.GameAction.checkObjective:
-                Debug.Log("chequeando objectivo bro");
                 gameManagerScript.checkObjectives();
                 break;
             case GameManagerScript.GameAction.objectivesNonCompleted:
-                Debug.Log("objetivos no completados broski");
                 objectivesDialogue.TriggerDialogue();
+                break;
+            case GameManagerScript.GameAction.none:
+                EventManager.instance.OnShowIngameUI(true);
                 break;
             default:
                 break;        
