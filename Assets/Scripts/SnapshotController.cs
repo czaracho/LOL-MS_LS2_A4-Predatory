@@ -35,6 +35,8 @@ public class SnapshotController : MonoBehaviour
     private float originalRange;
 
     private Organism targetedOrganism;
+    private Organism currentOrganism;
+
 
     public FirstPersonController fpsController;
 
@@ -91,6 +93,7 @@ public class SnapshotController : MonoBehaviour
             {
                 if (hit.transform.tag == "Animal")
                 {
+                    
                     Organism animal = hit.transform.gameObject.GetComponent<Organism>();
                     newPhoto.id = screenshotId;
                     newPhoto.animalName = animal.animalName;
@@ -153,8 +156,17 @@ public class SnapshotController : MonoBehaviour
             {
                 if (targetedOrganism == null && !viewingPhoto)
                 {
+                    currentOrganism = targetedOrganism;
                     targetedOrganism = hit.transform.gameObject.GetComponent<Organism>();
                     targetedOrganism.organismNameUI.transform.gameObject.SetActive(true);
+                }
+                else if (targetedOrganism != null && !viewingPhoto ) {
+                    //if the ray didn't exit a collider but checks another kind of animal
+                    if (currentOrganism != targetedOrganism) {
+                        targetedOrganism.organismNameUI.transform.gameObject.SetActive(false);
+                        targetedOrganism = hit.transform.gameObject.GetComponent<Organism>();
+                        targetedOrganism.organismNameUI.transform.gameObject.SetActive(true);
+                    }
                 }
             }
             else {

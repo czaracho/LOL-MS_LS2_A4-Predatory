@@ -13,6 +13,7 @@ public class Organism : MonoBehaviour
         ant,
         rhino,
         pecker,
+        frog,
         typeGeneric
     }
 

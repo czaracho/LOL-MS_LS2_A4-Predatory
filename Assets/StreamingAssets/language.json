@@ -36,8 +36,9 @@
 	  "name_buffalo": "buffalo",
 	  "name_antelope": "antelope",
 	  "name_lion": "lion",
-	  "name_rhinoceros": "buffalo",
-	  "name_pecker": "pecker",
-	  "name_hyena": "hyena"
+	  "name_rhinoceros": "rhinoceros",
+	  "name_pecker": "oxpecker",
+	  "name_hyena": "hyena",
+	  "name_frog": "frog"
    }
 }
