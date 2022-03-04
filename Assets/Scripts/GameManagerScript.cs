@@ -8,6 +8,7 @@ public class GameManagerScript : MonoBehaviour
 {
     //vamos a poner todo lo relacionado a los objetivos
     public Organism[] organismsForObjectives;
+    public bool checkForObjectiveName = true;
     int objectivesAccomplishedCounter = 0;
     [HideInInspector]
     public bool objectivesAccomplished = false;
@@ -58,20 +59,38 @@ public class GameManagerScript : MonoBehaviour
             {
                 for (int j = 0; j < Loader.photoCollection.Length; j++)
                 {
-
-                    if (organismsForObjectives[i].animalName == Loader.photoCollection[j].animalName)
+                    if (checkForObjectiveName)
                     {
-                        objectivesAccomplishedCounter++;
-
-                        organismsForObjectives[i].checkedObjective = true;
-
-                        if (objectivesAccomplishedCounter == organismsForObjectives.Length)
+                        if (organismsForObjectives[i].animalName == Loader.photoCollection[j].animalName)
                         {
-                            objectivesAccomplished = true;
-                            ObjectivesAccomplished();
-                            return;
+                            objectivesAccomplishedCounter++;
+
+                            organismsForObjectives[i].checkedObjective = true;
+
+                            if (objectivesAccomplishedCounter == organismsForObjectives.Length)
+                            {
+                                objectivesAccomplished = true;
+                                ObjectivesAccomplished();
+                                return;
+                            }
                         }
                     }
+                    else {
+                        if (organismsForObjectives[i].animalType == Loader.photoCollection[j].animalType)
+                        {
+                            objectivesAccomplishedCounter++;
+
+                            organismsForObjectives[i].checkedObjective = true;
+
+                            if (objectivesAccomplishedCounter == organismsForObjectives.Length)
+                            {
+                                objectivesAccomplished = true;
+                                ObjectivesAccomplished();
+                                return;
+                            }
+                        }
+                    }
+
                 }
             }
 

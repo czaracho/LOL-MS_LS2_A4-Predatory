@@ -97,7 +97,7 @@ public class SnapshotController : MonoBehaviour
                     Organism animal = hit.transform.gameObject.GetComponent<Organism>();
                     newPhoto.id = screenshotId;
                     newPhoto.animalName = animal.animalName;
-                    newPhoto.animalName = animal.animalName;
+                    newPhoto.animalType = animal.animalType;
                     newPhoto.infoId = animal.infoId;
                     newPhoto.picture = renderResult;
                 }
@@ -105,6 +105,7 @@ public class SnapshotController : MonoBehaviour
                 {
                     newPhoto.id = screenshotId;
                     newPhoto.animalName = Organism.AnimalName.typeGeneric;
+                    newPhoto.animalType = Organism.AnimalType.typeGeneric;
                     newPhoto.infoId = "no_id";
                     newPhoto.picture = renderResult;
                 }
@@ -113,6 +114,7 @@ public class SnapshotController : MonoBehaviour
             else {
                 newPhoto.id = screenshotId;
                 newPhoto.animalName = Organism.AnimalName.typeGeneric;
+                newPhoto.animalType = Organism.AnimalType.typeGeneric;
                 newPhoto.infoId = "no_id";
                 newPhoto.picture = renderResult;
             }

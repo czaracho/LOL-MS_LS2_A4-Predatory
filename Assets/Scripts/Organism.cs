@@ -20,7 +20,8 @@ public class Organism : MonoBehaviour
     public enum AnimalType { 
         predator,
         prey,
-        plant
+        plant,
+        typeGeneric
     }
     
     public AnimalName animalName;

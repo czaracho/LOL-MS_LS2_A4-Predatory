@@ -49,6 +49,7 @@ public class Album : MonoBehaviour
             if (!Loader.photoCollection[i].photoIsSaved)
             {
                 Loader.photoCollection[i].animalName = SnapshotController.newPhoto.animalName;
+                Loader.photoCollection[i].animalType = SnapshotController.newPhoto.animalType;
                 Loader.photoCollection[i].picture = SnapshotController.newPhoto.picture;
                 Loader.photoCollection[i].photoIsSaved = true;
                 Loader.photoCollection[i].indexPhoto = i;
