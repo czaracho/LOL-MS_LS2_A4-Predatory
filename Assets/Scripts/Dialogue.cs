@@ -11,11 +11,17 @@ public class Dialogue
 
 [System.Serializable]
 public class dialog {
-    private string name;
-    public string sentenceId;
-
-    public string GetCharacterName() {
-        name = sentenceId.Substring(0, 6);
-        return name;
+    public enum NameOfCat
+    {
+        Lana,
+        Pebbles,
+        None
     }
+
+    public NameOfCat nameOfCat; public string sentenceId;
+
+    //public string GetCharacterName() {
+    //    name = sentenceId.Substring(0, 6);
+    //    return name;
+    //}
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using LoLSDK;
+using SimpleJSON;
 
 public class IngameUIController : MonoBehaviour
 {
@@ -32,8 +34,6 @@ public class IngameUIController : MonoBehaviour
     {
         EventManager.instance.ShowPromptActionUI += ShowNotificationText;
         EventManager.instance.ShowAnimalNames += ShowAnimalNames;
-
-
     }
 
     private void OnDestroy()
@@ -68,4 +68,6 @@ public class IngameUIController : MonoBehaviour
         Debug.Log("Gato teletransportado");
         playerCat.transform.position = playerStartPosition.transform.position;
     }
+
+
 }

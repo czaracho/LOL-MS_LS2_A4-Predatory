@@ -32,10 +32,13 @@ public class ManagerNpcUI : MonoBehaviour
                 gameManagerScript.playerIsTalking = true;
                 EventManager.instance.OnShowPromptActionUI(false);
 
-                dialogTrigger[currentConversationId].TriggerDialogue();
+                if (dialogTrigger != null) {
+                    dialogTrigger[currentConversationId].TriggerDialogue();
 
-                if (currentConversationId < dialogTrigger.Length -1) {
-                    currentConversationId++;
+                    if (currentConversationId < dialogTrigger.Length - 1)
+                    {
+                        currentConversationId++;
+                    }
                 }
             }
         }

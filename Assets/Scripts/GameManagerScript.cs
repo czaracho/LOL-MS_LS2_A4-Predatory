@@ -18,6 +18,9 @@ public class GameManagerScript : MonoBehaviour
     [HideInInspector]
     public bool isCheckingObjectives = false;
     public GameObject outerGate;
+    public DialogTrigger levelCompleteDialog;
+    public DialogTrigger levelNonCompletedDialog;
+
 
     public enum GameAction
     {
@@ -75,7 +78,7 @@ public class GameManagerScript : MonoBehaviour
                             }
                         }
                     }
-                    else {
+                    else {                        
                         if (organismsForObjectives[i].animalType == Loader.photoCollection[j].animalType)
                         {
                             objectivesAccomplishedCounter++;
@@ -113,26 +116,27 @@ public class GameManagerScript : MonoBehaviour
 
     public void ObjectivesAccomplished() {
 
-        Dialogue endDialog = new Dialogue();
-        endDialog.sentences = new dialog[1];
-        endDialog.sentences[0] = new dialog();
-        endDialog.sentences[0].sentenceId = "ldline_objective_accomplished";
+        //Dialogue endDialog = new Dialogue();
+        //endDialog.sentences = new dialog[1];
+        //endDialog.sentences[0] = new dialog();
+        //endDialog.sentences[0].sentenceId = "ldline_objective_accomplished";
 
-        FindObjectOfType<DialogManager>().StartDialogue(endDialog, GameAction.levelCompleted);
+        levelCompleteDialog.TriggerDialogue();
 
     }
 
     public void ObjectivesUnaccomplished(List<Organism> organisms) {
-        
-        Debug.Log("Objectives unnacomplished");
+        levelNonCompletedDialog.TriggerDialogue();
+
+        //Debug.Log("Objectives unnacomplished");
 
 
-        Dialogue endDialog = new Dialogue();
-        endDialog.sentences = new dialog[1];
-        endDialog.sentences[0] = new dialog();
-        endDialog.sentences[0].sentenceId = "ldline_objective_failed_1";
+        //Dialogue endDialog = new Dialogue();
+        //endDialog.sentences = new dialog[1];
+        //endDialog.sentences[0] = new dialog();
+        //endDialog.sentences[0].sentenceId = "ldline_objective_failed_1";
 
-        FindObjectOfType<DialogManager>().StartDialogue(endDialog, GameAction.objectivesNonCompleted);
+        //FindObjectOfType<DialogManager>().StartDialogue(endDialog, GameAction.objectivesNonCompleted);
     }
 
     public void SetGameAction(GameAction newGameAction) {
