@@ -1,30 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using LoLSDK;
-using SimpleJSON;
+
 using UnityEngine.UI;
+using TMPro;
+
 
 public class OrganismNameUI : MonoBehaviour
 {
-    public Camera polaroidCamera;
+    private Camera polaroidCamera;
     public float positionOffsetY = 0;
     public float positionOffsetX = 0;
-    private Text animalNameTxt;
-    [HideInInspector]
+    private TextMeshProUGUI animalNameTxt;
     public GameObject animal;
     [HideInInspector]
     public Organism organism;
 
-    JSONNode _lang;
 
 
-    private void Start()
-    {
-        animalNameTxt = this.transform.GetChild(1).GetComponent<Text>();
-        _lang = SharedState.LanguageDefs;
-        string animalName = _lang[organism.nameId];
+    public void InitilizeAnimalName(string animalName, Camera m_polaroidCamera, GameObject thisAnimal) {
+        polaroidCamera = m_polaroidCamera;
+        animalNameTxt = this.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
         animalNameTxt.text = animalName;
+        animal = thisAnimal;
+        this.gameObject.SetActive(false);
     }
 
     private void LateUpdate()

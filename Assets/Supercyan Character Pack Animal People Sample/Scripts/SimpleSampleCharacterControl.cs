@@ -30,7 +30,8 @@ namespace Supercyan.AnimalPeopleSample
         private float m_currentH = 0;
 
         private readonly float m_interpolation = 10;
-        private readonly float m_walkScale = 0.33f;
+        //private readonly float m_walkScale = 0.33f;
+        private readonly float m_walkScale = 1.5f;
         private readonly float m_backwardsWalkScale = 0.16f;
         private readonly float m_backwardRunScale = 0.66f;
 

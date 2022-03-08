@@ -18,8 +18,8 @@ public class GameManagerScript : MonoBehaviour
     [HideInInspector]
     public bool isCheckingObjectives = false;
     public GameObject outerGate;
-    public DialogTrigger levelCompleteDialog;
-    public DialogTrigger levelNonCompletedDialog;
+    public TextTrigger levelCompleteDialog;
+    public TextTrigger levelNonCompletedDialog;
 
 
     public enum GameAction
@@ -121,12 +121,12 @@ public class GameManagerScript : MonoBehaviour
         //endDialog.sentences[0] = new dialog();
         //endDialog.sentences[0].sentenceId = "ldline_objective_accomplished";
 
-        levelCompleteDialog.TriggerDialogue();
+        levelCompleteDialog.TriggerTextAction();
 
     }
 
     public void ObjectivesUnaccomplished(List<Organism> organisms) {
-        levelNonCompletedDialog.TriggerDialogue();
+        levelNonCompletedDialog.TriggerTextAction();
 
         //Debug.Log("Objectives unnacomplished");
 

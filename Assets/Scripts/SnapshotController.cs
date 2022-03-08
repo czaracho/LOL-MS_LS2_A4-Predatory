@@ -156,8 +156,10 @@ public class SnapshotController : MonoBehaviour
         {
             if (hit.transform.tag == "Animal")
             {
+                //Debug.Log("Targeteamos a un animal");
                 if (targetedOrganism == null && !viewingPhoto)
                 {
+                    Debug.Log("Encontramos al anteloper");
                     currentOrganism = targetedOrganism;
                     targetedOrganism = hit.transform.gameObject.GetComponent<Organism>();
                     targetedOrganism.organismNameUI.transform.gameObject.SetActive(true);

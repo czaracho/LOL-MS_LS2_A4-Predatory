@@ -13,7 +13,7 @@ public class ManagerNpcUI : MonoBehaviour
     public float positionOffsetY = 0;
     public float positionOffsetX = 0;
     private bool playerOnRange = false;
-    public DialogTrigger[] dialogTrigger;
+    public TextTrigger[] dialogTrigger;
     public GameManagerScript gameManagerScript;
     private int currentConversationId = 0;
     //public bool reviewedObjectives = false;
@@ -33,7 +33,7 @@ public class ManagerNpcUI : MonoBehaviour
                 EventManager.instance.OnShowPromptActionUI(false);
 
                 if (dialogTrigger != null) {
-                    dialogTrigger[currentConversationId].TriggerDialogue();
+                    dialogTrigger[currentConversationId].TriggerTextAction();
 
                     if (currentConversationId < dialogTrigger.Length - 1)
                     {

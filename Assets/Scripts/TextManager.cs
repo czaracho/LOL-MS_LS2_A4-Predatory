@@ -8,12 +8,12 @@ using TMPro;
 using DG.Tweening;
 using Supercyan.AnimalPeopleSample;
 
-public class DialogManager : MonoBehaviour
+public class TextManager : MonoBehaviour
 {
     //private Queue<string> sentences;
     private Queue<dialog> sentences;
 
-    public DialogTrigger objectivesDialogue;
+    public TextTrigger objectivesDialogue;
 
     public Image catLanaPortrait;
     public Image catPebblesPortrait;
@@ -70,7 +70,7 @@ public class DialogManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    public void GetTextForTitlesAndObjectives(Dialogue dialogue, DialogTrigger.TypeOfText typeOfText, TextMeshProUGUI currentTextElement) {
+    public void GetTextForTitlesAndObjectives(Dialogue dialogue, TextTrigger.TypeOfText typeOfText, TextMeshProUGUI currentTextElement) {
 
         currentTMPElement = currentTextElement;
 
@@ -149,7 +149,7 @@ public class DialogManager : MonoBehaviour
     }
 
 
-    private void DisplayNextSentenceSimple(DialogTrigger.TypeOfText typeOfText) {
+    private void DisplayNextSentenceSimple(TextTrigger.TypeOfText typeOfText) {
         
                 
         if (sentences.Count == 0)
@@ -173,10 +173,10 @@ public class DialogManager : MonoBehaviour
         nextLine = currentLine;
         currentObjectivesText = currentObjectivesText + "-" + nextLine;
 
-        if (typeOfText == DialogTrigger.TypeOfText.objectivesTitle) {
+        if (typeOfText == TextTrigger.TypeOfText.objectivesTitle) {
             currentTMPElement.text = nextLine;
         }
-        else if (typeOfText == DialogTrigger.TypeOfText.objectives) {
+        else if (typeOfText == TextTrigger.TypeOfText.objectives) {
             currentTMPElement.text = currentObjectivesText ;
 
         }
@@ -229,7 +229,7 @@ public class DialogManager : MonoBehaviour
                 gameManagerScript.checkObjectives();
                 break;
             case GameManagerScript.GameAction.objectivesNonCompleted:
-                objectivesDialogue.TriggerDialogue();
+                objectivesDialogue.TriggerTextAction();
                 break;
             case GameManagerScript.GameAction.none:
                 EventManager.instance.OnShowIngameUI(true);

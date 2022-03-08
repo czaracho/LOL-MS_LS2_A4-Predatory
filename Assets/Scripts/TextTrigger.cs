@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DialogTrigger : MonoBehaviour
+public class TextTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     public TextMeshProUGUI currentTextElement;
@@ -17,10 +17,10 @@ public class DialogTrigger : MonoBehaviour
     public TypeOfText typeOfText;
     public GameManagerScript.GameAction action;
 
-    public void TriggerDialogue()
+    public void TriggerTextAction()
     {
         if (typeOfText == TypeOfText.dialog) {
-            FindObjectOfType<DialogManager>().StartDialogue(dialogue, action, currentTextElement);
+            FindObjectOfType<TextManager>().StartDialogue(dialogue, action, currentTextElement);
         }
     }
 
@@ -28,17 +28,17 @@ public class DialogTrigger : MonoBehaviour
     {
         if (typeOfText == TypeOfText.objectivesTitle)
         {
-            FindObjectOfType<DialogManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
+            FindObjectOfType<TextManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
         }
         else if (typeOfText == TypeOfText.objectives) {
             //StartCoroutine(WaitToShowObjectives());
-            FindObjectOfType<DialogManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
+            FindObjectOfType<TextManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
 
         }
     }
 
     IEnumerator WaitToShowObjectives() {
         yield return new WaitForSeconds(waitToShow);
-        FindObjectOfType<DialogManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
+        FindObjectOfType<TextManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
     }
 }
