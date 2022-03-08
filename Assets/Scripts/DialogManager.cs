@@ -96,7 +96,7 @@ public class DialogManager : MonoBehaviour
             return;
 
         if (sentences.Count == 0) {
-            EndDialogue();
+            EndDialogue(true);
             return;
         }
 
@@ -155,7 +155,7 @@ public class DialogManager : MonoBehaviour
         if (sentences.Count == 0)
         {
             currentObjectivesText = "";
-            EndDialogue();
+            EndDialogue(false);
             return;
         }
 
@@ -171,7 +171,7 @@ public class DialogManager : MonoBehaviour
         string currentLine = _lang[dialog.sentenceId];
         string nextLine;
         nextLine = currentLine;
-        currentObjectivesText = currentObjectivesText + nextLine;
+        currentObjectivesText = currentObjectivesText + "-" + nextLine;
 
         if (typeOfText == DialogTrigger.TypeOfText.objectivesTitle) {
             currentTMPElement.text = nextLine;
@@ -185,11 +185,15 @@ public class DialogManager : MonoBehaviour
     }
 
 
-    void EndDialogue() {
+    void EndDialogue(bool isConversation) {
         dialogBox.SetActive(false);
         catPebblesPortrait.gameObject.SetActive(false);
         catLanaPortrait.gameObject.SetActive(false);
-        EventManager.instance.OnShowPromptActionUI(true);
+
+        if (isConversation) {
+            EventManager.instance.OnShowPromptActionUI(true);
+        }
+
         gameManagerScript.playerIsTalking = false;
         tpsController.playerCanMoveTps = true;
         CheckEndDialogAction();        

@@ -107,7 +107,6 @@ public class Album : MonoBehaviour
 
     public void DeletePhoto()
     {
-        Debug.Log("Borramos la foto de la posición: " + selectedPhotoIndex);
 
         SnapshotController.photosTakenQuantity--;
         Loader.photoCollection[selectedPhotoIndex] = new Photo();

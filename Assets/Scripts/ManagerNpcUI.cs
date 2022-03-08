@@ -46,15 +46,20 @@ public class ManagerNpcUI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        playerOnRange = true;
-        EventManager.instance.OnShowPromptActionUI(true);
+        if (other.gameObject.tag == "Player") {
+            Debug.Log("Tocamos al player");
+            playerOnRange = true;
+            EventManager.instance.OnShowPromptActionUI(true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        playerOnRange = false;
-        gameManagerScript.playerIsTalking = false;
-        EventManager.instance.OnShowPromptActionUI(false);
+        if (other.gameObject.tag == "Player") {
+            playerOnRange = false;
+            gameManagerScript.playerIsTalking = false;
+            EventManager.instance.OnShowPromptActionUI(false);
+        }
     }
 
     private void LateUpdate()

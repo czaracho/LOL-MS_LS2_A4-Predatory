@@ -1,0 +1,656 @@
+fileFormatVersion: 2
+guid: ffac4f8c03648fc4284fee880ee0ca50
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6162957193305017076
+    second: UI_mewsnap_0
+  - first:
+      213: -1992738539742801475
+    second: UI_mewsnap_1
+  - first:
+      213: 8472525286507884054
+    second: UI_mewsnap_2
+  - first:
+      213: 7047701002631455944
+    second: UI_mewsnap_3
+  - first:
+      213: 2847015802127815831
+    second: UI_mewsnap_4
+  - first:
+      213: 8979888692337860161
+    second: UI_mewsnap_5
+  - first:
+      213: -8974133219325084343
+    second: UI_mewsnap_6
+  - first:
+      213: 4694633133327090973
+    second: UI_mewsnap_7
+  - first:
+      213: 6952684196723429049
+    second: UI_mewsnap_8
+  - first:
+      213: -4581441031282794577
+    second: UI_mewsnap_9
+  - first:
+      213: -7616564480373425387
+    second: UI_mewsnap_10
+  - first:
+      213: 5348476292978303511
+    second: UI_mewsnap_11
+  - first:
+      213: 5783277324670838170
+    second: UI_mewsnap_12
+  - first:
+      213: 370350013148870623
+    second: UI_mewsnap_13
+  - first:
+      213: -6076214129518204703
+    second: UI_mewsnap_14
+  - first:
+      213: 1568543427085446723
+    second: UI_mewsnap_15
+  - first:
+      213: 6874129257720552106
+    second: UI_mewsnap_16
+  - first:
+      213: 1549971658243814291
+    second: UI_mewsnap_17
+  - first:
+      213: -4839051792178042728
+    second: UI_mewsnap_18
+  - first:
+      213: 9092135911338885486
+    second: UI_mewsnap_19
+  - first:
+      213: 1368868845404016208
+    second: UI_mewsnap_20
+  - first:
+      213: -165512213269872522
+    second: UI_mewsnap_21
+  - first:
+      213: -3673320988773301943
+    second: UI_mewsnap_22
+  - first:
+      213: -8519859740415793405
+    second: UI_mewsnap_23
+  - first:
+      213: 3438619037867100148
+    second: UI_mewsnap_24
+  - first:
+      213: 3965290303129561418
+    second: UI_mewsnap_25
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_mewsnap_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 596
+        width: 610
+        height: 417
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05bd1fd517c87aa0800000000000000
+      internalID: -6162957193305017076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_1
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 892
+        width: 105
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db156682bde5854e0800000000000000
+      internalID: -1992738539742801475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_2
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 897
+        width: 100
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61e21d4dbd4749570800000000000000
+      internalID: 8472525286507884054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 896
+        width: 99
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c42309b8b67ec160800000000000000
+      internalID: 7047701002631455944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_5
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 822
+        width: 83
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e585d2039fe9c70800000000000000
+      internalID: 8979888692337860161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_7
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 821
+        width: 184
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d158db626ffa62140800000000000000
+      internalID: 4694633133327090973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_10
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 740
+        width: 381
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51bfb7a95f68c4690800000000000000
+      internalID: -7616564480373425387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_11
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 613
+        width: 350
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 712e19cd9da993a40800000000000000
+      internalID: 5348476292978303511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_12
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 434
+        width: 61
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a95a39ee514524050800000000000000
+      internalID: 5783277324670838170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_13
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 491
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd7bc40ff5fb32500800000000000000
+      internalID: 370350013148870623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_14
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 554
+        width: 260
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e8abde3173fcaba0800000000000000
+      internalID: -6076214129518204703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_15
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 437
+        width: 55
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34ea33abfe594c510800000000000000
+      internalID: 1568543427085446723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_16
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 450
+        width: 112
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa9d82a320d56f50800000000000000
+      internalID: 6874129257720552106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_17
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 472
+        width: 76
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 393bb85d20b928510800000000000000
+      internalID: 1549971658243814291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_18
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 34
+        width: 421
+        height: 499
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898a28d880c38dcb0800000000000000
+      internalID: -4839051792178042728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_19
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 439
+        width: 56
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e614dec6071cd2e70800000000000000
+      internalID: 9092135911338885486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_20
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 346
+        width: 166
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ec76a56f23ff210800000000000000
+      internalID: 1368868845404016208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_21
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 257
+        width: 149
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6708f0ad48bf3bdf0800000000000000
+      internalID: -165512213269872522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_22
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 266
+        width: 143
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9414e26d50eb50dc0800000000000000
+      internalID: -3673320988773301943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_23
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 256
+        width: 168
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3076d5cc4b063c980800000000000000
+      internalID: -8519859740415793405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_24
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 85
+        width: 199
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7c6fddbcd68bf20800000000000000
+      internalID: 3438619037867100148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_mewsnap_25
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 116
+        width: 98
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a49a65d858a870730800000000000000
+      internalID: 3965290303129561418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
