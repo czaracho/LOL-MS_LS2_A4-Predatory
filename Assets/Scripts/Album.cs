@@ -8,13 +8,15 @@ public class Album : MonoBehaviour
     public GameObject albumUI;
     public GameObject photoGridParent;
     [HideInInspector]
+    public GameObject[] photoGridParentChilds = new GameObject[15];
+    [HideInInspector]
     public Image[] photoAlbumImage = new Image[15];
+    private GameObject[] photoAlbumObjects = new GameObject[15];
     public Button showAlbumButton;
     public GameObject albumViewerCanvas;
     public GameObject photoAlbumViewer;
     private Photo emptyPhoto;
     private int selectedPhotoIndex = 0;
-    private bool photoTakenAndSaved = false;
 
     private void Start()
     {
@@ -22,7 +24,10 @@ public class Album : MonoBehaviour
 
         int i = 0;
         foreach (Transform child in photoGridParent.transform) {
+            photoGridParentChilds[i] = child.gameObject;
             photoAlbumImage[i] = child.GetChild(0).gameObject.GetComponent<Image>();
+            photoAlbumObjects[i] = child.GetChild(0).gameObject;
+            photoAlbumObjects[i].SetActive(false);
             i++;
         }
 
@@ -55,8 +60,10 @@ public class Album : MonoBehaviour
                 Loader.photoCollection[i].indexPhoto = i;
 
                 Sprite photoSprite = Sprite.Create(Loader.photoCollection[i].picture, new Rect(0.0f, 0.0f, Loader.photoCollection[i].picture.width, Loader.photoCollection[i].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
+                photoGridParentChilds[i].transform.localScale = new Vector3(0.8f, 0.8f, 1);
+                photoAlbumObjects[i].SetActive(true);
                 photoAlbumImage[i].sprite = photoSprite;
-
+                
                 //Debug.Log("animalName: " + Loader.photoCollection[i].animalName.ToString());
                 //Debug.Log("Guardamos la foto en la posición: " + i);
                 //Debug.Log("Loader.photoCollection[i].photoIsSaved " + Loader.photoCollection[i].photoIsSaved);
@@ -107,7 +114,6 @@ public class Album : MonoBehaviour
 
     public void DeletePhoto()
     {
-
         SnapshotController.photosTakenQuantity--;
         Loader.photoCollection[selectedPhotoIndex] = new Photo();
         Loader.photoCollection[selectedPhotoIndex].animalName = Organism.AnimalName.typeGeneric;
@@ -117,6 +123,8 @@ public class Album : MonoBehaviour
         Loader.photoCollection[selectedPhotoIndex].photoIsSaved = false;
 
         photoAlbumImage[selectedPhotoIndex].sprite = null;
+        photoAlbumObjects[selectedPhotoIndex].SetActive(false);
+        photoGridParentChilds[selectedPhotoIndex].transform.localScale = new Vector3(0.92f, 0.92f, 1);
         albumViewerCanvas.SetActive(false);
 
         //Debug.Log("Al final luego de borrar queda como queda como: ");
