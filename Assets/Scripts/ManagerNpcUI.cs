@@ -33,6 +33,7 @@ public class ManagerNpcUI : MonoBehaviour
                 EventManager.instance.OnShowPromptActionUI(false);
 
                 if (dialogTrigger != null) {
+                    
                     dialogTrigger[currentConversationId].TriggerTextAction();
 
                     if (currentConversationId < dialogTrigger.Length - 1)

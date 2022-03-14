@@ -19,7 +19,8 @@ public class TextTrigger : MonoBehaviour
 
     public void TriggerTextAction()
     {
-        if (typeOfText == TypeOfText.dialog) {
+        if (typeOfText == TypeOfText.dialog)
+        {
             FindObjectOfType<TextManager>().StartDialogue(dialogue, action, currentTextElement);
         }
     }
@@ -31,7 +32,6 @@ public class TextTrigger : MonoBehaviour
             FindObjectOfType<TextManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
         }
         else if (typeOfText == TypeOfText.objectives) {
-            //StartCoroutine(WaitToShowObjectives());
             FindObjectOfType<TextManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
 
         }

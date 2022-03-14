@@ -7230,7 +7230,7 @@ PrefabInstance:
     - target: {fileID: 4385986969744507264, guid: 13d5aff3720dca14b9734f82260231e1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4385986969744507264, guid: 13d5aff3720dca14b9734f82260231e1,
         type: 3}
@@ -19063,6 +19063,7 @@ Transform:
   - {fileID: 482340856}
   - {fileID: 1042051230}
   - {fileID: 1518254837}
+  - {fileID: 693208509}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -21336,6 +21337,60 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 88031761}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &693208508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 693208509}
+  - component: {fileID: 693208510}
+  m_Layer: 0
+  m_Name: ObjectivesNonCompletedDialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &693208509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693208508}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &693208510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693208508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 2
+      sentenceId: savanna_objective_1
+    - nameOfCat: 2
+      sentenceId: savanna_objective_2
+    - nameOfCat: 2
+      sentenceId: savanna_objective_3
+  currentTextElement: {fileID: 823457277}
+  typeOfText: 2
+  action: 4
 --- !u!1 &693482179
 GameObject:
   m_ObjectHideFlags: 0
@@ -22984,18 +23039,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 42caffe1132386f4daa037a9663088b9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5391a36fb631c4c5995bfb4ac56a2758, type: 3}
---- !u!114 &745346353 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2987567821152858867, guid: 5c33e5c02c873e74aa449a647ae5ace0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2987567821709271937}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e10a34acd1813a4caccc878ddc00124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &747102964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25295,18 +25338,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 149bd14d5c2800b42ba8f89d0c68abd3, type: 3}
---- !u!114 &803121088 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8069593353300547155, guid: f5a238de00da3ef4d941df1f2aa460a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 8069593351670321133}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e10a34acd1813a4caccc878ddc00124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &803198253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41686,7 +41717,7 @@ PrefabInstance:
     - target: {fileID: 2337663477354733653, guid: 8abc6602ebebe8049b23ed8678c589d6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2337663477354733653, guid: 8abc6602ebebe8049b23ed8678c589d6,
         type: 3}
@@ -47823,7 +47854,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!4 &1483086914 stripped
 Transform:
@@ -56407,7 +56438,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1779465267 stripped
 Transform:
@@ -65309,7 +65340,7 @@ GameObject:
   - component: {fileID: 2080310008}
   - component: {fileID: 2080310009}
   m_Layer: 0
-  m_Name: DialogController
+  m_Name: TextManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65342,6 +65373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectivesDialogue: {fileID: 482340857}
+  objectivesNonCompletedDialogue: {fileID: 693208510}
   catLanaPortrait: {fileID: 1656331926}
   catPebblesPortrait: {fileID: 2051352896}
   dialogBox: {fileID: 1310681320}
@@ -68127,7 +68159,7 @@ PrefabInstance:
     - target: {fileID: 946715402437361295, guid: bfe5f95e4bf7263439a1779363a79f1d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 946715402437361295, guid: bfe5f95e4bf7263439a1779363a79f1d,
         type: 3}
@@ -68984,18 +69016,26 @@ PrefabInstance:
     - target: {fileID: 731538311353358520, guid: 0f206e72561cd28428d6ce02b71a82e6,
         type: 3}
       propertyPath: organismsForObjectives.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 731538311353358520, guid: 0f206e72561cd28428d6ce02b71a82e6,
         type: 3}
       propertyPath: organismsForObjectives.Array.data[0]
       value: 
-      objectReference: {fileID: 803121088}
+      objectReference: {fileID: 2987567821152858867, guid: 5c33e5c02c873e74aa449a647ae5ace0,
+        type: 3}
     - target: {fileID: 731538311353358520, guid: 0f206e72561cd28428d6ce02b71a82e6,
         type: 3}
       propertyPath: organismsForObjectives.Array.data[1]
       value: 
-      objectReference: {fileID: 745346353}
+      objectReference: {fileID: 287727800804885784, guid: 4ab15cbaa57218645b8b0c7a29ae4cb6,
+        type: 3}
+    - target: {fileID: 731538311353358520, guid: 0f206e72561cd28428d6ce02b71a82e6,
+        type: 3}
+      propertyPath: organismsForObjectives.Array.data[2]
+      value: 
+      objectReference: {fileID: 8069593353300547155, guid: f5a238de00da3ef4d941df1f2aa460a3,
+        type: 3}
     - target: {fileID: 5238138501304399496, guid: 0f206e72561cd28428d6ce02b71a82e6,
         type: 3}
       propertyPath: m_Name
@@ -69004,7 +69044,7 @@ PrefabInstance:
     - target: {fileID: 5238138501304399497, guid: 0f206e72561cd28428d6ce02b71a82e6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5238138501304399497, guid: 0f206e72561cd28428d6ce02b71a82e6,
         type: 3}
@@ -69874,7 +69914,7 @@ Transform:
   m_Children:
   - {fileID: 4310550576492910996}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -15.000001, z: 0}
 --- !u!4 &8846579805411324044
 Transform:

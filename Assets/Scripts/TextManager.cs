@@ -14,6 +14,7 @@ public class TextManager : MonoBehaviour
     private Queue<dialog> sentences;
 
     public TextTrigger objectivesDialogue;
+    public TextTrigger objectivesNonCompletedDialogue;
 
     public Image catLanaPortrait;
     public Image catPebblesPortrait;
@@ -229,7 +230,10 @@ public class TextManager : MonoBehaviour
                 gameManagerScript.checkObjectives();
                 break;
             case GameManagerScript.GameAction.objectivesNonCompleted:
-                objectivesDialogue.TriggerTextAction();
+                objectivesNonCompletedDialogue.TriggerTextAction();
+                break;
+            case GameManagerScript.GameAction.objectivesReview:
+                objectivesNonCompletedDialogue.TriggerTextAction();
                 break;
             case GameManagerScript.GameAction.none:
                 EventManager.instance.OnShowIngameUI(true);

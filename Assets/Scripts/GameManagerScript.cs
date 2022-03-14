@@ -29,7 +29,8 @@ public class GameManagerScript : MonoBehaviour
         checkObjective,
         levelCompleted,
         continueGame,
-        objectivesNonCompleted
+        objectivesNonCompleted,
+        objectivesReview
     }
 
     [HideInInspector]
@@ -64,10 +65,11 @@ public class GameManagerScript : MonoBehaviour
                 {
                     if (checkForObjectiveName)
                     {
+                        Debug.Log("checked for objectivename");
+
                         if (organismsForObjectives[i].animalName == Loader.photoCollection[j].animalName)
                         {
                             objectivesAccomplishedCounter++;
-
                             organismsForObjectives[i].checkedObjective = true;
 
                             if (objectivesAccomplishedCounter == organismsForObjectives.Length)
@@ -81,12 +83,14 @@ public class GameManagerScript : MonoBehaviour
                     else {                        
                         if (organismsForObjectives[i].animalType == Loader.photoCollection[j].animalType)
                         {
+                            Debug.Log("give it a shot");
                             objectivesAccomplishedCounter++;
-
                             organismsForObjectives[i].checkedObjective = true;
 
                             if (objectivesAccomplishedCounter == organismsForObjectives.Length)
                             {
+                                Debug.Log("objectivesAccomplishedCounter: " + objectivesAccomplishedCounter);
+                                Debug.Log("organismsForObjectives: " + organismsForObjectives.Length);
                                 objectivesAccomplished = true;
                                 ObjectivesAccomplished();
                                 return;
@@ -126,17 +130,13 @@ public class GameManagerScript : MonoBehaviour
     }
 
     public void ObjectivesUnaccomplished(List<Organism> organisms) {
-        levelNonCompletedDialog.TriggerTextAction();
-
-        //Debug.Log("Objectives unnacomplished");
-
-
+        //levelNonCompletedDialog.TriggerTextAction();
         //Dialogue endDialog = new Dialogue();
         //endDialog.sentences = new dialog[1];
         //endDialog.sentences[0] = new dialog();
         //endDialog.sentences[0].sentenceId = "ldline_objective_failed_1";
 
-        //FindObjectOfType<DialogManager>().StartDialogue(endDialog, GameAction.objectivesNonCompleted);
+        levelNonCompletedDialog.TriggerTextAction();
     }
 
     public void SetGameAction(GameAction newGameAction) {
