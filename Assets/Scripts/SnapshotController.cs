@@ -12,6 +12,7 @@ public class SnapshotController : MonoBehaviour
 {
     [Header("Photo Taker")]
     private Camera myCamera;
+    public Camera photoCamera;
     private static SnapshotController instance;
     private bool takeScreenshotOnNextFrame;
     [HideInInspector]
@@ -42,11 +43,13 @@ public class SnapshotController : MonoBehaviour
 
     public Image flashImage;
 
+    public RenderTexture rTex;
+
 
     private void Awake()
     {
         instance = this;
-        myCamera = gameObject.GetComponent<Camera>();
+        myCamera = this.gameObject.GetComponent<Camera>();
     }
 
     private void Start()
@@ -72,24 +75,28 @@ public class SnapshotController : MonoBehaviour
         if (takeScreenshotOnNextFrame)
         {
             takeScreenshotOnNextFrame = false;
-            renderTexture = myCamera.targetTexture;
 
-            renderResult = new Texture2D(renderTexture.width, renderTexture.height, TextureFormat.RGB24, false);
-            rect = new Rect(0, 0, renderTexture.width, renderTexture.height);
-            renderResult.ReadPixels(rect, 0, 0);
+            //renderTexture = photoCamera.targetTexture;
+            //Debug.Log("renderTexture.width: " + renderTexture.width + " - " + "renderTexture.height: " + renderTexture.height);
+            //renderResult = new Texture2D(renderTexture.width/2, renderTexture.height/2, TextureFormat.RGB24, false);
+            //rect = new Rect(0, 0, renderTexture.width, renderTexture.height);
+            //renderResult.ReadPixels(rect, 0, 0);
 
-            //byte[] byteArray = renderResult.EncodeToPNG();
-            //System.IO.File.WriteAllBytes(Application.dataPath + "/Pictures/" + screenshotId.ToString() + "CameraScreenshot.png", byteArray);
-            //Debug.Log("Saved CameraScreenshot.png");
+
+
+            renderResult = new Texture2D(500, 500, TextureFormat.RGB24, false);
+            // ReadPixels looks at the active RenderTexture.
+            RenderTexture.active = rTex;
+            renderResult.ReadPixels(new Rect(0, 0, rTex.width, rTex.height), 0, 0);
 
             RenderTexture.ReleaseTemporary(renderTexture);
-            myCamera.targetTexture = null;
+            //photoCamera.targetTexture = null;
 
             //AssetDatabase.Refresh();
             renderResult.Apply();
 
 
-            if (Physics.Raycast(myCamera.gameObject.transform.position, myCamera.gameObject.transform.forward, out hit, range))
+            if (Physics.Raycast(photoCamera.gameObject.transform.position, photoCamera.gameObject.transform.forward, out hit, range))
             {
                 if (hit.transform.tag == "Animal")
                 {
@@ -138,7 +145,7 @@ public class SnapshotController : MonoBehaviour
 
     private void TakeScreenshot(int width, int height)
     {
-        myCamera.targetTexture = RenderTexture.GetTemporary(width, height, 16);
+        //photoCamera.targetTexture = RenderTexture.GetTemporary(width, height, 16);
         takeScreenshotOnNextFrame = true;
     }
 
