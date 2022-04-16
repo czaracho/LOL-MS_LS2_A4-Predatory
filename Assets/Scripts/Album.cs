@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Album : MonoBehaviour
 {
@@ -15,8 +16,13 @@ public class Album : MonoBehaviour
     public Button showAlbumButton;
     public GameObject albumViewerCanvas;
     public GameObject photoAlbumViewer;
+    public GameObject infoScreen;
+    public GameObject infoButton;
+    public TextMeshProUGUI infoText;
     private Photo emptyPhoto;
     private int selectedPhotoIndex = 0;
+
+    public TextManager textManager;
 
     private void Start()
     {
@@ -46,8 +52,6 @@ public class Album : MonoBehaviour
 
     public void FillPhotoAlbum() {
 
-        Debug.Log("Fill photo album");
-
         for (int i = 0; i < Loader.photoCollection.Length; i++)
         {
 
@@ -56,6 +60,7 @@ public class Album : MonoBehaviour
                 Loader.photoCollection[i].animalName = SnapshotController.newPhoto.animalName;
                 Loader.photoCollection[i].animalType = SnapshotController.newPhoto.animalType;
                 Loader.photoCollection[i].picture = SnapshotController.newPhoto.picture;
+                Loader.photoCollection[i].infoId = SnapshotController.newPhoto.infoId;
                 Loader.photoCollection[i].photoIsSaved = true;
                 Loader.photoCollection[i].indexPhoto = i;
 
@@ -63,21 +68,10 @@ public class Album : MonoBehaviour
                 photoGridParentChilds[i].transform.localScale = new Vector3(0.8f, 0.8f, 1);
                 photoAlbumObjects[i].SetActive(true);
                 photoAlbumImage[i].sprite = photoSprite;
-                
-                //Debug.Log("animalName: " + Loader.photoCollection[i].animalName.ToString());
-                //Debug.Log("Guardamos la foto en la posición: " + i);
-                //Debug.Log("Loader.photoCollection[i].photoIsSaved " + Loader.photoCollection[i].photoIsSaved);
-
+               
                 break;
             }
         }
-
-        //Debug.Log("Al final luego de guardar queda como queda como: ");
-        //for (int i = 0; i < Loader.photoCollection.Length; i++)
-        //{
-        //    Debug.Log("Loader.photoCollection[" + i + "]:" + Loader.photoCollection[i].animalName + "photo is saved: " + Loader.photoCollection[i].photoIsSaved);
-        //}
-
     }
 
     public void ShowAlbum() {
@@ -103,8 +97,16 @@ public class Album : MonoBehaviour
         {
             selectedPhotoIndex = indexOfPhoto;
             albumViewerCanvas.SetActive(true);
-            Sprite photoSprite = Sprite.Create(Loader.photoCollection[indexOfPhoto].picture, new Rect(0.0f, 0.0f, Loader.photoCollection[indexOfPhoto].picture.width, Loader.photoCollection[indexOfPhoto].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
+            //Sprite photoSprite = Sprite.Create(Loader.photoCollection[indexOfPhoto].picture, new Rect(0.0f, 0.0f, Loader.photoCollection[indexOfPhoto].picture.width, Loader.photoCollection[indexOfPhoto].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
             photoAlbumViewer.gameObject.GetComponent<Image>().sprite = photoAlbumImage[indexOfPhoto].sprite;
+
+            Debug.Log("Current animal type: " + Loader.photoCollection[indexOfPhoto].animalType);
+
+            if (Loader.photoCollection[indexOfPhoto].animalType!= Organism.AnimalType.typeGeneric) {
+                infoButton.SetActive(true);
+            }
+            else
+                infoButton.SetActive(false);
         }
     }
 
@@ -126,11 +128,25 @@ public class Album : MonoBehaviour
         photoAlbumObjects[selectedPhotoIndex].SetActive(false);
         photoGridParentChilds[selectedPhotoIndex].transform.localScale = new Vector3(0.92f, 0.92f, 1);
         albumViewerCanvas.SetActive(false);
+    }
 
-        //Debug.Log("Al final luego de borrar queda como queda como: ");
-        //for (int i = 0; i < Loader.photoCollection.Length; i++)
-        //{
-        //    Debug.Log("Loader.photoCollection[" + i + "]:" + Loader.photoCollection[i].animalName);
-        //}
+    public void ShowInfo() {
+
+        Debug.Log("Entramos al show info");
+        Debug.Log("Selected photo index: " + selectedPhotoIndex.ToString());
+        infoScreen.SetActive(true);
+        string infoOfAnimal = "";
+
+        Debug.Log("Info ID: " + Loader.photoCollection[selectedPhotoIndex].infoId);
+        infoOfAnimal = textManager.DisplayInfo(Loader.photoCollection[selectedPhotoIndex].infoId);
+        
+        if (infoOfAnimal != "") {
+            infoText.text = infoOfAnimal;
+            Debug.Log(infoOfAnimal);
+        }
+    }
+
+    public void CloseInfo() {
+        infoScreen.SetActive(false);
     }
 }

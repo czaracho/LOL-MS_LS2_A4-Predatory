@@ -4,8 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class Dialogue
-{
-    
+{    
     public dialog[] sentences;
 }
 
@@ -18,10 +17,7 @@ public class dialog {
         None
     }
 
-    public NameOfCat nameOfCat; public string sentenceId;
+    public NameOfCat nameOfCat; 
+    public string sentenceId;
 
-    //public string GetCharacterName() {
-    //    name = sentenceId.Substring(0, 6);
-    //    return name;
-    //}
 }

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SavannaLevel.unity
     guid: 90afacd6f5ff3374aa5b9ba6f92bae3d
+  - enabled: 1
+    path: Assets/Scenes/TentLevel1.unity
+    guid: ec9e4f1f4b308f24abb176f644eaa4f0
   m_configObjects: {}

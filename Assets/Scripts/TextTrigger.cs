@@ -11,7 +11,8 @@ public class TextTrigger : MonoBehaviour
     public enum TypeOfText { 
         objectivesTitle,
         objectives,
-        dialog
+        dialog,
+        info
     }
 
     public TypeOfText typeOfText;
@@ -33,7 +34,6 @@ public class TextTrigger : MonoBehaviour
         }
         else if (typeOfText == TypeOfText.objectives) {
             FindObjectOfType<TextManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
-
         }
     }
 

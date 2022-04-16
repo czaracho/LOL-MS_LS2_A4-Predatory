@@ -15,6 +15,11 @@
 	  "ldline_4":"So please, go for a walk and and take the pictures we need",
       "ldline_5":"Hey, did you got all the photos?",
 	  "ldline_6":"Alright, let me see...",
+	  "ldline_7":"Hey Pebbles, it's time fill the board with the pictures you took",
+	  "ldline_8":"We will need some of them to see the relationships between the organism you saw in the savanna",
+	  "ldline_9":"Drag the photos and put them on their corresponding place on the board",
+	  "ldline_10":"When the board is filled, we can study the relationships",
+	  "ldline_11":"Go on! Check the board",
 	  "predator": "predator",
 	  "type_prey": "prey",
 	  "type_plant": "plant",
@@ -29,12 +34,12 @@
 	  "savanna_objective_1": "hyena\n",
 	  "savanna_objective_2": "lion\n",
 	  "savanna_objective_3": "antelope\n",
-	  "info_lion": "The world's most social felines, lions roam the savannas and grasslands of the African continent, hunting cooperatively and raising cubs in prides."
-	  "Prime habitat for lions is open woodlands, thick grassland, and brush habitat, where there is enough cover for hunting and denning." 
-	  "These areas of grassland habitat also provide food for the herbivores that lions prey upon."
-	  "Lions hunt antelope and other ungulates, baby elephants or rhinos, rodents, reptiles, insects, and even crocodiles." 
-	  "They also scavenge or steal prey from leopards, cheetahs, hyenas, or African hunting dogs (also called painted dogs), even eating food that has spoiled." 
-	  "Lions digest their food quickly, which allows them to return soon for a second helping after gorging themselves the first time.",
+	  "info_lion": "The world's most social felines, lions roam the savannas and grasslands of the African continent, hunting cooperatively and raising cubs in prides. "
+	  "Prime habitat for lions is open woodlands, thick grassland, and brush habitat, where there is enough cover for hunting and denning. " 
+	  "These areas of grassland habitat also provide food for the herbivores that lions prey upon. "
+	  "Lions hunt antelope and other ungulates, baby elephants or rhinos, rodents, reptiles, insects, and even crocodiles. " 
+	  "They also scavenge or steal prey from leopards, cheetahs, hyenas, or African hunting dogs (also called painted dogs), even eating food that has spoiled. " 
+	  "Lions digest their food quickly, which allows them to return soon for a second helping after gorging themselves the first time. ",
 	  "name_buffalo": "buffalo",
 	  "name_antelope": "antelope",
 	  "name_lion": "lion",

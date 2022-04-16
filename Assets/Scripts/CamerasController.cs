@@ -25,7 +25,8 @@ public class CamerasController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {      
+        if (Input.GetKeyDown(KeyCode.Space)) {
+
             if (fpsController.playerCanMove && !IngameUIController.instance.albumIsOpen) {
                 SwitchCamera();
             }
@@ -39,25 +40,24 @@ public class CamerasController : MonoBehaviour
             if (isThirdPerson)
             {
                 //Go to first person
+                firstPersonCharacter.transform.position = new Vector3(thirdPersonCharacter.transform.position.x, thirdPersonCharacter.transform.position.y + 0.5f, thirdPersonCharacter.transform.position.z);
+                firstPersonCharacter.transform.rotation = thirdPersonCharacter.transform.rotation;
+
                 polaroidCameraUI.SetActive(true);
-
-
-
-                thirdPersonCharacter.SetActive(false);
-                firstPersonCharacter.SetActive(true);
-                thirdPersonCamera.SetActive(false);
-                isThirdPerson = false;
 
                 for (int i = 0; i < thirdPersonCanvases.Length; i++)
                 {
                     thirdPersonCanvases[i].SetActive(false);
                 }
 
+                thirdPersonCharacter.SetActive(false);
+                thirdPersonCamera.SetActive(false);
+                firstPersonCharacter.SetActive(true);
+
+                isThirdPerson = false;
+
                 EventManager.instance.OhShowFpsUI(true);
                 EventManager.instance.OnShowIngameUI(false);
-
-                firstPersonCharacter.transform.position = new Vector3(thirdPersonCharacter.transform.position.x, thirdPersonCharacter.transform.position.y + 0.5f, thirdPersonCharacter.transform.position.z) ;
-                firstPersonCharacter.transform.rotation = thirdPersonCharacter.transform.rotation;
 
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
@@ -66,7 +66,6 @@ public class CamerasController : MonoBehaviour
             {
                 //Got to third person
                 polaroidCameraUI.SetActive(false);
-
 
                 thirdPersonCharacter.SetActive(true);
                 thirdPersonCamera.SetActive(true);
@@ -83,6 +82,9 @@ public class CamerasController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
 
             }
+
+            Debug.Log("La posición del fps es de: " + firstPersonCharacter.transform.position);
+            Debug.Log("La posición del TPS es de: " + thirdPersonCharacter.transform.position);
         }
     }
 

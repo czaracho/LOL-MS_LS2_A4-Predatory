@@ -10,7 +10,6 @@ using Supercyan.AnimalPeopleSample;
 
 public class TextManager : MonoBehaviour
 {
-    //private Queue<string> sentences;
     private Queue<dialog> sentences;
 
     public TextTrigger objectivesDialogue;
@@ -149,6 +148,18 @@ public class TextManager : MonoBehaviour
         StartCoroutine(TypeWritter(nextLine)); 
     }
 
+    public string DisplayInfo(string infoId) {
+
+        if (_lang == null)
+        {
+            _lang = SharedState.LanguageDefs;
+        }
+
+        string infoText = _lang[infoId];
+
+        return infoText;
+
+    }
 
     private void DisplayNextSentenceSimple(TextTrigger.TypeOfText typeOfText) {
         

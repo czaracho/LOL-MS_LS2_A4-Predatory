@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using LoLSDK;
 using SimpleJSON;
+using UnityEngine.SceneManagement;
+
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -36,7 +38,6 @@ public class GameManagerScript : MonoBehaviour
     [HideInInspector]
     public GameAction gameAction = GameAction.none;
 
-
     private void Start()
     {
 
@@ -51,6 +52,14 @@ public class GameManagerScript : MonoBehaviour
 
         if (levelHasObjectives) { 
         
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("f1"))
+        {
+            SceneManager.LoadScene("TentLevel1");
         }
     }
 
