@@ -4034,6 +4034,7 @@ MonoBehaviour:
   - {fileID: 436813143}
   - {fileID: 1116676499}
   polaroidCameraUI: {fileID: 1509697202}
+  boardCanvas: {fileID: 0}
   gameManager: {fileID: 5238138501977325316}
   fpsController: {fileID: 4459864851413139601}
 --- !u!4 &140513143
@@ -18161,11 +18162,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1422306729}
+  npcCanvas: {fileID: 1116676499}
   exclamationSignPrefab: {fileID: 1942184134993151280, guid: a8b7e49172f073349b47b1165565f6c5,
     type: 3}
   interactionSignPrefab: {fileID: 1364761438941566445, guid: 2b21cf60623fb1a4dbbf90fd6b519172,
     type: 3}
-  npcCanvas: {fileID: 1116676499}
   tpCamera: {fileID: 1480377167}
   exclamationPositionOffsetY: 3.5
   exclamationPositionOffsetX: 0
@@ -18174,7 +18175,6 @@ MonoBehaviour:
   dialogTrigger:
   - {fileID: 1854596711}
   - {fileID: 862745652}
-  gameManagerScript: {fileID: 5238138501977325316}
 --- !u!4 &586868966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4385986969744507264, guid: 13d5aff3720dca14b9734f82260231e1,
@@ -48494,9 +48494,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a29193544a080b41ae31a8b47d47dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 8681943925301973384}
   smoothSpeed: 5
+  target: {fileID: 8681943925301973384}
   offset: {x: 0, y: 7, z: -8}
+  dialog_offset: {x: 0, y: 0, z: 0}
 --- !u!20 &1480377167
 Camera:
   m_ObjectHideFlags: 0

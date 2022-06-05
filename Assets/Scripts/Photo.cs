@@ -15,9 +15,4 @@ public class Photo : MonoBehaviour
     [HideInInspector]
     public bool checkedForReview = false;
 
-
-    //private void OnMouseDown()
-    //{
-    //    Debug.Log("Hemosido engañado");
-    //}
 }

@@ -9,11 +9,13 @@ public class BoardController : MonoBehaviour
     public GameObject boardPhotosMain;   
 
     public Photo[] boardPhotos = new Photo[Constants.TOTAL_PHOTO_SLOTS];
-    public Photo currentSelectedPhoto = null;
-    public Photo currentSelectedSlot = null;
+    private Photo currentSelectedPhoto = null;
+    private Photo currentSelectedSlot = null;
 
     public Camera boardCamera;
     public TextTrigger initialBoardConversation;
+
+    private const float DISTANCE_FROM_SLOT = 0.3f;
 
     private void Awake()
     {
@@ -39,10 +41,19 @@ public class BoardController : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.gameObject.GetComponent<Photo>())
+                if (hit.transform.gameObject.tag == "Photo")
                 {
-                    Debug.Log("testeamos el hit transform");
-                    //Transform objectHit = hit.transform;
+                    currentSelectedPhoto = hit.transform.gameObject.GetComponent<Photo>();
+                }
+                else if (hit.transform.gameObject.tag == "PhotoSlot") {
+                    
+                    if (currentSelectedPhoto != null) {
+                        currentSelectedSlot = hit.transform.gameObject.GetComponent<Photo>();
+                        Vector3 newPhotoPos = new Vector3(currentSelectedSlot.transform.position.x, 
+                                                          currentSelectedSlot.transform.position.y, 
+                                                          currentSelectedSlot.transform.position.z - DISTANCE_FROM_SLOT);
+                        currentSelectedPhoto.transform.DOMove(newPhotoPos, 0.5f);
+                    }
                 }
             }
         }
@@ -64,7 +75,8 @@ public class BoardController : MonoBehaviour
             boardPhotos[i].transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material = newMaterial;
             boardPhotos[i].transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.mainTexture = boardPhotos[i].picture;
 
-            if (boardPhotos[i].picture != null){
+            if (boardPhotos[i].picture != null)
+            {
                 boardPhotosMain.transform.GetChild(i).gameObject.SetActive(true);
             }
         }
@@ -80,16 +92,6 @@ public class BoardController : MonoBehaviour
 
     public void MovePhotoToSlot() {
         
-        RaycastHit hit;
-        Ray ray = boardCamera.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.transform.gameObject.GetComponent<Photo>()) {
-                
-                //Transform objectHit = hit.transform;
-            }
-        }
     }
 
 }
