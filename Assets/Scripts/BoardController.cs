@@ -1,37 +1,95 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BoardController : MonoBehaviour
 {
+    public bool photoIsSelected = false;    
+    public GameObject boardPhotosMain;   
 
-    public Photo boardPhoto;
-    public Photo boardPhoto2;
+    public Photo[] boardPhotos = new Photo[Constants.TOTAL_PHOTO_SLOTS];
+    public Photo currentSelectedPhoto = null;
+    public Photo currentSelectedSlot = null;
 
+    public Camera boardCamera;
+    public TextTrigger initialBoardConversation;
 
-    private void Start()
+    private void Awake()
     {
-        Material newMaterial = new Material(Shader.Find("Unlit/Texture"));
-
-
-        boardPhoto.animalName = Loader.photoCollection[0].animalName;
-        boardPhoto.animalType = Loader.photoCollection[0].animalType;
-        boardPhoto.picture = Loader.photoCollection[0].picture;
-        boardPhoto.infoId = Loader.photoCollection[0].infoId;
-        boardPhoto.photoIsSaved = true;
-        boardPhoto.indexPhoto = 0;
-
-        boardPhoto.transform.GetChild(0).GetComponent<Renderer>().material = newMaterial;
-        boardPhoto.transform.GetChild(0).GetComponent<Renderer>().material.mainTexture = boardPhoto.picture;
-
-        boardPhoto2.animalName = Loader.photoCollection[1].animalName;
-        boardPhoto2.animalType = Loader.photoCollection[1].animalType;
-        boardPhoto2.picture = Loader.photoCollection[1].picture;
-        boardPhoto2.infoId = Loader.photoCollection[1].infoId;
-        boardPhoto2.photoIsSaved = true;
-        boardPhoto2.indexPhoto = 0;
-
-        boardPhoto2.transform.GetChild(0).GetComponent<Renderer>().material = newMaterial;
-        boardPhoto2.transform.GetChild(0).GetComponent<Renderer>().material.mainTexture = Loader.photoCollection[1].picture;
+        EventManager.instance.StartBoardInitialConversation += StartBoardInitialConversation;
     }
+
+    private void OnDestroy()
+    {
+        EventManager.instance.StartBoardInitialConversation -= StartBoardInitialConversation;
+    }
+
+    private void Start(){
+        
+        InitializeBoard();
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0)) {
+            RaycastHit hit;
+            Ray ray = boardCamera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.gameObject.GetComponent<Photo>())
+                {
+                    Debug.Log("testeamos el hit transform");
+                    //Transform objectHit = hit.transform;
+                }
+            }
+        }
+    }
+
+    void InitializeBoard() {
+
+        for (int i = 0; i < Constants.TOTAL_PHOTO_SLOTS; i++)
+        {
+
+            boardPhotos[i] = boardPhotosMain.transform.GetChild(i).GetComponent<Photo>();
+            boardPhotos[i].id = i;
+            boardPhotos[i].animalName = Loader.photoCollection[i].animalName;
+            boardPhotos[i].animalType = Loader.photoCollection[i].animalType;
+            boardPhotos[i].picture = Loader.photoCollection[i].picture;
+
+            Material newMaterial = new Material(Shader.Find("Unlit/Texture"));
+
+            boardPhotos[i].transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material = newMaterial;
+            boardPhotos[i].transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.mainTexture = boardPhotos[i].picture;
+
+            if (boardPhotos[i].picture != null){
+                boardPhotosMain.transform.GetChild(i).gameObject.SetActive(true);
+            }
+        }
+
+        GameManagerScript.instance.StartBoardConversation();
+        //EventManager.instance.OnGoToBoard();
+    }
+
+    public void StartBoardInitialConversation() {
+        GameManagerScript.instance.playerIsTalking = true;
+        initialBoardConversation.TriggerStartingDialog();
+    }
+
+    public void MovePhotoToSlot() {
+        
+        RaycastHit hit;
+        Ray ray = boardCamera.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.transform.gameObject.GetComponent<Photo>()) {
+                
+                //Transform objectHit = hit.transform;
+            }
+        }
+    }
+
 }

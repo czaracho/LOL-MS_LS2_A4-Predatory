@@ -12,11 +12,24 @@ public class TextTrigger : MonoBehaviour
         objectivesTitle,
         objectives,
         dialog,
-        info
+        info,
+        newEvent
     }
 
     public TypeOfText typeOfText;
     public GameManagerScript.GameAction action;
+
+    private void Start()
+    {
+        if (typeOfText == TypeOfText.objectivesTitle)
+        {
+            FindObjectOfType<TextManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
+        }
+        else if (typeOfText == TypeOfText.objectives)
+        {
+            FindObjectOfType<TextManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
+        }
+    }
 
     public void TriggerTextAction()
     {
@@ -26,19 +39,25 @@ public class TextTrigger : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        if (typeOfText == TypeOfText.objectivesTitle)
+    public void TriggerStartingDialog() {
+        //StartCoroutine(WaitToShowTrigger());
+        if (typeOfText == TypeOfText.dialog)
         {
-            FindObjectOfType<TextManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
-        }
-        else if (typeOfText == TypeOfText.objectives) {
-            FindObjectOfType<TextManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
+            FindObjectOfType<TextManager>().StartDialogue(dialogue, action, currentTextElement);
         }
     }
+
 
     IEnumerator WaitToShowObjectives() {
         yield return new WaitForSeconds(waitToShow);
         FindObjectOfType<TextManager>().GetTextForTitlesAndObjectives(dialogue, typeOfText, currentTextElement);
+    }
+
+    IEnumerator WaitToShowTrigger() {
+        yield return new WaitForSeconds(1.0f);
+        if (typeOfText == TypeOfText.dialog)
+        {
+            FindObjectOfType<TextManager>().StartDialogue(dialogue, action, currentTextElement);
+        }
     }
 }

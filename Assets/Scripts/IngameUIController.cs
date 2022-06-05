@@ -66,7 +66,6 @@ public class IngameUIController : MonoBehaviour
     }
 
     public void CellphoneTeleportCat() {
-        Debug.Log("Gato teletransportado");
         playerCat.transform.position = playerStartPosition.transform.position;
         playerCatFirstPerson.transform.position = new Vector3(playerCat.transform.position.x, playerCat.transform.position.y, playerCat.transform.position.z);
 

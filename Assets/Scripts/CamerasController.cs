@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Delegates;
 
 //Refactor this class
 public class CamerasController : MonoBehaviour
 {
+    public bool isThirdPerson = true;
+    
     public GameObject thirdPersonCharacter;
     public GameObject thirdPersonCamera;
+    public GameObject boardCamera;
     public GameObject firstPersonCharacter;
-    public GameObject polaroidCameraUI;
 
-    public GameObject[] thirdPersonCanvases;
     public GameObject fpsCanvas;
-    public bool isThirdPerson = true;
+    public GameObject[] thirdPersonCanvases;
+    public GameObject polaroidCameraUI;
+    public GameObject boardCanvas;
 
     public GameManagerScript gameManager;
     public FirstPersonController fpsController;
@@ -21,10 +25,10 @@ public class CamerasController : MonoBehaviour
     {
         EventManager.instance.ShowIngameUI += ShowIngameTpsCanvas;
         EventManager.instance.ShowFpsUI += ShowFPSCanvas;
+        EventManager.instance.GoToBoard += SwitchToBoardCamera;
     }
 
-    private void Update()
-    {
+    private void Update(){
         if (Input.GetKeyDown(KeyCode.Space)) {
 
             if (fpsController.playerCanMove && !IngameUIController.instance.albumIsOpen) {
@@ -83,8 +87,8 @@ public class CamerasController : MonoBehaviour
 
             }
 
-            Debug.Log("La posición del fps es de: " + firstPersonCharacter.transform.position);
-            Debug.Log("La posición del TPS es de: " + thirdPersonCharacter.transform.position);
+            //Debug.Log("La posición del fps es de: " + firstPersonCharacter.transform.position);
+            //Debug.Log("La posición del TPS es de: " + thirdPersonCharacter.transform.position);
         }
     }
 
@@ -103,8 +107,6 @@ public class CamerasController : MonoBehaviour
                 thirdPersonCanvases[i].SetActive(false);
             }
         }
-
-
     }
 
     public void ShowFPSCanvas(bool show) {
@@ -115,5 +117,22 @@ public class CamerasController : MonoBehaviour
         else
             fpsCanvas.SetActive(false);
     }
+
+    public void SwitchToBoardCamera() {
+        NewActionVoidDelegate newDelegate = ChangeCameras;
+        GameManagerScript.instance.SetBlackCatSilhouetteForeground(newDelegate);
+        GameManagerScript.instance.playerIsTalking = false;
+        //boardCanvas.SetActive(true);
+    }
+
+    public void ChangeCameras() {
+        NewActionVoidDelegate newDelegate = ChangeCameras;
+        thirdPersonCharacter.SetActive(false);
+        thirdPersonCamera.SetActive(false);
+        boardCamera.SetActive(true);
+        GameManagerScript.instance.RemoveBlackCatSilhouetteForeground(()=> { boardCanvas.SetActive(true); });
+    }
+
+    
 
 }

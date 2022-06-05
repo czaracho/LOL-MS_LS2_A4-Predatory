@@ -49,6 +49,7 @@ public class TextManager : MonoBehaviour
 
         if (sentences == null)
         {
+            Debug.Log("Cargamos el queue");
             sentences = new Queue<dialog>();
         }
 
@@ -56,8 +57,6 @@ public class TextManager : MonoBehaviour
         gameManagerScript.gameAction = gameAction;
         catLanaPortrait.gameObject.SetActive(false);
         catPebblesPortrait.gameObject.SetActive(false);
-        catLanaPortrait.DOColor(darkerColor, 1f);
-        catPebblesPortrait.DOColor(darkerColor, 1f);
         dialogBox.SetActive(true);
 
         sentences.Clear();
@@ -91,18 +90,20 @@ public class TextManager : MonoBehaviour
 
     public void DisplayNextSentence() {
 
+        //Debug.Log("sentences left: " + sentences.Count);
 
         if (!canGoNextSentence)
             return;
 
         if (sentences.Count == 0) {
+            //Debug.Log("papu los sentences son 0");
             EndDialogue(true);
             return;
         }
 
 
         dialog dialog = sentences.Dequeue();
-
+        //Debug.Log("Hacemos dequeue a esto");
 
         if (_lang == null)
         {
@@ -150,8 +151,7 @@ public class TextManager : MonoBehaviour
 
     public string DisplayInfo(string infoId) {
 
-        if (_lang == null)
-        {
+        if (_lang == null){
             _lang = SharedState.LanguageDefs;
         }
 
@@ -162,10 +162,8 @@ public class TextManager : MonoBehaviour
     }
 
     private void DisplayNextSentenceSimple(TextTrigger.TypeOfText typeOfText) {
-        
-                
-        if (sentences.Count == 0)
-        {
+                        
+        if (sentences.Count == 0){
             currentObjectivesText = "";
             EndDialogue(false);
             return;
@@ -175,8 +173,7 @@ public class TextManager : MonoBehaviour
         dialog dialog = sentences.Dequeue();
 
 
-        if (_lang == null)
-        {
+        if (_lang == null){
             _lang = SharedState.LanguageDefs;
         }
 
@@ -190,14 +187,13 @@ public class TextManager : MonoBehaviour
         }
         else if (typeOfText == TextTrigger.TypeOfText.objectives) {
             currentTMPElement.text = currentObjectivesText ;
-
         }
 
         DisplayNextSentenceSimple(typeOfText);
     }
 
-
     void EndDialogue(bool isConversation) {
+        
         dialogBox.SetActive(false);
         catPebblesPortrait.gameObject.SetActive(false);
         catLanaPortrait.gameObject.SetActive(false);
@@ -245,6 +241,12 @@ public class TextManager : MonoBehaviour
                 break;
             case GameManagerScript.GameAction.objectivesReview:
                 objectivesNonCompletedDialogue.TriggerTextAction();
+                break;
+            case GameManagerScript.GameAction.switchToBoard:
+                EventManager.instance.OnGoToBoard();
+                break;
+            case GameManagerScript.GameAction.nextDialogue:
+                EventManager.instance.OnShowIngameUI(true);
                 break;
             case GameManagerScript.GameAction.none:
                 EventManager.instance.OnShowIngameUI(true);

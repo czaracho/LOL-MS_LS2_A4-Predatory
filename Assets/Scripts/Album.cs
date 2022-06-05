@@ -9,10 +9,10 @@ public class Album : MonoBehaviour
     public GameObject albumUI;
     public GameObject photoGridParent;
     [HideInInspector]
-    public GameObject[] photoGridParentChilds = new GameObject[15];
+    public GameObject[] photoGridParentChilds = new GameObject[Constants.TOTAL_PHOTO_SLOTS];
     [HideInInspector]
-    public Image[] photoAlbumImage = new Image[15];
-    private GameObject[] photoAlbumObjects = new GameObject[15];
+    public Image[] photoAlbumImage = new Image[Constants.TOTAL_PHOTO_SLOTS];
+    private GameObject[] photoAlbumObjects = new GameObject[Constants.TOTAL_PHOTO_SLOTS];
     public Button showAlbumButton;
     public GameObject albumViewerCanvas;
     public GameObject photoAlbumViewer;
@@ -52,9 +52,10 @@ public class Album : MonoBehaviour
 
     public void FillPhotoAlbum() {
 
+        Debug.Log("Loader.Photocollection: " + Loader.photoCollection.Length);
+
         for (int i = 0; i < Loader.photoCollection.Length; i++)
         {
-
             if (!Loader.photoCollection[i].photoIsSaved)
             {
                 Loader.photoCollection[i].animalName = SnapshotController.newPhoto.animalName;

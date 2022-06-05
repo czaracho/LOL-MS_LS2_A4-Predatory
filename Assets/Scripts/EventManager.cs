@@ -26,7 +26,8 @@ public class EventManager : MonoBehaviour
     public event Action<bool> ShowPromptActionUI;
     public event Action<bool> AddCameraZoom;
     public event Action<bool> ShowAnimalNames;
-    public event Action<string> SetGameAction;
+    public event Action StartBoardInitialConversation;
+    public event Action GoToBoard;
 
 
     public void OnTakePicture()
@@ -62,7 +63,11 @@ public class EventManager : MonoBehaviour
         ShowAnimalNames?.Invoke(show);
     }
 
-    public void OnSetGameAction(string action) {
-        SetGameAction?.Invoke(action);
+    public void OnStartBoardInitialConversation() {
+        StartBoardInitialConversation?.Invoke();
+    }
+
+    public void OnGoToBoard() {
+        GoToBoard?.Invoke();
     }
 }

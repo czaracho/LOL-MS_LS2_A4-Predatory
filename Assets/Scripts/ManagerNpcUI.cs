@@ -6,30 +6,40 @@ using UnityEngine.UI;
 public class ManagerNpcUI : MonoBehaviour
 {
     public GameObject player;
-    public Image prefabUI;
-    private Image uiUse;
     public GameObject npcCanvas;
+    public Image exclamationSignPrefab;
+    public Image interactionSignPrefab;
+    private Image exclamationSign;
+    private Image interactionBgSign;
+    
     public Camera tpCamera;
-    public float positionOffsetY = 0;
-    public float positionOffsetX = 0;
-    private bool playerOnRange = false;
-    public TextTrigger[] dialogTrigger;
-    public GameManagerScript gameManagerScript;
+    
+    public float exclamationPositionOffsetY = 0;
+    public float exclamationPositionOffsetX = 0;
+    public float interactionSignPositionOffsetX = 0;
+    public float interactionSignPositionOffsetY = 0;
     private int currentConversationId = 0;
+    private bool playerOnRange = false;
     //public bool reviewedObjectives = false;
+    
+    public TextTrigger[] dialogTrigger;
 
     private void Start()
     {
-        uiUse = Instantiate(prefabUI, npcCanvas.transform).GetComponent<Image>();
+        exclamationSign = Instantiate(exclamationSignPrefab, npcCanvas.transform).GetComponent<Image>();
+        interactionBgSign = Instantiate(interactionSignPrefab, npcCanvas.transform).GetComponent<Image>();
+        interactionBgSign.gameObject.SetActive(false);
     }
 
     private void Update()
     {
         if (playerOnRange) {
 
-            if (Input.GetKeyDown(KeyCode.E) && !gameManagerScript.playerIsTalking)
+            interactionBgSign.gameObject.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.E) && !GameManagerScript.instance.playerIsTalking)
             {
-                gameManagerScript.playerIsTalking = true;
+                GameManagerScript.instance.playerIsTalking = true;
                 EventManager.instance.OnShowPromptActionUI(false);
 
                 if (dialogTrigger != null) {
@@ -43,12 +53,15 @@ public class ManagerNpcUI : MonoBehaviour
                 }
             }
         }
+        else{
+            if (interactionBgSign.gameObject.active == true)
+                interactionBgSign.gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player") {
-            Debug.Log("Tocamos al player");
             playerOnRange = true;
             EventManager.instance.OnShowPromptActionUI(true);
         }
@@ -58,16 +71,18 @@ public class ManagerNpcUI : MonoBehaviour
     {
         if (other.gameObject.tag == "Player") {
             playerOnRange = false;
-            gameManagerScript.playerIsTalking = false;
+            GameManagerScript.instance.playerIsTalking = false;
             EventManager.instance.OnShowPromptActionUI(false);
         }
     }
 
     private void LateUpdate()
     {
-        uiUse.transform.position = tpCamera.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y, transform.position.z) + new Vector3(positionOffsetX, positionOffsetY, 0));
+        exclamationSign.transform.position = tpCamera.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y, transform.position.z) + new Vector3(exclamationPositionOffsetX, exclamationPositionOffsetY, 0));
+        interactionBgSign.transform.position = tpCamera.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y, transform.position.z) + new Vector3(interactionSignPositionOffsetX, interactionSignPositionOffsetY, 0));
         float dist = 1 / Vector3.Distance(transform.position, player.transform.position) * 6f;
         dist = Mathf.Clamp(dist, 0.5f, 0.75f);
-        uiUse.transform.localScale = new Vector3(dist, dist,0);
+        exclamationSign.transform.localScale = new Vector3(dist, dist,0);
+        interactionBgSign.transform.localScale = new Vector3(dist, dist, 0);
     }
 }

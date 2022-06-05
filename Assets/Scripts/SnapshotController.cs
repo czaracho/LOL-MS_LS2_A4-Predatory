@@ -202,7 +202,7 @@ public class SnapshotController : MonoBehaviour
         {
             if (!viewingPhoto)
             {
-                if (photosTakenQuantity < 15) {
+                if (photosTakenQuantity < Constants.TOTAL_PHOTO_SLOTS) {
                     polaroidUI.SetActive(false);
                     viewingPhoto = true;
                     TakeScreenshot_Static(1024, 576);

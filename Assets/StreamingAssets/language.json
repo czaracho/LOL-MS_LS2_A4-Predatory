@@ -25,6 +25,7 @@
 	  "type_plant": "plant",
 	  "lets_see": "Let's see...",
 	  "objectives_title": "Take pictures of: ",
+	  "objectives_selfie": "objectivesselfie asdf: ",
 	  "ldline_objective_accomplished": "Nice, you have all of the requested photos. Let's go to the board.",
 	  "ldline_objective_failed_1":"We still need photos of some types of animals or plants, please check our objectives",
 	  "type": "type",
@@ -34,6 +35,7 @@
 	  "savanna_objective_1": "hyena\n",
 	  "savanna_objective_2": "lion\n",
 	  "savanna_objective_3": "antelope\n",
+	  "tent1":"",
 	  "info_lion": "The world's most social felines, lions roam the savannas and grasslands of the African continent, hunting cooperatively and raising cubs in prides. "
 	  "Prime habitat for lions is open woodlands, thick grassland, and brush habitat, where there is enough cover for hunting and denning. " 
 	  "These areas of grassland habitat also provide food for the herbivores that lions prey upon. "
