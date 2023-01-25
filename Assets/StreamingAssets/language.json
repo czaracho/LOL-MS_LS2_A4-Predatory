@@ -48,6 +48,8 @@
 	  "name_rhinoceros": "rhinoceros",
 	  "name_pecker": "oxpecker",
 	  "name_hyena": "hyena",
-	  "name_frog": "frog"
+	  "name_frog": "frog",
+	  "predator_prey1": "Predator-prey relations refer to the interactions between two species where one species is the hunted food source for the other",
+	  "predator_prey2": "The organism that feeds is called the predator and the organism that is fed upon is the prey"
    }
 }

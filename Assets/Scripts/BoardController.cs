@@ -61,28 +61,28 @@ public class BoardController : MonoBehaviour
 
     void InitializeBoard() {
 
-        for (int i = 0; i < Constants.TOTAL_PHOTO_SLOTS; i++)
-        {
+        //for (int i = 0; i < Constants.TOTAL_PHOTO_SLOTS; i++)
+        //{
 
-            boardPhotos[i] = boardPhotosMain.transform.GetChild(i).GetComponent<Photo>();
-            boardPhotos[i].id = i;
-            boardPhotos[i].animalName = Loader.photoCollection[i].animalName;
-            boardPhotos[i].animalType = Loader.photoCollection[i].animalType;
-            boardPhotos[i].picture = Loader.photoCollection[i].picture;
+        //    boardPhotos[i] = boardPhotosMain.transform.GetChild(i).GetComponent<Photo>();
+        //    boardPhotos[i].id = i;
+        //    boardPhotos[i].animalName = Loader.photoCollection[i].animalName;
+        //    boardPhotos[i].animalType = Loader.photoCollection[i].animalType;
+        //    boardPhotos[i].picture = Loader.photoCollection[i].picture;
 
-            Material newMaterial = new Material(Shader.Find("Unlit/Texture"));
+        //    Material newMaterial = new Material(Shader.Find("Unlit/Texture"));
 
-            boardPhotos[i].transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material = newMaterial;
-            boardPhotos[i].transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.mainTexture = boardPhotos[i].picture;
+        //    boardPhotos[i].transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material = newMaterial;
+        //    boardPhotos[i].transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.mainTexture = boardPhotos[i].picture;
 
-            if (boardPhotos[i].picture != null)
-            {
-                boardPhotosMain.transform.GetChild(i).gameObject.SetActive(true);
-            }
-        }
+        //    if (boardPhotos[i].picture != null)
+        //    {
+        //        boardPhotosMain.transform.GetChild(i).gameObject.SetActive(true);
+        //    }
+        //}
 
-        GameManagerScript.instance.StartBoardConversation();
-        //EventManager.instance.OnGoToBoard();
+        //GameManagerScript.instance.StartBoardConversation();
+        EventManager.instance.OnGoToBoard();
     }
 
     public void StartBoardInitialConversation() {
