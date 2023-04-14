@@ -9,6 +9,7 @@
     }
   },
    "en":{
+	  "objectives_text":"Objectives",
 	  "ldline_1":"Ok, we need to take pictures to complete the objectives for the research",
 	  "ldline_2":"Once you have all the pictures, come to me to review them",
 	  "ldline_3":"You can also use your phone and I'll pick you if you don't want to walk all the way here",
@@ -44,6 +45,9 @@
 	  "Lions digest their food quickly, which allows them to return soon for a second helping after gorging themselves the first time. ",
 	  "name_buffalo": "buffalo",
 	  "name_antelope": "antelope",
+	  "info_antelope": "Antelopes are fascinating animals that live in Africa and parts of Asia. They are known for their amazing speed, agility, and long, slender legs. With their large, beautiful eyes and unique horns, antelopes are truly a sight to see!?"
+		"These graceful creatures are herbivores, which means they eat plants like grass and leaves. Antelopes are social animals and often gather in groups called herds to stay safe from predators like lions and hyenas."
+		"There are many different types of antelopes, and they come in various shapes, sizes, and colors. Some, like the tiny dik-dik, are as small as a house cat, while others, like the large eland, can weigh over a thousand pounds! No matter their size, antelopes are known for their impressive leaping and running abilities, making them some of the most athletic animals in the wild.",
 	  "name_lion": "lion",
 	  "name_rhinoceros": "rhinoceros",
 	  "name_pecker": "oxpecker",

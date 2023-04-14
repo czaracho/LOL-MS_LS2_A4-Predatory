@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 using Supercyan.AnimalPeopleSample;
+using UnityEngine.SceneManagement;
 
 public class TextManager : MonoBehaviour
 {
@@ -232,6 +233,7 @@ public class TextManager : MonoBehaviour
                 EventManager.instance.OnShowIngameUI(true);
                 break;
             case GameManagerScript.GameAction.levelCompleted:
+                SceneManager.LoadScene(gameManagerScript.nextLevel);
                 break;
             case GameManagerScript.GameAction.checkObjective:
                 gameManagerScript.checkObjectives();

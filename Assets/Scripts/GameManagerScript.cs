@@ -31,6 +31,8 @@ public class GameManagerScript : MonoBehaviour
 
     public static GameManagerScript instance;
 
+    public string nextLevel = "TentLevel1";
+
     //public delegate void EventHandler();
     //public event EventHandler OnSuchEvent;
 
@@ -80,7 +82,7 @@ public class GameManagerScript : MonoBehaviour
     {
         if (Input.GetKeyDown("f1"))
         {
-            SceneManager.LoadScene("TentLevel1");
+            SceneManager.LoadScene(nextLevel);
         }
     }
 
@@ -171,6 +173,7 @@ public class GameManagerScript : MonoBehaviour
         NewActionVoidDelegate newDelegate = EventManager.instance.OnStartBoardInitialConversation; //Assignated event to start the first dialog in the Tent Scene
         RemoveBlackCatSilhouetteForeground(newDelegate);
     }
+
     public void SetBlackCatSilhouetteForeground(NewActionVoidDelegate newActionVoidDelegate)
     {
         Sequence mySequence = DOTween.Sequence();

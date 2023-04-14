@@ -130,9 +130,6 @@ public class CamerasController : MonoBehaviour
         thirdPersonCharacter.SetActive(false);
         thirdPersonCamera.SetActive(false);
         boardCamera.SetActive(true);
-        GameManagerScript.instance.RemoveBlackCatSilhouetteForeground(()=> { boardCanvas.SetActive(true); });
+        GameManagerScript.instance.RemoveBlackCatSilhouetteForeground(() => { boardCanvas.SetActive(true); });
     }
-
-    
-
 }

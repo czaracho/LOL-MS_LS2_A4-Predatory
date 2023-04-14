@@ -35,7 +35,6 @@ public class EventManager : MonoBehaviour
         TakePicture?.Invoke();
     }
 
-
     public void OnShowPolaroidUI(bool show)
     {
         ShowPolaroidUI?.Invoke(show);

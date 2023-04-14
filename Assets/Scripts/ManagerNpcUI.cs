@@ -62,6 +62,7 @@ public class ManagerNpcUI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player") {
+            Debug.Log("Player is on range");
             playerOnRange = true;
             EventManager.instance.OnShowPromptActionUI(true);
         }
