@@ -20,7 +20,7 @@
 	  "ldline_8":"We will need some of them to see the relationships between the organism you saw in the savanna",
 	  "ldline_9":"Drag the photos and put them on their corresponding place on the board",
 	  "ldline_10":"When the board is filled, we can study the relationships",
-	  "ldline_11":"Go on! Check the board",
+	  "ldline_11":"Go on! Check the board",	  
 	  "predator": "predator",
 	  "type_prey": "prey",
 	  "type_plant": "plant",
@@ -54,6 +54,8 @@
 	  "name_hyena": "hyena",
 	  "name_frog": "frog",
 	  "predator_prey1": "Predator-prey relations refer to the interactions between two species where one species is the hunted food source for the other",
-	  "predator_prey2": "The organism that feeds is called the predator and the organism that is fed upon is the prey"
+	  "predator_prey2": "The organism that feeds is called the predator and the organism that is fed upon is the prey",
+	  "ldline_board_success":"Nice! You got everything right!",
+	  "ldline_board_next":"Good, now let's see the next board"
    }
 }

@@ -20,7 +20,6 @@ public class ManagerNpcUI : MonoBehaviour
     public float interactionSignPositionOffsetY = 0;
     private int currentConversationId = 0;
     private bool playerOnRange = false;
-    //public bool reviewedObjectives = false;
     
     public TextTrigger[] dialogTrigger;
 

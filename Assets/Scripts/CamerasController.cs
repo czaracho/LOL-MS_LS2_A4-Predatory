@@ -122,14 +122,15 @@ public class CamerasController : MonoBehaviour
         NewActionVoidDelegate newDelegate = ChangeCameras;
         GameManagerScript.instance.SetBlackCatSilhouetteForeground(newDelegate);
         GameManagerScript.instance.playerIsTalking = false;
-        //boardCanvas.SetActive(true);
     }
 
     public void ChangeCameras() {
-        NewActionVoidDelegate newDelegate = ChangeCameras;
         thirdPersonCharacter.SetActive(false);
+        GameManagerScript.instance.MovePlayerAwayFromNPC();
         thirdPersonCamera.SetActive(false);
         boardCamera.SetActive(true);
-        GameManagerScript.instance.RemoveBlackCatSilhouetteForeground(() => { boardCanvas.SetActive(true); });
+        GameManagerScript.instance.RemoveBlackCatSilhouetteForeground(() => {            
+            boardCanvas.SetActive(true); 
+        });
     }
 }

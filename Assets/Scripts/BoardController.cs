@@ -18,24 +18,20 @@ public class BoardController : MonoBehaviour
     public Camera boardCamera;
     public TextTrigger initialBoardConversation;
 
-    public OrganismGroup[] objectives;
-
-    private List<OrganismIdentifier> currentPhotosOrganismsOnBoard = new List<OrganismIdentifier>();
-
     private const float DISTANCE_FROM_SLOT = 0.3f;
+
+    public BoardReviewObject[] boardsForReview;
 
     private void Awake()
     {
-        EventManager.instance.StartBoardInitialConversation += StartBoardInitialConversation;
-        EventManager.instance.AddOrganismToBoardToReview += addPhotoOrganismOnBoard;
-        EventManager.instance.RemoveOrganismFromBoardToReview += removePhotoOrganismOnBoard;
+        //EventManager.instance.StartBoardInitialConversation += StartBoardInitialConversation;
+        EventManager.instance.GenericAction += ShowNextBoard;
     }
 
     private void OnDestroy()
     {
-        EventManager.instance.StartBoardInitialConversation -= StartBoardInitialConversation;
-        EventManager.instance.AddOrganismToBoardToReview -= addPhotoOrganismOnBoard;
-        EventManager.instance.RemoveOrganismFromBoardToReview -= removePhotoOrganismOnBoard;
+        //EventManager.instance.StartBoardInitialConversation -= StartBoardInitialConversation;
+        EventManager.instance.GenericAction -= ShowNextBoard;
     }
 
     private void Start(){         
@@ -58,8 +54,6 @@ public class BoardController : MonoBehaviour
                 if (hit.transform.gameObject.tag == GameStringConstants.photo)
                 {
                   currentSelectedPhoto = hit.transform.gameObject.GetComponent<Photo>();
-
-                    Debug.Log("Current selected photo photoOrganism animal name: " + currentSelectedPhoto.photoOrganism.animalName);
 
                     if (currentSelectedPhoto.isOnBoardSlot)
                     {
@@ -121,123 +115,31 @@ public class BoardController : MonoBehaviour
                 boardPhotosMain.transform.GetChild(i).gameObject.SetActive(true);
             }
 
-            boardPhotos[i].initPhotoOrganism();
         }
 
     }
 
-    public void StartBoardInitialConversation() {
-        GameManagerScript.instance.playerIsTalking = true;
-        initialBoardConversation.TriggerStartingDialog();
-    }
 
-    public void addPhotoOrganismOnBoard(OrganismIdentifier organism) {         
-        
-        currentPhotosOrganismsOnBoard.Add(organism);
+    public void ReviewBoards() {
 
-        Debug.Log("Added organism: " + organism.animalName);
-        Debug.Log("Organisms: " + currentPhotosOrganismsOnBoard.Count);
-    }
+        Debug.Log("Entramos al review Boards");
 
-    public void removePhotoOrganismOnBoard(OrganismIdentifier organism) { 
-        currentPhotosOrganismsOnBoard.Remove(organism);
-    }
+        foreach (var board in boardsForReview) {
 
-    public void CheckBoardObjectivesOld() {
-
-        int correctPhotos = 0;
-
-        for (int i = 0; i < objectives.Length; i++) {
-
-            if (!objectives[i].checkedForReview) {
-                
-                for (int x = 0; x < objectives[i].organisms.Count; x++) {
-                    //Check by the animal type
-                    if (objectives[i].checkForType) {
-
-                        for (int z = 0; z < currentPhotosOrganismsOnBoard.Count; z++) {
-
-                            if (!currentPhotosOrganismsOnBoard[z].isChecked) {
-                                if (objectives[i].organisms[x].animalType == currentPhotosOrganismsOnBoard[z].animalType) {
-                                    currentPhotosOrganismsOnBoard[z].isChecked = true;
-                                    correctPhotos++;
-                                }
-                            }
-
-                        }
-
-                    } //Check by the animal name
-                    else if (!objectives[i].checkForType) {
-                        
-                        for (int z = 0; z < currentPhotosOrganismsOnBoard.Count; z++) {
-
-                            if (!currentPhotosOrganismsOnBoard[z].isChecked) {
-                                if (objectives[i].organisms[x].animalName == currentPhotosOrganismsOnBoard[z].animalName) {
-                                    currentPhotosOrganismsOnBoard[z].isChecked = true;
-                                    correctPhotos++;
-                                }
-                            }
-
-                        }
-
-                    }
-                } 
-            }
-
-            if (correctPhotos == objectives.Length) {
-                //Do something and go to the next group
-                return;
-            }
-            else {
-                //Do Something to tell the player that the objectives were not fulfilled
-                return;
-            }
-
-        }
-    }
-
-    public void CheckBoardObjectives() {
-        
-        int correctPhotos = 0;
-
-        foreach (var objective in objectives) {
-            if (objective.checkedForReview)
+            if (board.checkedForObjectivesReview)
                 continue;
 
-            foreach (var organism in objective.organisms) {
-                bool isObjectiveMet = CheckObjective(organism, objective.checkForType);
-                if (isObjectiveMet)
-                    correctPhotos++;
-            }
+            board.ReviewBoard();
+            
+            return;
 
-            if (correctPhotos == objectives.Length) {
-                // Do something and go to the next group
-                Debug.Log("Objectives fulfilled");
-                return;
-            }
-            else {
-                // Do something to tell the player that the objectives were not fulfilled
-                Debug.Log("Objectives NOT fulfilled");
-
-                return;
-            }
-        }
-    }
-
-    private bool CheckObjective(OrganismIdentifier targetOrganism, bool checkForType) {
-        foreach (var photoOrganism in currentPhotosOrganismsOnBoard) {
-            if (photoOrganism.isChecked)
-                continue;
-
-            bool isMatch = checkForType ? targetOrganism.animalType == photoOrganism.animalType : targetOrganism.animalName == photoOrganism.animalName;
-
-            if (isMatch) {
-                photoOrganism.isChecked = true;
-                return true;
-            }
         }
 
-        return false;
     }
+
+    public void ShowNextBoard() {
+        Debug.Log("We show the next board. First review successful");
+    }
+
 
 }

@@ -33,8 +33,8 @@ public class GameManagerScript : MonoBehaviour
 
     public string nextLevel = "TentLevel1";
 
-    //public delegate void EventHandler();
-    //public event EventHandler OnSuchEvent;
+    public GameObject player;
+    public Transform playerStartingPosition;
 
 
     public enum GameAction
@@ -47,7 +47,8 @@ public class GameManagerScript : MonoBehaviour
         objectivesNonCompleted,
         objectivesReview,
         switchToBoard,
-        nextDialogue
+        nextDialogue,
+        genericAction
     }
 
     [HideInInspector]
@@ -182,6 +183,10 @@ public class GameManagerScript : MonoBehaviour
     public void RemoveBlackCatSilhouetteForeground(NewActionVoidDelegate newActionVoidDelegate) {
         Sequence mySequence = DOTween.Sequence();
         mySequence.Append(CatHeadSilhouette.transform.DOScale(new Vector3(0, 0, 0), Constants.REMOVE_DURATION)).OnComplete(()=> { newActionVoidDelegate();});
+    }
+
+    public void MovePlayerAwayFromNPC() {
+        player.transform.position = playerStartingPosition.transform.position;
     }
 
 }

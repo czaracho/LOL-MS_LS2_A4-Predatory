@@ -21,6 +21,8 @@ public class Album : MonoBehaviour
     public TextMeshProUGUI infoText;
     private Photo emptyPhoto;
     private int selectedPhotoIndex = 0;
+    [SerializeField] 
+    private TextMeshProUGUI animalName;
 
     public TextManager textManager;
 
@@ -98,10 +100,8 @@ public class Album : MonoBehaviour
         {
             selectedPhotoIndex = indexOfPhoto;
             albumViewerCanvas.SetActive(true);
-            //Sprite photoSprite = Sprite.Create(Loader.photoCollection[indexOfPhoto].picture, new Rect(0.0f, 0.0f, Loader.photoCollection[indexOfPhoto].picture.width, Loader.photoCollection[indexOfPhoto].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
             photoAlbumViewer.gameObject.GetComponent<Image>().sprite = photoAlbumImage[indexOfPhoto].sprite;
-
-            Debug.Log("Current animal type: " + Loader.photoCollection[indexOfPhoto].photoAnimalType);
+            animalName.text = Loader.photoCollection[indexOfPhoto].photoAnimalName.ToString();
 
             if (Loader.photoCollection[indexOfPhoto].photoAnimalType!= OrganismObject.AnimalType.typeGeneric) {
                 infoButton.SetActive(true);

@@ -250,6 +250,9 @@ public class TextManager : MonoBehaviour
             case GameManagerScript.GameAction.nextDialogue:
                 EventManager.instance.OnShowIngameUI(true);
                 break;
+            case GameManagerScript.GameAction.genericAction:
+                EventManager.instance.OnGenericAction();
+                break;
             case GameManagerScript.GameAction.none:
                 EventManager.instance.OnShowIngameUI(true);
                 break;

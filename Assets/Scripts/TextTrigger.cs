@@ -40,7 +40,6 @@ public class TextTrigger : MonoBehaviour
     }
 
     public void TriggerStartingDialog() {
-        //StartCoroutine(WaitToShowTrigger());
         if (typeOfText == TypeOfText.dialog)
         {
             FindObjectOfType<TextManager>().StartDialogue(dialogue, action, currentTextElement);

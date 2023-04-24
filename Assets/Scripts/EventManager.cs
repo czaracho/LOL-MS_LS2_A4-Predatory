@@ -30,7 +30,7 @@ public class EventManager : MonoBehaviour
     public event Action GoToBoard;
     public event Action<OrganismIdentifier> AddOrganismToBoardToReview;
     public event Action<OrganismIdentifier> RemoveOrganismFromBoardToReview;
-
+    public event Action GenericAction;
 
     public void OnTakePicture()
     {
@@ -78,5 +78,9 @@ public class EventManager : MonoBehaviour
 
     public void OnRemoveOrganismFromBoardToReview(OrganismIdentifier organism) { 
         RemoveOrganismFromBoardToReview?.Invoke(organism);
+    }
+
+    public void OnGenericAction() {
+        GenericAction?.Invoke();
     }
 }

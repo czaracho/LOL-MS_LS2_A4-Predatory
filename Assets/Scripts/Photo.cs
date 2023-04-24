@@ -20,10 +20,14 @@ public class Photo : MonoBehaviour
     public Vector3 startingPosition;
     [HideInInspector]
     public bool isOnBoardSlot = false;
-    [HideInInspector]
     public bool slotIsOccupied = false;
+    
+    public OrganismIdentifier photoSlotForReview; //This is for the review
 
-    public OrganismIdentifier photoOrganism;
+    private void Start() {
+        photoSlotForReview = new OrganismIdentifier();
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -34,11 +38,24 @@ public class Photo : MonoBehaviour
             Photo photoSlot = other.GetComponent<Photo>();            
 
             if (!photoSlot.slotIsOccupied) {
-                EventManager.instance.OnAddOrganismToBoardToReview(photoOrganism);
                 isOnBoardSlot = true;
-                photoSlot.slotIsOccupied = true;
-            }
 
+                Debug.Log("Antes de asignar");
+                Debug.Log("Intentamos asignar photoAnimalName: " + photoAnimalName);
+                Debug.Log("Intentamos asignar photoAnimalType: " + photoAnimalType);
+
+                id = photoSlot.id;
+                photoSlot.photoSlotForReview.animalName = photoAnimalName;
+                photoSlot.photoSlotForReview.animalType = photoAnimalType;
+                photoSlot.slotIsOccupied = true;
+
+                Debug.Log("Despues de asignar");
+                Debug.Log("photoSlot.photoSlotForReview.animalName: " + photoSlot.photoSlotForReview.animalName);
+                Debug.Log("photoSlot.photoSlotForReview.animalType: " + photoSlot.photoSlotForReview.animalType);
+                Debug.Log("the id of the other photoslot: " + photoSlot.id);
+                Debug.Log("Gameobject name: " + photoSlot.name);
+
+            }
         }
     }
 
@@ -47,32 +64,28 @@ public class Photo : MonoBehaviour
         if (!gameObject.CompareTag(GameStringConstants.photo)) return;
 
         if (other.gameObject.CompareTag(GameStringConstants.photoSlot))
-        {
+        { 
             Photo photoSlot = other.GetComponent<Photo>();
 
+            if (photoSlot.id != id) {
+                Debug.Log("Los ID no son iguales");
+                return;
+            }
+            else {
+                Debug.Log("Los ID SI son iguales");
+            }
+                
+
             if (photoSlot.slotIsOccupied) {
-                EventManager.instance.OnRemoveOrganismFromBoardToReview(photoOrganism);
-                isOnBoardSlot = true;
+                isOnBoardSlot = false;
+
+                photoSlot.photoSlotForReview.animalName = OrganismObject.AnimalName.typeGeneric;
+                photoSlot.photoSlotForReview.animalType = OrganismObject.AnimalType.typeGeneric;
                 photoSlot.slotIsOccupied = false;
+                id = 0;
             }
 
         }
-    }
-
-    public void initPhotoOrganism() {
-
-        Debug.Log("Before");
-        Debug.Log("photoAnimalName: " + photoAnimalName);
-        Debug.Log("photoAnimalNamee: " + photoAnimalName);
-
-        photoOrganism = new OrganismIdentifier();
-        photoOrganism.animalName = photoAnimalName;
-        photoOrganism.animalType = photoAnimalType;
-
-        Debug.Log("After");
-        Debug.Log("InitPhotoOrganism animalName: " + photoOrganism.animalName);
-        Debug.Log("InitPhotoOrganism animalType: " + photoOrganism.animalType);
-
     }
 
 }
