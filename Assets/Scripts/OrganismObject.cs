@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using LoLSDK;
 using SimpleJSON;
+using static OrganismObject;
 
-public class Organism : MonoBehaviour
+public class OrganismObject : MonoBehaviour
 {
     public enum AnimalName { 
         lion,
@@ -62,3 +63,21 @@ public class Organism : MonoBehaviour
         anim.SetBool("canMove", true);
     }
 }
+
+[System.Serializable]
+public class OrganismIdentifier{
+    public AnimalName animalName;
+    public AnimalType animalType;
+    public bool isChecked;
+}
+
+[System.Serializable]
+public class OrganismGroup {
+
+    [SerializeField] 
+    private string label;
+    public bool checkForType = true;
+    public bool checkedForReview = false;
+    public List<OrganismIdentifier> organisms;
+}
+

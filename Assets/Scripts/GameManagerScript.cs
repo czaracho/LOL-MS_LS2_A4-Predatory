@@ -23,7 +23,7 @@ public class GameManagerScript : MonoBehaviour
     [HideInInspector]
     public bool isCheckingObjectives = false;
 
-    public Organism[] organismsForObjectives;
+    public OrganismObject[] organismsForObjectives;
     public GameObject outerGate;
     public GameObject CatHeadSilhouette;
     public TextTrigger levelCompleteDialog;
@@ -73,7 +73,7 @@ public class GameManagerScript : MonoBehaviour
             {
                 Loader.photoCollection[i] = new Photo();
                 Loader.photoCollection[i].photoIsSaved = false;
-                Loader.photoCollection[i].animalName = Organism.AnimalName.typeGeneric;
+                Loader.photoCollection[i].photoAnimalName = OrganismObject.AnimalName.typeGeneric;
             }
         }
     }
@@ -99,7 +99,7 @@ public class GameManagerScript : MonoBehaviour
                     {
                         Debug.Log("checked for objectivename");
 
-                        if (organismsForObjectives[i].animalName == Loader.photoCollection[j].animalName)
+                        if (organismsForObjectives[i].animalName == Loader.photoCollection[j].photoAnimalName)
                         {
                             objectivesAccomplishedCounter++;
                             organismsForObjectives[i].checkedObjective = true;
@@ -113,9 +113,8 @@ public class GameManagerScript : MonoBehaviour
                         }
                     }
                     else {                        
-                        if (organismsForObjectives[i].animalType == Loader.photoCollection[j].animalType)
+                        if (organismsForObjectives[i].animalType == Loader.photoCollection[j].photoAnimalType)
                         {
-                            Debug.Log("give it a shot");
                             objectivesAccomplishedCounter++;
                             organismsForObjectives[i].checkedObjective = true;
 
@@ -134,7 +133,7 @@ public class GameManagerScript : MonoBehaviour
             }
 
             int uncheckedObjectiveCounter = 0;
-            List<Organism> organismList = new List<Organism>();
+            List<OrganismObject> organismList = new List<OrganismObject>();
 
             for (int i = 0; i < organismsForObjectives.Length; i++) {
 
@@ -156,7 +155,7 @@ public class GameManagerScript : MonoBehaviour
 
     }
 
-    public void ObjectivesUnaccomplished(List<Organism> organisms) {
+    public void ObjectivesUnaccomplished(List<OrganismObject> organisms) {
 
         levelNonCompletedDialog.TriggerTextAction();
     }

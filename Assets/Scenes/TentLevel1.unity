@@ -738,8 +738,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -747,6 +747,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &59786201
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1128,8 +1130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -1137,6 +1139,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &115027684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1905,8 +1909,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -1914,6 +1918,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &200551247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2030,8 +2036,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -2039,6 +2045,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &212679379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2783,8 +2791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -2792,6 +2800,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!1 &284191411
 GameObject:
   m_ObjectHideFlags: 0
@@ -2942,8 +2952,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -2951,6 +2961,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &293814662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3462,8 +3474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -3471,6 +3483,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &342345579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3720,9 +3734,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4e2c60a6929ab4092634f3845788ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  animalName: 0
-  animalType: 0
+  id: 12
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -3730,6 +3744,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!1 &357124594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3760,7 +3776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 5238138501977325316}
-  photoIsSelected: 0
+  canTouchPhotos: 1
   boardPhotosMain: {fileID: 883719546}
   boardPhotos:
   - {fileID: 0}
@@ -3780,6 +3796,27 @@ MonoBehaviour:
   - {fileID: 0}
   boardCamera: {fileID: 1856742073}
   initialBoardConversation: {fileID: 1646039038}
+  objectives:
+  - label: predator&prey
+    checkForType: 1
+    checkedForReview: 0
+    organisms:
+    - animalName: 0
+      animalType: 0
+      isChecked: 0
+    - animalName: 1
+      animalType: 1
+      isChecked: 0
+  - label: predator&prey2
+    checkForType: 1
+    checkedForReview: 0
+    organisms:
+    - animalName: 2
+      animalType: 0
+      isChecked: 0
+    - animalName: 4
+      animalType: 1
+      isChecked: 0
 --- !u!4 &357124596
 Transform:
   m_ObjectHideFlags: 0
@@ -3887,8 +3924,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -3896,6 +3933,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &358064843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4094,8 +4133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -4103,6 +4142,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &399679359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4162,8 +4203,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -4171,6 +4212,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &401585486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4632,8 +4675,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -4641,6 +4684,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!1 &466821692
 GameObject:
   m_ObjectHideFlags: 0
@@ -6923,8 +6968,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -6932,6 +6977,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &626935343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7291,8 +7338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -7300,6 +7347,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &641976591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7503,8 +7552,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -7512,6 +7561,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &648612289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7929,8 +7980,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -7938,6 +7989,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &713471684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8730,8 +8783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -8739,6 +8792,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &757637717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8893,8 +8948,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -8902,6 +8957,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &767122838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10380,8 +10437,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -10389,6 +10446,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &845442865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10716,8 +10775,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -10725,6 +10784,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &860994153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11697,8 +11758,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -11706,6 +11767,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &964625265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11830,8 +11893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -11839,6 +11902,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &985302932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12400,8 +12465,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -12409,6 +12474,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &1085981879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14405,8 +14472,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -14414,6 +14481,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!4 &1218517442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4442575122978218887, guid: 3cb27626bc98feb4bbaa109c26901348,
@@ -15635,7 +15704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1338446007
 Transform:
   m_ObjectHideFlags: 0
@@ -15693,8 +15762,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -15702,6 +15771,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!1 &1346456315
 GameObject:
   m_ObjectHideFlags: 0
@@ -16483,8 +16554,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -16492,6 +16563,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &1398010836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16759,8 +16832,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -16768,6 +16841,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &1435117360
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17392,7 +17467,7 @@ GameObject:
   - component: {fileID: 1457646564}
   - component: {fileID: 1457646563}
   m_Layer: 0
-  m_Name: ReviewBoard
+  m_Name: ReviewBoardButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17461,7 +17536,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1457646564}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 357124595}
+        m_TargetAssemblyTypeName: BoardController, Assembly-CSharp
+        m_MethodName: CheckBoardObjectives
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1457646564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18372,8 +18459,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -18381,6 +18468,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &1519763291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19408,8 +19497,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -19417,6 +19506,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &1624547788
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19476,8 +19567,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -19485,6 +19576,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &1630559149
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19888,7 +19981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1675653275
 Transform:
   m_ObjectHideFlags: 0
@@ -19946,8 +20039,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -19955,6 +20048,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!1001 &1689100148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20076,8 +20171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -20085,6 +20180,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &1693793064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20144,8 +20241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -20153,6 +20250,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &1695554960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20212,8 +20311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -20221,6 +20320,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &1696233182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20972,8 +21073,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -20981,6 +21082,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!114 &1817068631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21421,7 +21524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1857374423
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22043,9 +22146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4e2c60a6929ab4092634f3845788ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  animalName: 0
-  animalType: 0
+  id: 11
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -22053,6 +22156,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!1 &1912974406
 GameObject:
   m_ObjectHideFlags: 0
@@ -22961,8 +23066,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -22970,6 +23075,8 @@ MonoBehaviour:
   checkedForReview: 0
   startingPosition: {x: 0, y: 0, z: 0}
   isOnBoardSlot: 0
+  slotIsOccupied: 0
+  photoOrganism: {fileID: 0}
 --- !u!65 &1984704840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23992,7 +24099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2116061926}
   m_Layer: 0
-  m_Name: Parasitic
+  m_Name: PredatorAndPrey2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26019,7 +26126,7 @@ PrefabInstance:
     - target: {fileID: 731538311353358520, guid: 0f206e72561cd28428d6ce02b71a82e6,
         type: 3}
       propertyPath: organismsForObjectives.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 731538311353358520, guid: 0f206e72561cd28428d6ce02b71a82e6,
         type: 3}

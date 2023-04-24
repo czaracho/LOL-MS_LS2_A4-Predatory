@@ -35,8 +35,8 @@ public class SnapshotController : MonoBehaviour
     [SerializeField] private float range;
     private float originalRange;
 
-    private Organism targetedOrganism;
-    private Organism currentOrganism;
+    private OrganismObject targetedOrganism;
+    private OrganismObject currentOrganism;
 
 
     public FirstPersonController fpsController;
@@ -101,18 +101,18 @@ public class SnapshotController : MonoBehaviour
                 if (hit.transform.tag == "Animal")
                 {
                     
-                    Organism animal = hit.transform.gameObject.GetComponent<Organism>();
+                    OrganismObject animal = hit.transform.gameObject.GetComponent<OrganismObject>();
                     newPhoto.id = screenshotId;
-                    newPhoto.animalName = animal.animalName;
-                    newPhoto.animalType = animal.animalType;
+                    newPhoto.photoAnimalName = animal.animalName;
+                    newPhoto.photoAnimalType = animal.animalType;
                     newPhoto.infoId = animal.infoId;
                     newPhoto.picture = renderResult;
                 }
                 else
                 {
                     newPhoto.id = screenshotId;
-                    newPhoto.animalName = Organism.AnimalName.typeGeneric;
-                    newPhoto.animalType = Organism.AnimalType.typeGeneric;
+                    newPhoto.photoAnimalName = OrganismObject.AnimalName.typeGeneric;
+                    newPhoto.photoAnimalType = OrganismObject.AnimalType.typeGeneric;
                     newPhoto.infoId = "no_id";
                     newPhoto.picture = renderResult;
                 }
@@ -120,8 +120,8 @@ public class SnapshotController : MonoBehaviour
             }
             else {
                 newPhoto.id = screenshotId;
-                newPhoto.animalName = Organism.AnimalName.typeGeneric;
-                newPhoto.animalType = Organism.AnimalType.typeGeneric;
+                newPhoto.photoAnimalName = OrganismObject.AnimalName.typeGeneric;
+                newPhoto.photoAnimalType = OrganismObject.AnimalType.typeGeneric;
                 newPhoto.infoId = "no_id";
                 newPhoto.picture = renderResult;
             }
@@ -168,14 +168,14 @@ public class SnapshotController : MonoBehaviour
                 {
                     Debug.Log("Encontramos al anteloper");
                     currentOrganism = targetedOrganism;
-                    targetedOrganism = hit.transform.gameObject.GetComponent<Organism>();
+                    targetedOrganism = hit.transform.gameObject.GetComponent<OrganismObject>();
                     targetedOrganism.organismNameUI.transform.gameObject.SetActive(true);
                 }
                 else if (targetedOrganism != null && !viewingPhoto ) {
                     //if the ray didn't exit a collider but checks another kind of animal
                     if (currentOrganism != targetedOrganism) {
                         targetedOrganism.organismNameUI.transform.gameObject.SetActive(false);
-                        targetedOrganism = hit.transform.gameObject.GetComponent<Organism>();
+                        targetedOrganism = hit.transform.gameObject.GetComponent<OrganismObject>();
                         targetedOrganism.organismNameUI.transform.gameObject.SetActive(true);
                     }
                 }

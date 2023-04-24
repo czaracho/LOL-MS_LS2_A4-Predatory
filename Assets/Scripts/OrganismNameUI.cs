@@ -13,7 +13,7 @@ public class OrganismNameUI : MonoBehaviour
     private TextMeshProUGUI animalNameTxt;
     public GameObject animal;
     [HideInInspector]
-    public Organism organism;
+    public OrganismObject organism;
 
 
 

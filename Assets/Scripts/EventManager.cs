@@ -28,6 +28,8 @@ public class EventManager : MonoBehaviour
     public event Action<bool> ShowAnimalNames;
     public event Action StartBoardInitialConversation;
     public event Action GoToBoard;
+    public event Action<OrganismIdentifier> AddOrganismToBoardToReview;
+    public event Action<OrganismIdentifier> RemoveOrganismFromBoardToReview;
 
 
     public void OnTakePicture()
@@ -68,5 +70,13 @@ public class EventManager : MonoBehaviour
 
     public void OnGoToBoard() {
         GoToBoard?.Invoke();
+    }
+
+    public void OnAddOrganismToBoardToReview(OrganismIdentifier organism) { 
+        AddOrganismToBoardToReview?.Invoke(organism);
+    }
+
+    public void OnRemoveOrganismFromBoardToReview(OrganismIdentifier organism) { 
+        RemoveOrganismFromBoardToReview?.Invoke(organism);
     }
 }

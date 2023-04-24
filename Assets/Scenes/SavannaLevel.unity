@@ -858,7 +858,7 @@ PrefabInstance:
     - target: {fileID: 2987567821152858867, guid: 5c33e5c02c873e74aa449a647ae5ace0,
         type: 3}
       propertyPath: infoId
-      value: info_lion
+      value: info_hyena
       objectReference: {fileID: 0}
     - target: {fileID: 2987567821152858867, guid: 5c33e5c02c873e74aa449a647ae5ace0,
         type: 3}
@@ -6535,13 +6535,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 10
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &212679379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9050,13 +9053,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 14
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &293814662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11179,13 +11185,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 0
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &358064843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11439,7 +11448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010334547904, guid: 897748ef7426948a08136a99b691cd4d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -101.1772
+      value: -96.68
       objectReference: {fileID: 0}
     - target: {fileID: 4000010334547904, guid: 897748ef7426948a08136a99b691cd4d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19714,13 +19723,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 11
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &626935343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20415,13 +20427,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 6
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &641976591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20789,13 +20804,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 2
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &648612289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22458,13 +22476,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 7
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &713471684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24318,13 +24339,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 5
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &767122838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27802,13 +27826,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 3
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &845442865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28559,13 +28586,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 8
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &860994153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32393,13 +32423,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 12
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &964625265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35553,13 +35586,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 1
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &1085981879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45624,13 +45660,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 9
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &1398010836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50202,13 +50241,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 4
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &1519763291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58782,13 +58824,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  animalName: 0
-  animalType: 0
+  photoAnimalName: 0
+  photoAnimalType: 0
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
   indexPhoto: 13
   checkedForReview: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  isOnBoardSlot: 0
+  slotIsOccupied: 0
 --- !u!114 &1817068631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64688,7 +64733,7 @@ PrefabInstance:
     - target: {fileID: 8242982223577432134, guid: b3c0533656e080449a9cb1f5f0984f97,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -100.7872
+      value: -96.16
       objectReference: {fileID: 0}
     - target: {fileID: 8242982223577432134, guid: b3c0533656e080449a9cb1f5f0984f97,
         type: 3}

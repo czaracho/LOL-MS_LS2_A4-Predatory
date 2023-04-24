@@ -5,8 +5,8 @@ using UnityEngine;
 public class Photo : MonoBehaviour
 {
     public int id;              //id of the photo
-    public Organism.AnimalName animalName;   //lion, etc
-    public Organism.AnimalType animalType;   //predator etc
+    public OrganismObject.AnimalName photoAnimalName;   //lion, etc
+    public OrganismObject.AnimalType photoAnimalType;   //predator etc
     [HideInInspector]
     public string infoId;       //id of the info
     public Texture2D picture;   //picture of the animal
@@ -23,27 +23,61 @@ public class Photo : MonoBehaviour
     [HideInInspector]
     public bool slotIsOccupied = false;
 
+    public OrganismIdentifier photoOrganism;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!gameObject.CompareTag("Photo")) return;
+        if (!gameObject.CompareTag(GameStringConstants.photo)) return;
 
-        if (other.gameObject.CompareTag("PhotoSlot") && !other.gameObject.GetComponent<Photo>().slotIsOccupied)
+        if (other.gameObject.CompareTag(GameStringConstants.photoSlot))
         {
-            isOnBoardSlot = true;
-            other.gameObject.GetComponent<Photo>().slotIsOccupied = false;
+            Photo photoSlot = other.GetComponent<Photo>();            
+
+            if (!photoSlot.slotIsOccupied) {
+                EventManager.instance.OnAddOrganismToBoardToReview(photoOrganism);
+                isOnBoardSlot = true;
+                photoSlot.slotIsOccupied = true;
+            }
+
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!gameObject.CompareTag("Photo")) return;
+        if (!gameObject.CompareTag(GameStringConstants.photo)) return;
 
-        if (other.gameObject.CompareTag("PhotoSlot") && other.gameObject.GetComponent<Photo>().slotIsOccupied)
+        if (other.gameObject.CompareTag(GameStringConstants.photoSlot))
         {
-            isOnBoardSlot = false;
-            other.gameObject.GetComponent<Photo>().slotIsOccupied = false;
+            Photo photoSlot = other.GetComponent<Photo>();
+
+            if (photoSlot.slotIsOccupied) {
+                EventManager.instance.OnRemoveOrganismFromBoardToReview(photoOrganism);
+                isOnBoardSlot = true;
+                photoSlot.slotIsOccupied = false;
+            }
+
         }
     }
 
+    public void initPhotoOrganism() {
+
+        Debug.Log("Before");
+        Debug.Log("photoAnimalName: " + photoAnimalName);
+        Debug.Log("photoAnimalNamee: " + photoAnimalName);
+
+        photoOrganism = new OrganismIdentifier();
+        photoOrganism.animalName = photoAnimalName;
+        photoOrganism.animalType = photoAnimalType;
+
+        Debug.Log("After");
+        Debug.Log("InitPhotoOrganism animalName: " + photoOrganism.animalName);
+        Debug.Log("InitPhotoOrganism animalType: " + photoOrganism.animalType);
+
+    }
+
+}
+
+[System.Serializable]
+public class PhotoGroup {
+    public List<Photo> photos;
 }

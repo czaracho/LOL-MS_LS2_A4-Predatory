@@ -38,7 +38,7 @@ public class Album : MonoBehaviour
         }
 
         emptyPhoto = new Photo();
-        emptyPhoto.animalName = Organism.AnimalName.typeGeneric;
+        emptyPhoto.photoAnimalName = OrganismObject.AnimalName.typeGeneric;
         emptyPhoto.checkedForReview = false;
         emptyPhoto.indexPhoto = 0;
         emptyPhoto.picture = null;
@@ -58,8 +58,8 @@ public class Album : MonoBehaviour
         {
             if (!Loader.photoCollection[i].photoIsSaved)
             {
-                Loader.photoCollection[i].animalName = SnapshotController.newPhoto.animalName;
-                Loader.photoCollection[i].animalType = SnapshotController.newPhoto.animalType;
+                Loader.photoCollection[i].photoAnimalName = SnapshotController.newPhoto.photoAnimalName;
+                Loader.photoCollection[i].photoAnimalType = SnapshotController.newPhoto.photoAnimalType;
                 Loader.photoCollection[i].picture = SnapshotController.newPhoto.picture;
                 Loader.photoCollection[i].infoId = SnapshotController.newPhoto.infoId;
                 Loader.photoCollection[i].photoIsSaved = true;
@@ -101,9 +101,9 @@ public class Album : MonoBehaviour
             //Sprite photoSprite = Sprite.Create(Loader.photoCollection[indexOfPhoto].picture, new Rect(0.0f, 0.0f, Loader.photoCollection[indexOfPhoto].picture.width, Loader.photoCollection[indexOfPhoto].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
             photoAlbumViewer.gameObject.GetComponent<Image>().sprite = photoAlbumImage[indexOfPhoto].sprite;
 
-            Debug.Log("Current animal type: " + Loader.photoCollection[indexOfPhoto].animalType);
+            Debug.Log("Current animal type: " + Loader.photoCollection[indexOfPhoto].photoAnimalType);
 
-            if (Loader.photoCollection[indexOfPhoto].animalType!= Organism.AnimalType.typeGeneric) {
+            if (Loader.photoCollection[indexOfPhoto].photoAnimalType!= OrganismObject.AnimalType.typeGeneric) {
                 infoButton.SetActive(true);
             }
             else
@@ -119,7 +119,7 @@ public class Album : MonoBehaviour
     {
         SnapshotController.photosTakenQuantity--;
         Loader.photoCollection[selectedPhotoIndex] = new Photo();
-        Loader.photoCollection[selectedPhotoIndex].animalName = Organism.AnimalName.typeGeneric;
+        Loader.photoCollection[selectedPhotoIndex].photoAnimalName = OrganismObject.AnimalName.typeGeneric;
         Loader.photoCollection[selectedPhotoIndex].checkedForReview = false;
         Loader.photoCollection[selectedPhotoIndex].indexPhoto = selectedPhotoIndex;
         Loader.photoCollection[selectedPhotoIndex].picture = null;
