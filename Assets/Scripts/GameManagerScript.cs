@@ -9,8 +9,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using static Delegates;
 
-public class GameManagerScript : MonoBehaviour
-{
+public class GameManagerScript : MonoBehaviour {
     //vamos a poner todo lo relacionado a los objetivos
     int objectivesAccomplishedCounter = 0;
     public bool checkForObjectiveName = true;
@@ -23,9 +22,9 @@ public class GameManagerScript : MonoBehaviour
     [HideInInspector]
     public bool isCheckingObjectives = false;
 
-    public OrganismObject[] organismsForObjectives;
+    //public OrganismObject[] organismsForObjectivesOld;
     public GameObject outerGate;
-    public GameObject CatHeadSilhouette;
+    public GameObject catHeadSilouette;
     public TextTrigger levelCompleteDialog;
     public TextTrigger levelNonCompletedDialog;
 
@@ -35,6 +34,8 @@ public class GameManagerScript : MonoBehaviour
 
     public GameObject player;
     public Transform playerStartingPosition;
+
+    public OrganismIdentifier[] objectivesOrganisms;
 
 
     public enum GameAction
@@ -66,17 +67,19 @@ public class GameManagerScript : MonoBehaviour
 
     private void Start()
     {
+        catHeadSilouette.SetActive(true);
+        RemoveBlackCatSilhouetteForeground(null);
+
         if (isNormalLevel) {
-            
+
             Loader.photoCollection = new Photo[Constants.TOTAL_PHOTO_SLOTS];
 
-            for (int i = 0; i < Loader.photoCollection.Length; i++)
-            {
+            for (int i = 0; i < Loader.photoCollection.Length; i++) {
                 Loader.photoCollection[i] = new Photo();
                 Loader.photoCollection[i].photoIsSaved = false;
                 Loader.photoCollection[i].photoAnimalName = OrganismObject.AnimalName.typeGeneric;
             }
-        }
+        }        
     }
 
     private void Update()
@@ -87,68 +90,114 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
+    //public void checkObjectives() {
+
+    //    objectivesAccomplishedCounter = 0;
+
+    //    if (!objectivesAccomplished) {
+    //        for (int i = 0; i < organismsForObjectivesOld.Length; i++)
+    //        {
+    //            for (int j = 0; j < Loader.photoCollection.Length; j++)
+    //            {
+    //                if (checkForObjectiveName)
+    //                {
+    //                    Debug.Log("checked for objectivename");
+
+    //                    if (organismsForObjectivesOld[i].animalName == Loader.photoCollection[j].photoAnimalName)
+    //                    {
+    //                        objectivesAccomplishedCounter++;
+    //                        organismsForObjectivesOld[i].checkedObjective = true;
+
+    //                        if (objectivesAccomplishedCounter == organismsForObjectivesOld.Length)
+    //                        {
+    //                            objectivesAccomplished = true;
+    //                            ObjectivesAccomplished();
+    //                            return;
+    //                        }
+    //                    }
+    //                }
+    //                else {                        
+    //                    if (organismsForObjectivesOld[i].animalType == Loader.photoCollection[j].photoAnimalType)
+    //                    {
+    //                        objectivesAccomplishedCounter++;
+    //                        organismsForObjectivesOld[i].checkedObjective = true;
+
+    //                        if (objectivesAccomplishedCounter == organismsForObjectivesOld.Length)
+    //                        {
+    //                            Debug.Log("objectivesAccomplishedCounter: " + objectivesAccomplishedCounter);
+    //                            Debug.Log("organismsForObjectives: " + organismsForObjectivesOld.Length);
+    //                            objectivesAccomplished = true;
+    //                            ObjectivesAccomplished();
+    //                            return;
+    //                        }
+    //                    }
+    //                }
+
+    //            }
+    //        }
+
+    //        int uncheckedObjectiveCounter = 0;
+    //        List<OrganismObject> organismList = new List<OrganismObject>();
+
+    //        for (int i = 0; i < organismsForObjectivesOld.Length; i++) {
+
+    //            if (!organismsForObjectivesOld[i].checkedObjective) {
+    //                organismList.Add(organismsForObjectivesOld[i]);
+    //                uncheckedObjectiveCounter++;
+    //            }
+
+    //            organismsForObjectivesOld[i].checkedObjective = false;
+    //        }
+
+    //        ObjectivesUnaccomplished(organismList);
+    //    }
+    //}    
+
     public void checkObjectives() {
 
         objectivesAccomplishedCounter = 0;
 
-        if (!objectivesAccomplished) {
-            for (int i = 0; i < organismsForObjectives.Length; i++)
-            {
-                for (int j = 0; j < Loader.photoCollection.Length; j++)
-                {
-                    if (checkForObjectiveName)
-                    {
-                        Debug.Log("checked for objectivename");
+        for (int i = 0; i < objectivesOrganisms.Length; i++) {
+            for (int j = 0; j < Loader.photoCollection.Length; j++) {
 
-                        if (organismsForObjectives[i].animalName == Loader.photoCollection[j].photoAnimalName)
-                        {
-                            objectivesAccomplishedCounter++;
-                            organismsForObjectives[i].checkedObjective = true;
+                if (objectivesOrganisms[i].isChecked)
+                    continue;
 
-                            if (objectivesAccomplishedCounter == organismsForObjectives.Length)
-                            {
-                                objectivesAccomplished = true;
-                                ObjectivesAccomplished();
-                                return;
-                            }
+                if (objectivesOrganisms[i].checkByName) {
+
+                    if (objectivesOrganisms[i].animalName == Loader.photoCollection[j].photoAnimalName) {
+
+                        objectivesAccomplishedCounter++;
+                        objectivesOrganisms[i].isChecked = true;
+
+                        if (objectivesAccomplishedCounter == objectivesOrganisms.Length) {
+                            objectivesAccomplished = true;
+                            ObjectivesAccomplished();
+                            return;
                         }
                     }
-                    else {                        
-                        if (organismsForObjectives[i].animalType == Loader.photoCollection[j].photoAnimalType)
-                        {
-                            objectivesAccomplishedCounter++;
-                            organismsForObjectives[i].checkedObjective = true;
+                }
+                else {
 
-                            if (objectivesAccomplishedCounter == organismsForObjectives.Length)
-                            {
-                                Debug.Log("objectivesAccomplishedCounter: " + objectivesAccomplishedCounter);
-                                Debug.Log("organismsForObjectives: " + organismsForObjectives.Length);
-                                objectivesAccomplished = true;
-                                ObjectivesAccomplished();
-                                return;
-                            }
+                    if (objectivesOrganisms[i].animalType == Loader.photoCollection[j].photoAnimalType) {
+
+                        objectivesAccomplishedCounter++;
+                        objectivesOrganisms[i].isChecked = true;
+
+                        if (objectivesAccomplishedCounter == objectivesOrganisms.Length) {
+                            objectivesAccomplished = true;
+                            ObjectivesAccomplished();
+                            return;
                         }
                     }
-
-                }
-            }
-
-            int uncheckedObjectiveCounter = 0;
-            List<OrganismObject> organismList = new List<OrganismObject>();
-
-            for (int i = 0; i < organismsForObjectives.Length; i++) {
-
-                if (!organismsForObjectives[i].checkedObjective) {
-                    organismList.Add(organismsForObjectives[i]);
-                    uncheckedObjectiveCounter++;
                 }
 
-                organismsForObjectives[i].checkedObjective = false;
             }
-
-            ObjectivesUnaccomplished(organismList);
         }
-    }    
+
+
+        ObjectivesUnaccomplished();
+    }
 
     public void ObjectivesAccomplished() {
 
@@ -156,13 +205,25 @@ public class GameManagerScript : MonoBehaviour
 
     }
 
-    public void ObjectivesUnaccomplished(List<OrganismObject> organisms) {
+    //public void ObjectivesUnaccomplished(List<OrganismObject> organisms) {
 
+    //    levelNonCompletedDialog.TriggerTextAction();
+    //}
+
+    public void ObjectivesUnaccomplished() {
+
+        ResetPhotoCheckedStatus();
         levelNonCompletedDialog.TriggerTextAction();
     }
 
     public void SetGameAction(GameAction newGameAction) {
         gameAction = newGameAction;
+    }
+
+    private void ResetPhotoCheckedStatus() {
+        for (int i = 0; i < objectivesOrganisms.Length; i++) { 
+            objectivesOrganisms[i].isChecked = false;
+        }
     }
 
     public void OpenGate() {
@@ -177,12 +238,12 @@ public class GameManagerScript : MonoBehaviour
     public void SetBlackCatSilhouetteForeground(NewActionVoidDelegate newActionVoidDelegate)
     {
         Sequence mySequence = DOTween.Sequence();
-        mySequence.Append(CatHeadSilhouette.transform.DOScale(new Vector3(6f, 6f, 1), Constants.SET_DURATION)).OnComplete(() => { newActionVoidDelegate();});
+        mySequence.Append(catHeadSilouette.transform.DOScale(new Vector3(6f, 6f, 1), Constants.SET_DURATION)).OnComplete(() => { newActionVoidDelegate();});
     }
 
     public void RemoveBlackCatSilhouetteForeground(NewActionVoidDelegate newActionVoidDelegate) {
         Sequence mySequence = DOTween.Sequence();
-        mySequence.Append(CatHeadSilhouette.transform.DOScale(new Vector3(0, 0, 0), Constants.REMOVE_DURATION)).OnComplete(()=> { newActionVoidDelegate();});
+        mySequence.Append(catHeadSilouette.transform.DOScale(new Vector3(0, 0, 0), Constants.REMOVE_DURATION)).OnComplete(()=> { newActionVoidDelegate();});
     }
 
     public void MovePlayerAwayFromNPC() {

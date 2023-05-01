@@ -60,43 +60,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animalName: 6
   animalType: 1
+  organismNameUIPrefab: {fileID: 0}
   organismNameUI: {fileID: 0}
   nameId: name_rhinoceros
-  infoId: info_rhinoceros
+  infoId: info_rhino
   checkedObjective: 0
   anim: {fileID: 8275795108885022987}
---- !u!65 &8275795108885022988
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9086274052633195609}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.542122, y: 5.901963, z: 8.381241}
-  m_Center: {x: -0.097748786, y: 2.4509826, z: -0.042793382}
---- !u!95 &8275795108885022987
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9086274052633195609}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d50c626d2e458845ba023e5b176ee8d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  animalNameCanvas: {fileID: 0}
+  polaroidCamera: {fileID: 0}
+  isForMainMenu: 0
 --- !u!1001 &8275795108885022984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,3 +165,35 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8275795108885022984}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &8275795108885022988
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9086274052633195609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.542122, y: 5.901963, z: 8.381241}
+  m_Center: {x: -0.097748786, y: 2.4509826, z: -0.042793382}
+--- !u!95 &8275795108885022987
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9086274052633195609}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d50c626d2e458845ba023e5b176ee8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

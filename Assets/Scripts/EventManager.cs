@@ -31,6 +31,7 @@ public class EventManager : MonoBehaviour
     public event Action<OrganismIdentifier> AddOrganismToBoardToReview;
     public event Action<OrganismIdentifier> RemoveOrganismFromBoardToReview;
     public event Action GenericAction;
+    public event Action ResetNPCFirstDialogue;
 
     public void OnTakePicture()
     {
@@ -82,5 +83,9 @@ public class EventManager : MonoBehaviour
 
     public void OnGenericAction() {
         GenericAction?.Invoke();
+    }
+
+    public void OnResetNPCFirstDialogue() { 
+        ResetNPCFirstDialogue?.Invoke();
     }
 }

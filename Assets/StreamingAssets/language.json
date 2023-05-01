@@ -14,6 +14,8 @@
 	  "ldline_2":"Once you have all the pictures, come to me to review them",
 	  "ldline_3":"You can also use your phone and I'll pick you if you don't want to walk all the way here",
 	  "ldline_4":"So please, go for a walk and and take the pictures we need",
+	  "ldline_4_1":"You can take as many photos of the animals as you want, but careful to not fill your album too quickly!",
+	  "ldline_4_2":"If you fill your album, you can always delete the photos with the delete button inside of it",
       "ldline_5":"Hey, did you got all the photos?",
 	  "ldline_6":"Alright, let me see...",
 	  "ldline_7":"Hey Pebbles, it's time fill the board with the pictures you took",
@@ -33,29 +35,51 @@
 	  "types": "types",
 	  "yes": "yes",
 	  "no": "no",
-	  "savanna_objective_1": "hyena\n",
-	  "savanna_objective_2": "lion\n",
-	  "savanna_objective_3": "antelope\n",
+	  "savanna_objective_1": " 2 types of predator animals\n",
+	  "savanna_objective_2": " 2 types of prey animals\n",
+	  "savanna_objective_3": " 2 animals in a mutualism type relationship\n",
 	  "tent1":"",
-	  "info_lion": "The world's most social felines, lions roam the savannas and grasslands of the African continent, hunting cooperatively and raising cubs in prides. "
-	  "Prime habitat for lions is open woodlands, thick grassland, and brush habitat, where there is enough cover for hunting and denning. " 
-	  "These areas of grassland habitat also provide food for the herbivores that lions prey upon. "
-	  "Lions hunt antelope and other ungulates, baby elephants or rhinos, rodents, reptiles, insects, and even crocodiles. " 
-	  "They also scavenge or steal prey from leopards, cheetahs, hyenas, or African hunting dogs (also called painted dogs), even eating food that has spoiled. " 
-	  "Lions digest their food quickly, which allows them to return soon for a second helping after gorging themselves the first time. ",
+	  "info_lion": "Lions are the world's most social felines that roam the African savannas and grasslands, hunting cooperatively and raising cubs in prides. Their prime habitat" 
+	  "is open woodlands, thick grasslands, and brush areas, providing enough cover for hunting and denning. These grassland habitats also offer food for the herbivores that lions "
+	  "prey upon. Lions hunt antelope, ungulates, rodents, reptiles, insects, and even crocodiles. They also scavenge or steal prey from other predators like leopards, cheetahs, hyenas, "
+	  "or African hunting dogs. Lions digest their food quickly, allowing them to return soon for a second helping after gorging themselves the first time.",
+	  "info_buffalo": "The African buffalo, also known as the Cape buffalo, is a large herbivorous mammal found in sub-Saharan Africa. They are known for their tough hide and massive "
+	  "horns, which they use for defense against predators. African buffalo are social animals that live in large herds and feed on a variety of grasses, leaves, and other vegetation."
+	  "African buffalo are primarily grazers and require a diet rich in protein and other nutrients to maintain their strength and vitality.",
 	  "name_buffalo": "buffalo",
+	  "info_hyena": "The African hyena is a carnivorous mammal found in various parts of Africa. They are known for their unique physical characteristics, including a sloping back, powerful" 
+	  "jaws, and keen sense of smell. African hyenas are social animals that live in groups called clans and are primarily nocturnal hunters, although they also scavenge for food."
+	  "As carnivores, African hyenas have a diet that consists mainly of meat. They are opportunistic hunters that prey on a variety of animals, including antelopes, zebras, and wildebeests,"
+	  " as well as smaller mammals like rodents and birds. Hyenas are also scavengers that feed on carrion and will eat just about any animal that has died, including those killed by other predators.",
 	  "name_antelope": "antelope",
-	  "info_antelope": "Antelopes are fascinating animals that live in Africa and parts of Asia. They are known for their amazing speed, agility, and long, slender legs. With their large, beautiful eyes and unique horns, antelopes are truly a sight to see!?"
-		"These graceful creatures are herbivores, which means they eat plants like grass and leaves. Antelopes are social animals and often gather in groups called herds to stay safe from predators like lions and hyenas."
-		"There are many different types of antelopes, and they come in various shapes, sizes, and colors. Some, like the tiny dik-dik, are as small as a house cat, while others, like the large eland, can weigh over a thousand pounds! No matter their size, antelopes are known for their impressive leaping and running abilities, making them some of the most athletic animals in the wild.",
+	  "info_antelope": "Antelopes are fascinating animals that live in Africa and parts of Asia. They have long, slender legs and unique horns, making them a sight to see!" 
+		"Antelopes are herbivores and often gather in groups called herds to stay safe from predators like lions and hyenas. There are many different types of antelopes," 
+		"ranging in size from the small dik-dik to the large eland, but all are known for their impressive leaping and running abilities.",
 	  "name_lion": "lion",
 	  "name_rhinoceros": "rhinoceros",
+	  "info_rhino": "The rhinoceros, also known as rhino, is a large herbivorous mammal found in Africa and Asia. They are known for their distinctive horns and tough, armored skin, "
+	  "which provide protection against predators. Rhinos are social animals that can live in groups, although they are often solitary creatures."
+	  " As herbivores, rhinos have a diet that consists mainly of plants, such as grasses, leaves, and fruits. They have a unique digestive system that allows them to extract"
+	  " the maximum amount of nutrients from their food. Rhinos also play an important role in their ecosystems by grazing on vegetation and helping to maintain the balance of plant populations.",
 	  "name_pecker": "oxpecker",
+	  "info_pecker": "The oxpecker, also known as the tickbird, is a bird found in parts of Africa. They are known for their unique symbiotic relationship with large mammals such as rhinos, "
+	  "giraffes, and zebras. Oxpeckers feed on the ticks, lice, and other parasites that infest the skin and fur of these animals, providing them with a valuable service by keeping them free of pests."
+	  "Oxpeckers have a specialized beak that allows them to easily pick and remove parasites from the skin and fur of their hosts. They also consume earwax and other secretions from their hosts, "
+	  "which provides them with additional nutrients. This relationship is beneficial to both the oxpecker and the host animal, as it helps prevent the spread of diseases and improves the overall"
+	  " health of the animal.",
+	  "Oxpeckers are important birds in their ecosystems, as they help maintain the health of large mammals and play a vital role in controlling tick populations. However, they are also threatened "
+	  "by habitat loss and other factors, and conservation efforts are needed to ensure their survival in the wild.",
 	  "name_hyena": "hyena",
 	  "name_frog": "frog",
 	  "predator_prey1": "Predator-prey relations refer to the interactions between two species where one species is the hunted food source for the other",
 	  "predator_prey2": "The organism that feeds is called the predator and the organism that is fed upon is the prey",
 	  "ldline_board_success":"Nice! You got everything right!",
-	  "ldline_board_next":"Good, now let's see the next board"
+	  "prey_predator_info1":"In the savanna ecosystem, predator-prey relationships help maintain balance by controlling population sizes. For example, lions and hyenas are predators that hunt antelopes or buffalos for food.",
+	  "prey_predator_info3":"As predators hunt and consume antelopes or other prey, they naturally limit the prey population.",
+	  "prey_predator_info4":"This keeps the ecosystem in balance, as an unchecked antelope or buffalo population could lead to overgrazing and depletion of resources, harming other species in the process.",
+	  "prey_predator_info5":"By preying on antelopes or other prey, lions and hyenas help to maintain a healthy and balanced ecosystem.",
+	  "ldline_board_next":"Good, now let's see the next board",	  
+	  "laptop_computer":"laptop",
+	  "info_laptop": "A common laptop computer"
    }
 }

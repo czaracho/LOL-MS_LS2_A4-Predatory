@@ -17,13 +17,15 @@ public class OrganismObject : MonoBehaviour
         rhino,
         pecker,
         frog,
-        typeGeneric
+        typeGeneric,
+        laptop
     }
 
     public enum AnimalType { 
         predator,
         prey,
         plant,
+        parasite,
         typeGeneric
     }
     
@@ -40,20 +42,25 @@ public class OrganismObject : MonoBehaviour
     public GameObject animalNameCanvas;
     public Camera polaroidCamera;
     JSONNode _lang;
+    public bool isForMainMenu = false;
 
 
 
     private void Start()
     {
+        if (anim != null) {
+            StartCoroutine(WaitForAnimationStart());
+        }
+
+        if (isForMainMenu) {
+            return;
+        }
+
         _lang = SharedState.LanguageDefs;
         string animalName = _lang[nameId];
 
         organismNameUI = Instantiate(organismNameUIPrefab, animalNameCanvas.transform).GetComponent<OrganismNameUI>();
         organismNameUI.InitilizeAnimalName(animalName, polaroidCamera, this.transform.gameObject);
-
-        if (anim != null) {
-            StartCoroutine(WaitForAnimationStart());
-        }
     }
 
     IEnumerator WaitForAnimationStart() {
@@ -68,6 +75,8 @@ public class OrganismObject : MonoBehaviour
 public class OrganismIdentifier{
     public AnimalName animalName;
     public AnimalType animalType;
+    public bool checkByName = false;
+    [SerializeField]
     public bool isChecked;
 }
 

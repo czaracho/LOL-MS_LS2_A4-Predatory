@@ -23,11 +23,22 @@ public class ManagerNpcUI : MonoBehaviour
     
     public TextTrigger[] dialogTrigger;
 
+    private void Awake() {
+        EventManager.instance.ResetNPCFirstDialogue += ResetDialogTrigger;
+    }
+
+    private void OnDestroy() {
+        EventManager.instance.ResetNPCFirstDialogue -= ResetDialogTrigger;
+    }
+
     private void Start()
     {
         exclamationSign = Instantiate(exclamationSignPrefab, npcCanvas.transform).GetComponent<Image>();
         interactionBgSign = Instantiate(interactionSignPrefab, npcCanvas.transform).GetComponent<Image>();
+        exclamationSign.gameObject.SetActive(false);
         interactionBgSign.gameObject.SetActive(false);
+
+        StartCoroutine(waitToShowExclamationSign());
     }
 
     private void Update()
@@ -84,5 +95,15 @@ public class ManagerNpcUI : MonoBehaviour
         dist = Mathf.Clamp(dist, 0.5f, 0.75f);
         exclamationSign.transform.localScale = new Vector3(dist, dist,0);
         interactionBgSign.transform.localScale = new Vector3(dist, dist, 0);
+    }
+
+    private IEnumerator waitToShowExclamationSign() {
+                
+        yield return new WaitForSeconds(1.5f);
+        exclamationSign.gameObject.SetActive(true); 
+    }
+
+    public void ResetDialogTrigger() {
+        dialogTrigger = null;
     }
 }

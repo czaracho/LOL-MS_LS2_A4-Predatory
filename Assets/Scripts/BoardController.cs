@@ -22,15 +22,15 @@ public class BoardController : MonoBehaviour
 
     public BoardReviewObject[] boardsForReview;
 
+    public Transform checkedPhotosLocation;
+
     private void Awake()
     {
-        //EventManager.instance.StartBoardInitialConversation += StartBoardInitialConversation;
         EventManager.instance.GenericAction += ShowNextBoard;
     }
 
     private void OnDestroy()
     {
-        //EventManager.instance.StartBoardInitialConversation -= StartBoardInitialConversation;
         EventManager.instance.GenericAction -= ShowNextBoard;
     }
 
@@ -119,6 +119,18 @@ public class BoardController : MonoBehaviour
 
     }
 
+    private void HideCheckedPhotos() {
+
+        foreach (var photo in boardPhotos) {
+
+            if (photo.checkedForReview) {
+                photo.transform.position = checkedPhotosLocation.position;
+                photo.gameObject.SetActive(false);
+            }
+
+        }
+    }
+
 
     public void ReviewBoards() {
 
@@ -138,8 +150,22 @@ public class BoardController : MonoBehaviour
     }
 
     public void ShowNextBoard() {
+        
         Debug.Log("We show the next board. First review successful");
-    }
+        HideCheckedPhotos();
 
+        foreach (var board in boardsForReview) {
+
+            if (board.checkedForObjectivesReview) {
+                board.gameObject.SetActive(false);
+            }
+            else {
+                board.gameObject.SetActive(true);
+                return;
+            }                
+
+        }
+
+    }
 
 }

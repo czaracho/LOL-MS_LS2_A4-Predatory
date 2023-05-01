@@ -29,31 +29,21 @@ public class Photo : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
+    private void OnTriggerEnter(Collider other) {
+
         if (!gameObject.CompareTag(GameStringConstants.photo)) return;
 
-        if (other.gameObject.CompareTag(GameStringConstants.photoSlot))
-        {
-            Photo photoSlot = other.GetComponent<Photo>();            
+        if (other.gameObject.CompareTag(GameStringConstants.photoSlot)) {
+
+            Photo photoSlot = other.GetComponent<Photo>();
 
             if (!photoSlot.slotIsOccupied) {
                 isOnBoardSlot = true;
-
-                Debug.Log("Antes de asignar");
-                Debug.Log("Intentamos asignar photoAnimalName: " + photoAnimalName);
-                Debug.Log("Intentamos asignar photoAnimalType: " + photoAnimalType);
-
-                id = photoSlot.id;
+                checkedForReview = true;
+                photoSlot.id = id;
                 photoSlot.photoSlotForReview.animalName = photoAnimalName;
                 photoSlot.photoSlotForReview.animalType = photoAnimalType;
                 photoSlot.slotIsOccupied = true;
-
-                Debug.Log("Despues de asignar");
-                Debug.Log("photoSlot.photoSlotForReview.animalName: " + photoSlot.photoSlotForReview.animalName);
-                Debug.Log("photoSlot.photoSlotForReview.animalType: " + photoSlot.photoSlotForReview.animalType);
-                Debug.Log("the id of the other photoslot: " + photoSlot.id);
-                Debug.Log("Gameobject name: " + photoSlot.name);
 
             }
         }
@@ -61,13 +51,13 @@ public class Photo : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (!gameObject.CompareTag(GameStringConstants.photo)) return;
+        if (!gameObject.CompareTag(GameStringConstants.photoSlot)) return;
 
-        if (other.gameObject.CompareTag(GameStringConstants.photoSlot))
-        { 
-            Photo photoSlot = other.GetComponent<Photo>();
+        if (other.gameObject.CompareTag(GameStringConstants.photo))
+        {
+            Photo photo = other.GetComponent<Photo>();
 
-            if (photoSlot.id != id) {
+            if (photo.id != id) {
                 Debug.Log("Los ID no son iguales");
                 return;
             }
@@ -76,21 +66,16 @@ public class Photo : MonoBehaviour
             }
                 
 
-            if (photoSlot.slotIsOccupied) {
+            if (photo.slotIsOccupied) {
                 isOnBoardSlot = false;
-
-                photoSlot.photoSlotForReview.animalName = OrganismObject.AnimalName.typeGeneric;
-                photoSlot.photoSlotForReview.animalType = OrganismObject.AnimalType.typeGeneric;
-                photoSlot.slotIsOccupied = false;
+                checkedForReview = false;
+                photo.photoSlotForReview.animalName = OrganismObject.AnimalName.typeGeneric;
+                photo.photoSlotForReview.animalType = OrganismObject.AnimalType.typeGeneric;
+                photo.slotIsOccupied = false;
                 id = 0;
             }
 
         }
     }
 
-}
-
-[System.Serializable]
-public class PhotoGroup {
-    public List<Photo> photos;
 }

@@ -101,7 +101,10 @@ public class Album : MonoBehaviour
             selectedPhotoIndex = indexOfPhoto;
             albumViewerCanvas.SetActive(true);
             photoAlbumViewer.gameObject.GetComponent<Image>().sprite = photoAlbumImage[indexOfPhoto].sprite;
-            animalName.text = Loader.photoCollection[indexOfPhoto].photoAnimalName.ToString();
+
+            if (Loader.photoCollection[indexOfPhoto].photoAnimalName != OrganismObject.AnimalName.typeGeneric) {
+                animalName.text = Loader.photoCollection[indexOfPhoto].photoAnimalName.ToString();
+            }            
 
             if (Loader.photoCollection[indexOfPhoto].photoAnimalType!= OrganismObject.AnimalType.typeGeneric) {
                 infoButton.SetActive(true);
