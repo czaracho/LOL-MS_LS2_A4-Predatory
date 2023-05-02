@@ -16,24 +16,25 @@ public class BoardReviewObject : MonoBehaviour
 
         int objectivesCounter = 0;
 
-        if (checkByRelationShip) {
+        //if (checkByRelationShip) {
 
-            foreach (var photoSlotForReview in photoSlotsForReview) {
+        //    foreach (var photoSlotForReview in photoSlotsForReview) {
 
-                isMatch = photoSlotForReview.photoAnimalName == photoSlotForReview.photoSlotForReview.animalName;
+        //        isMatch = photoSlotForReview.photoAnimalName == photoSlotForReview.photoSlotForReview.animalName;
 
-                if (isMatch) {
-                    objectivesCounter++;
-                }
+        //        if (isMatch) {
+        //            objectivesCounter++;
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
 
         foreach (var photoSlotForReview in photoSlotsForReview) {
 
             isMatch = checkObjectivesByType ? photoSlotForReview.photoAnimalType == photoSlotForReview.photoSlotForReview.animalType : 
-                photoSlotForReview.photoAnimalName == photoSlotForReview.photoSlotForReview.animalName;
+                (photoSlotForReview.photoAnimalName == photoSlotForReview.photoSlotForReview.animalName || 
+                photoSlotForReview.photoAnimalNameAdditional == photoSlotForReview.photoSlotForReview.animalName);
 
             if (isMatch) {
                 //Do something
@@ -52,7 +53,5 @@ public class BoardReviewObject : MonoBehaviour
         EventManager.instance.OnResetNPCFirstDialogue();
         successMessage.TriggerTextAction();
     }
-
-
 
 }

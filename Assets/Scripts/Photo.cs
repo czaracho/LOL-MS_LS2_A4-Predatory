@@ -7,6 +7,7 @@ public class Photo : MonoBehaviour
     public int id;              //id of the photo
     public OrganismObject.AnimalName photoAnimalName;   //lion, etc
     public OrganismObject.AnimalType photoAnimalType;   //predator etc
+    public OrganismObject.AnimalName photoAnimalNameAdditional;
     [HideInInspector]
     public string infoId;       //id of the info
     public Texture2D picture;   //picture of the animal
@@ -34,6 +35,8 @@ public class Photo : MonoBehaviour
         if (!gameObject.CompareTag(GameStringConstants.photo)) return;
 
         if (other.gameObject.CompareTag(GameStringConstants.photoSlot)) {
+
+            Debug.Log("Entramos al slot capo: " + photoAnimalName);
 
             Photo photoSlot = other.GetComponent<Photo>();
 

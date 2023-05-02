@@ -80,85 +80,27 @@ public class GameManagerScript : MonoBehaviour {
                 Loader.photoCollection[i] = new Photo();
                 Loader.photoCollection[i].photoIsSaved = false;
                 Loader.photoCollection[i].photoAnimalName = OrganismObject.AnimalName.typeGeneric;
+                Loader.photoCollection[i].photoAnimalType = OrganismObject.AnimalType.typeGeneric;
+
             }
         }        
     }
 
     private void Update()
     {
-        //if (Input.GetKeyDown("f1"))
-        //{
-        //    SceneManager.LoadScene(nextLevel);
-        //}
+        if (Input.GetKeyDown("f1")) {
+            SceneManager.LoadScene(nextLevel);
+        }
     }
-
-    //public void checkObjectives() {
-
-    //    objectivesAccomplishedCounter = 0;
-
-    //    if (!objectivesAccomplished) {
-    //        for (int i = 0; i < organismsForObjectivesOld.Length; i++)
-    //        {
-    //            for (int j = 0; j < Loader.photoCollection.Length; j++)
-    //            {
-    //                if (checkForObjectiveName)
-    //                {
-    //                    Debug.Log("checked for objectivename");
-
-    //                    if (organismsForObjectivesOld[i].animalName == Loader.photoCollection[j].photoAnimalName)
-    //                    {
-    //                        objectivesAccomplishedCounter++;
-    //                        organismsForObjectivesOld[i].checkedObjective = true;
-
-    //                        if (objectivesAccomplishedCounter == organismsForObjectivesOld.Length)
-    //                        {
-    //                            objectivesAccomplished = true;
-    //                            ObjectivesAccomplished();
-    //                            return;
-    //                        }
-    //                    }
-    //                }
-    //                else {                        
-    //                    if (organismsForObjectivesOld[i].animalType == Loader.photoCollection[j].photoAnimalType)
-    //                    {
-    //                        objectivesAccomplishedCounter++;
-    //                        organismsForObjectivesOld[i].checkedObjective = true;
-
-    //                        if (objectivesAccomplishedCounter == organismsForObjectivesOld.Length)
-    //                        {
-    //                            Debug.Log("objectivesAccomplishedCounter: " + objectivesAccomplishedCounter);
-    //                            Debug.Log("organismsForObjectives: " + organismsForObjectivesOld.Length);
-    //                            objectivesAccomplished = true;
-    //                            ObjectivesAccomplished();
-    //                            return;
-    //                        }
-    //                    }
-    //                }
-
-    //            }
-    //        }
-
-    //        int uncheckedObjectiveCounter = 0;
-    //        List<OrganismObject> organismList = new List<OrganismObject>();
-
-    //        for (int i = 0; i < organismsForObjectivesOld.Length; i++) {
-
-    //            if (!organismsForObjectivesOld[i].checkedObjective) {
-    //                organismList.Add(organismsForObjectivesOld[i]);
-    //                uncheckedObjectiveCounter++;
-    //            }
-
-    //            organismsForObjectivesOld[i].checkedObjective = false;
-    //        }
-
-    //        ObjectivesUnaccomplished(organismList);
-    //    }
-    //}    
 
     public void checkObjectives() {
 
+        UncheckReviewedPhotos();
+
         objectivesAccomplishedCounter = 0;
         Debug.Log("Total objectives organisms: " + objectivesOrganisms.Length);
+        Debug.Log("Total en el Loader.photoCollection.Length: " + Loader.photoCollection.Length);
+
 
         for (int i = 0; i < objectivesOrganisms.Length; i++) {
             for (int j = 0; j < Loader.photoCollection.Length; j++) {
@@ -216,6 +158,13 @@ public class GameManagerScript : MonoBehaviour {
         }
 
         ObjectivesUnaccomplished();
+    }
+
+    private void UncheckReviewedPhotos() {
+        
+        for (int i = 0; i < Loader.photoCollection.Length; i++) {
+            Loader.photoCollection[i].checkedForReview = false;
+        }
     }
 
     public void ObjectivesAccomplished() {

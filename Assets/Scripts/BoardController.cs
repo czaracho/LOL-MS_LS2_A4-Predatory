@@ -17,6 +17,7 @@ public class BoardController : MonoBehaviour
 
     public Camera boardCamera;
     public TextTrigger initialBoardConversation;
+    public TextTrigger nextLevelBoardConversation;
 
     private const float DISTANCE_FROM_SLOT = 0.3f;
 
@@ -135,6 +136,10 @@ public class BoardController : MonoBehaviour
     public void ReviewBoards() {
 
         Debug.Log("Entramos al review Boards");
+
+        if (GameManagerScript.instance.playerIsTalking) {
+            return;
+        }
 
         foreach (var board in boardsForReview) {
 

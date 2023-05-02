@@ -17,6 +17,12 @@ public class OrganismObject : MonoBehaviour
         rhino,
         pecker,
         frog,
+        buffalo,
+        fox,
+        rabbit,
+        earthworm,
+        flower,
+        bee,
         typeGeneric,
         laptop
     }
