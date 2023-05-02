@@ -9,6 +9,23 @@
     }
   },
    "en":{
+	  "tutorial_text1":"Hey Pebbles! Are you ready to go on an adventure?",
+	  "tutorial_text2":"Great! But first, let's remember the basics on how that fancy camera of yours works",
+	  "tutorial_text3":"You can switch to the camera view using the 'space' button",
+	  "tutorial_text4":"When you are in the camera view, you can use the mouse or trackpad to aim with the camera",
+	  "tutorial_text5":"You need to be a little closer to the laptop for the camera to register it",
+	  "tutorial_text6":"If you are close enough of the object or animal, a label will show up indicating that the photo will get registered with some additional data for your album",
+	  "tutorial_text7":"To exit the camera view press the 'space' button again",
+	  "tutorial_text8":"Just for practice, take a picture of my laptop computer. It's on top of my desk.",
+	  "tutorial_text9":"Do you got the picture? Let me see...",
+	  "tutorial_text10":"If you need to review my instructions again, please press the help bottom in the screen",
+	  "tutorial_text11":"Nice, you got it correctly",
+	  "tutorial_text12":"Remember that you can check the photos in your album at any time",
+	  "tutorial_text13":"Inside of your album, you can see the photos, delete them if necessary and read about the captured object or animal if it has info to show",
+	  "tutorial_text14":"Ok, I think you are ready. Let's travel to the first ecosystem: the hot and arid savanna!",
+	  "tutorial_text15":"Please try again. Remember to be close enough of my laptop and then take the picture",
+	  "tutorial_text16":"A label will show up in the camera screen, indicating that the taken picture will have some additional info in the album.",
+	  "tutorial_text17":"You can check and manage the pictures inside of your album. To open the album press the 'check album' button",
 	  "objectives_text":"Objectives",
 	  "ldline_1":"Ok, we need to take pictures to complete the objectives for the research",
 	  "ldline_2":"Once you have all the pictures, come to me to review them",
@@ -38,6 +55,7 @@
 	  "savanna_objective_1": " 2 types of predator animals\n",
 	  "savanna_objective_2": " 2 types of prey animals\n",
 	  "savanna_objective_3": " 2 animals in a mutualism type relationship\n",
+	  "savanna_objective_4": " 2 animals competing for a resource\n",
 	  "tent1":"",
 	  "info_lion": "Lions are the world's most social felines that roam the African savannas and grasslands, hunting cooperatively and raising cubs in prides. Their prime habitat" 
 	  "is open woodlands, thick grasslands, and brush areas, providing enough cover for hunting and denning. These grassland habitats also offer food for the herbivores that lions "

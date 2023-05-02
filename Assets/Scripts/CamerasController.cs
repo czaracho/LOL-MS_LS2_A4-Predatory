@@ -31,6 +31,9 @@ public class CamerasController : MonoBehaviour
     private void Update(){
         if (Input.GetKeyDown(KeyCode.Space)) {
 
+            if (GameManagerScript.instance.playerIsTalking)
+                return;
+
             if (fpsController.playerCanMove && !IngameUIController.instance.albumIsOpen) {
                 SwitchCamera();
             }
@@ -38,6 +41,7 @@ public class CamerasController : MonoBehaviour
     }
 
     public void SwitchCamera() {
+
 
         if (!gameManager.playerIsTalking) {
             

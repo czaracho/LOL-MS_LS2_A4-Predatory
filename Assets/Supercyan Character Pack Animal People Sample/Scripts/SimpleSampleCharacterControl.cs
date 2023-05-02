@@ -59,12 +59,9 @@ namespace Supercyan.AnimalPeopleSample
         private void OnCollisionEnter(Collision collision)
         {
             ContactPoint[] contactPoints = collision.contacts;
-            for (int i = 0; i < contactPoints.Length; i++)
-            {
-                if (Vector3.Dot(contactPoints[i].normal, Vector3.up) > 0.5f)
-                {
-                    if (!m_collisions.Contains(collision.collider))
-                    {
+            for (int i = 0; i < contactPoints.Length; i++) {
+                if (Vector3.Dot(contactPoints[i].normal, Vector3.up) > 0.5f) {
+                    if (!m_collisions.Contains(collision.collider)) {
                         m_collisions.Add(collision.collider);
                     }
                     m_isGrounded = true;
@@ -72,40 +69,31 @@ namespace Supercyan.AnimalPeopleSample
             }
         }
 
-        private void OnCollisionStay(Collision collision)
-        {
+        private void OnCollisionStay(Collision collision) {
             ContactPoint[] contactPoints = collision.contacts;
             bool validSurfaceNormal = false;
-            for (int i = 0; i < contactPoints.Length; i++)
-            {
-                if (Vector3.Dot(contactPoints[i].normal, Vector3.up) > 0.5f)
-                {
+            for (int i = 0; i < contactPoints.Length; i++) {
+                if (Vector3.Dot(contactPoints[i].normal, Vector3.up) > 0.5f) {
                     validSurfaceNormal = true; break;
                 }
             }
 
-            if (validSurfaceNormal)
-            {
+            if (validSurfaceNormal) {
                 m_isGrounded = true;
-                if (!m_collisions.Contains(collision.collider))
-                {
+                if (!m_collisions.Contains(collision.collider)) {
                     m_collisions.Add(collision.collider);
                 }
             }
-            else
-            {
-                if (m_collisions.Contains(collision.collider))
-                {
+            else {
+                if (m_collisions.Contains(collision.collider)) {
                     m_collisions.Remove(collision.collider);
                 }
                 if (m_collisions.Count == 0) { m_isGrounded = false; }
             }
         }
 
-        private void OnCollisionExit(Collision collision)
-        {
-            if (m_collisions.Contains(collision.collider))
-            {
+        private void OnCollisionExit(Collision collision) {
+            if (m_collisions.Contains(collision.collider)) {
                 m_collisions.Remove(collision.collider);
             }
             if (m_collisions.Count == 0) { m_isGrounded = false; }
@@ -174,15 +162,58 @@ namespace Supercyan.AnimalPeopleSample
             //JumpingAndLanding();
         }
 
-        private void DirectUpdate()
-        {
+        //private void DirectUpdate()
+        //{
+        //    float v = Input.GetAxis("Vertical");
+        //    float h = Input.GetAxis("Horizontal");
+
+        //    Transform camera = Camera.main.transform;
+
+        //    if (Input.GetKey(KeyCode.LeftShift))
+        //    {
+        //        v *= m_walkScale;
+        //        h *= m_walkScale;
+        //    }
+
+        //    m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
+        //    m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
+
+        //    Vector3 direction = camera.forward * m_currentV + camera.right * m_currentH;
+
+        //    float directionLength = direction.magnitude;
+        //    direction.y = 0;
+        //    direction = direction.normalized * directionLength;
+
+        //    //if (direction != Vector3.zero)
+        //    //{
+        //    //    m_currentDirection = Vector3.Slerp(m_currentDirection, direction, Time.deltaTime * m_interpolation);
+
+        //    //    transform.rotation = Quaternion.LookRotation(m_currentDirection);
+        //    //    transform.position += m_currentDirection * m_moveSpeed * Time.deltaTime;
+
+        //    //    m_animator.SetFloat("MoveSpeed", direction.magnitude);
+        //    //}
+
+        //    if (direction != Vector3.zero) {
+        //        m_currentDirection = Vector3.Slerp(m_currentDirection, direction, Time.fixedDeltaTime * m_interpolation);
+
+        //        transform.rotation = Quaternion.LookRotation(m_currentDirection);
+        //        m_rigidBody.MovePosition(transform.position + m_currentDirection * m_moveSpeed * Time.fixedDeltaTime);
+
+        //        m_animator.SetFloat("MoveSpeed", direction.magnitude);
+        //    }
+
+        //    //JumpingAndLanding();
+        //}
+
+        //New using velocity
+        private void DirectUpdate() {
             float v = Input.GetAxis("Vertical");
             float h = Input.GetAxis("Horizontal");
 
             Transform camera = Camera.main.transform;
 
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
+            if (Input.GetKey(KeyCode.LeftShift)) {
                 v *= m_walkScale;
                 h *= m_walkScale;
             }
@@ -196,12 +227,14 @@ namespace Supercyan.AnimalPeopleSample
             direction.y = 0;
             direction = direction.normalized * directionLength;
 
-            if (direction != Vector3.zero)
-            {
-                m_currentDirection = Vector3.Slerp(m_currentDirection, direction, Time.deltaTime * m_interpolation);
-
+            if (direction != Vector3.zero) {
+                m_currentDirection = Vector3.Slerp(m_currentDirection, direction, Time.fixedDeltaTime * m_interpolation);
                 transform.rotation = Quaternion.LookRotation(m_currentDirection);
-                transform.position += m_currentDirection * m_moveSpeed * Time.deltaTime;
+
+                // Set the Rigidbody's velocity directly.
+                Vector3 targetVelocity = m_currentDirection * m_moveSpeed;
+                targetVelocity.y = m_rigidBody.velocity.y; // Preserve the existing y-axis velocity (e.g., gravity, jumping)
+                m_rigidBody.velocity = targetVelocity;
 
                 m_animator.SetFloat("MoveSpeed", direction.magnitude);
             }

@@ -37,6 +37,8 @@ public class GameManagerScript : MonoBehaviour {
 
     public OrganismIdentifier[] objectivesOrganisms;
 
+    public TextTrigger helpConversation;
+
 
     public enum GameAction
     {
@@ -84,10 +86,10 @@ public class GameManagerScript : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown("f1"))
-        {
-            SceneManager.LoadScene(nextLevel);
-        }
+        //if (Input.GetKeyDown("f1"))
+        //{
+        //    SceneManager.LoadScene(nextLevel);
+        //}
     }
 
     //public void checkObjectives() {
@@ -156,19 +158,30 @@ public class GameManagerScript : MonoBehaviour {
     public void checkObjectives() {
 
         objectivesAccomplishedCounter = 0;
+        Debug.Log("Total objectives organisms: " + objectivesOrganisms.Length);
 
         for (int i = 0; i < objectivesOrganisms.Length; i++) {
             for (int j = 0; j < Loader.photoCollection.Length; j++) {
 
-                if (objectivesOrganisms[i].isChecked)
+                if (Loader.photoCollection[j].checkedForReview)
                     continue;
+
+                //if (objectivesOrganisms[i].isChecked)
+                //    continue;
 
                 if (objectivesOrganisms[i].checkByName) {
 
                     if (objectivesOrganisms[i].animalName == Loader.photoCollection[j].photoAnimalName) {
 
                         objectivesAccomplishedCounter++;
-                        objectivesOrganisms[i].isChecked = true;
+                        //objectivesOrganisms[i].isChecked = true;
+                        Loader.photoCollection[j].checkedForReview = true;
+
+                        Debug.Log("###########CHECKEDBYNAME###############");
+                        Debug.Log("Matched the organism by name");
+                        Debug.Log("objectivesOrganisms[i].animalName: " + objectivesOrganisms[i].animalName);
+                        Debug.Log("Loader.photoCollection[j].photoAnimalName: " + Loader.photoCollection[j].photoAnimalName);
+                        Debug.Log("Current counter: " + objectivesAccomplishedCounter);
 
                         if (objectivesAccomplishedCounter == objectivesOrganisms.Length) {
                             objectivesAccomplished = true;
@@ -182,7 +195,14 @@ public class GameManagerScript : MonoBehaviour {
                     if (objectivesOrganisms[i].animalType == Loader.photoCollection[j].photoAnimalType) {
 
                         objectivesAccomplishedCounter++;
-                        objectivesOrganisms[i].isChecked = true;
+                        //objectivesOrganisms[i].isChecked = true;
+                        Loader.photoCollection[j].checkedForReview = true;
+
+                        Debug.Log("###########CHECKEDBYTYPE###############");
+                        Debug.Log("Matched the organism type");
+                        Debug.Log("objectivesOrganisms[i].animalType: " + objectivesOrganisms[i].animalType);
+                        Debug.Log("Loader.photoCollection[j].photoAnimalType: " + Loader.photoCollection[j].photoAnimalType);
+                        Debug.Log("Current counter: " + objectivesAccomplishedCounter);
 
                         if (objectivesAccomplishedCounter == objectivesOrganisms.Length) {
                             objectivesAccomplished = true;
@@ -190,17 +210,16 @@ public class GameManagerScript : MonoBehaviour {
                             return;
                         }
                     }
-                }
+                }                
 
             }
         }
-
 
         ObjectivesUnaccomplished();
     }
 
     public void ObjectivesAccomplished() {
-
+        Debug.Log("Correct objectives after review: " + objectivesAccomplishedCounter);
         levelCompleteDialog.TriggerTextAction();
 
     }
@@ -248,6 +267,11 @@ public class GameManagerScript : MonoBehaviour {
 
     public void MovePlayerAwayFromNPC() {
         player.transform.position = playerStartingPosition.transform.position;
+    }
+
+    public void HelpConversation() {
+        playerIsTalking = true;
+        helpConversation.TriggerTextAction();                
     }
 
 }

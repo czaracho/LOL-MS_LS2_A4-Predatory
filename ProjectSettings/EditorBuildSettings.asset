@@ -9,9 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/_Init.unity
     guid: ab071287f8d42d14c95b487fb5335498
   - enabled: 1
+    path: Assets/Scenes/MainMenuLevel.unity
+    guid: e40a5c9f35528ff4cac7d536f80a50b6
+  - enabled: 1
+    path: Assets/Scenes/TutorialLevel.unity
+    guid: 59fbf663d35a6e741b862ee4cb92fdcf
+  - enabled: 1
     path: Assets/Scenes/SavannaLevel.unity
     guid: 90afacd6f5ff3374aa5b9ba6f92bae3d
   - enabled: 1
     path: Assets/Scenes/TentLevel1.unity
     guid: ec9e4f1f4b308f24abb176f644eaa4f0
+  - enabled: 1
+    path: Assets/Scenes/ForestLevel.unity
+    guid: b9f58b185773fb642ada405af0a65daf
   m_configObjects: {}
