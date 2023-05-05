@@ -15,6 +15,7 @@ public class TextManager : MonoBehaviour
 
     public TextTrigger objectivesDialogue;
     public TextTrigger objectivesNonCompletedDialogue;
+    public GameObject dialogueBackground;
 
     public Image catLanaPortrait;
     public Image catPebblesPortrait;
@@ -43,7 +44,7 @@ public class TextManager : MonoBehaviour
     }
 
     public void StartDialogue(Dialogue dialogue, GameManagerScript.GameAction gameAction, TextMeshProUGUI currentTextElement) {
-
+        GameManagerScript.instance.playerIsTalking = true;
         currentTMPElement = currentTextElement;
         tpsController.playerCanMoveTps = false;
         EventManager.instance.OnShowIngameUI(false);
@@ -58,7 +59,10 @@ public class TextManager : MonoBehaviour
         gameManagerScript.gameAction = gameAction;
         catLanaPortrait.gameObject.SetActive(false);
         catPebblesPortrait.gameObject.SetActive(false);
-        dialogBox.SetActive(true);
+        dialogBox.gameObject.SetActive(true);
+
+        if (dialogueBackground != null)
+            dialogueBackground.SetActive(true);
 
         sentences.Clear();
 
@@ -199,12 +203,15 @@ public class TextManager : MonoBehaviour
         catPebblesPortrait.gameObject.SetActive(false);
         catLanaPortrait.gameObject.SetActive(false);
 
+        if (dialogueBackground != null)
+            dialogueBackground.SetActive(false);
+
         if (isConversation) {
             EventManager.instance.OnShowPromptActionUI(true);
         }
 
-        gameManagerScript.playerIsTalking = false;
         tpsController.playerCanMoveTps = true;
+        GameManagerScript.instance.playerIsTalking = false;
         CheckEndDialogAction();        
     }
 

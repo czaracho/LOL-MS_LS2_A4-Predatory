@@ -22,7 +22,7 @@ public class CameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManagerScript.instance.isNormalLevel)
+        if (GameManagerScript.instance.isFieldLevel)
         {
             Vector3 _desiredPosition = target.position + offset;
             Vector3 _smoothedPosition = Vector3.Lerp(transform.position, _desiredPosition, smoothSpeed * Time.deltaTime);

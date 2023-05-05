@@ -18,7 +18,6 @@ public class CamerasController : MonoBehaviour
     public GameObject polaroidCameraUI;
     public GameObject boardCanvas;
 
-    public GameManagerScript gameManager;
     public FirstPersonController fpsController;
 
     private void Start()
@@ -43,7 +42,7 @@ public class CamerasController : MonoBehaviour
     public void SwitchCamera() {
 
 
-        if (!gameManager.playerIsTalking) {
+        if (!GameManagerScript.instance.playerIsTalking && GameManagerScript.instance.isFieldLevel) {
             
             if (isThirdPerson)
             {
@@ -125,7 +124,7 @@ public class CamerasController : MonoBehaviour
     public void SwitchToBoardCamera() {
         NewActionVoidDelegate newDelegate = ChangeCameras;
         GameManagerScript.instance.SetBlackCatSilhouetteForeground(newDelegate);
-        GameManagerScript.instance.playerIsTalking = false;
+        //GameManagerScript.instance.playerIsTalking = false;
     }
 
     public void ChangeCameras() {

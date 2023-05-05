@@ -1,14 +1,35 @@
 fileFormatVersion: 2
-guid: b6d41fd3fcb3b1c4eb6b79d62fff0cc0
+guid: f32d9d85fa61af447b3b765b4723126e
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -1978303741906493279
-    second: Armature|idle
+      74: 7961291403255750963
+    second: worn11|idle1
   - first:
-      74: 471554372732864311
-    second: Armature|idle 2
+      74: 6852832570375057705
+    second: worn11|idle2
+  - first:
+      74: 8821856747018202751
+    second: worn11|idle3
+  - first:
+      74: 5693499188759847114
+    second: worn11.001|idle1
+  - first:
+      74: 5711262429830077755
+    second: worn11.001|idle2
+  - first:
+      74: 4025133004515141024
+    second: worn11.001|idle3
+  - first:
+      74: 9183395913587233262
+    second: worn11.002|idle1
+  - first:
+      74: 7593545510705649636
+    second: worn11.002|idle2
+  - first:
+      74: -4043343654183533210
+    second: worn11.002|idle3
   externalObjects: {}
   materials:
     materialImportMode: 2

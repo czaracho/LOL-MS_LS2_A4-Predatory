@@ -26,6 +26,18 @@ public class Album : MonoBehaviour
 
     public TextManager textManager;
 
+    private void Awake() {
+        EventManager.instance.ShowPhotoPreview += ShowPhotoPreview;
+        EventManager.instance.HidePhotoPreview += HidePhotoPreview;
+    }
+
+    private void OnDestroy() {
+        EventManager.instance.TakePicture -= FillPhotoAlbum;
+        EventManager.instance.ShowPhotoPreview -= ShowPhotoPreview;
+        EventManager.instance.HidePhotoPreview -= HidePhotoPreview;
+    }
+
+
     private void Start()
     {
         EventManager.instance.TakePicture += FillPhotoAlbum;
@@ -45,11 +57,6 @@ public class Album : MonoBehaviour
         emptyPhoto.indexPhoto = 0;
         emptyPhoto.picture = null;
         emptyPhoto.photoIsSaved = false;
-    }
-
-    private void OnDestroy()
-    {
-        EventManager.instance.TakePicture -= FillPhotoAlbum;
     }
 
     public void FillPhotoAlbum() {
@@ -123,6 +130,7 @@ public class Album : MonoBehaviour
         SnapshotController.photosTakenQuantity--;
         Loader.photoCollection[selectedPhotoIndex] = new Photo();
         Loader.photoCollection[selectedPhotoIndex].photoAnimalName = OrganismObject.AnimalName.typeGeneric;
+        Loader.photoCollection[selectedPhotoIndex].photoAnimalType = OrganismObject.AnimalType.typeGeneric;
         Loader.photoCollection[selectedPhotoIndex].checkedForReview = false;
         Loader.photoCollection[selectedPhotoIndex].indexPhoto = selectedPhotoIndex;
         Loader.photoCollection[selectedPhotoIndex].picture = null;
@@ -136,21 +144,29 @@ public class Album : MonoBehaviour
 
     public void ShowInfo() {
 
-        Debug.Log("Entramos al show info");
-        Debug.Log("Selected photo index: " + selectedPhotoIndex.ToString());
         infoScreen.SetActive(true);
         string infoOfAnimal = "";
 
-        Debug.Log("Info ID: " + Loader.photoCollection[selectedPhotoIndex].infoId);
         infoOfAnimal = textManager.DisplayInfo(Loader.photoCollection[selectedPhotoIndex].infoId);
         
         if (infoOfAnimal != "") {
             infoText.text = infoOfAnimal;
-            Debug.Log(infoOfAnimal);
         }
     }
 
     public void CloseInfo() {
         infoScreen.SetActive(false);
+    }
+
+    public void ShowPhotoPreview(Photo photo ) {
+        albumViewerCanvas.SetActive(true);
+        Sprite photoSprite = Sprite.Create(photo.picture, new Rect(0.0f, 0.0f, photo.picture.width, photo.picture.height), new Vector2(0.5f, 0.5f), 100.0f);
+        photoAlbumViewer.gameObject.GetComponent<Image>().sprite = photoSprite;
+        animalName.text = photo.photoAnimalName.ToString();
+
+    }
+
+    public void HidePhotoPreview() {
+        albumViewerCanvas.SetActive(false);
     }
 }

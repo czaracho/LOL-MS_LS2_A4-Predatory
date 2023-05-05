@@ -23,6 +23,9 @@ public class OrganismObject : MonoBehaviour
         earthworm,
         flower,
         bee,
+        deadtree,
+        fungi,
+        boltflies,
         typeGeneric,
         laptop
     }

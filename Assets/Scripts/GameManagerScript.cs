@@ -13,12 +13,12 @@ public class GameManagerScript : MonoBehaviour {
     //vamos a poner todo lo relacionado a los objetivos
     int objectivesAccomplishedCounter = 0;
     public bool checkForObjectiveName = true;
+    public bool isFieldLevel = true;
 
     [HideInInspector]
     public bool objectivesAccomplished = false;
     [HideInInspector]
     public bool playerIsTalking = false;
-    public bool isNormalLevel = false;
     [HideInInspector]
     public bool isCheckingObjectives = false;
 
@@ -69,27 +69,33 @@ public class GameManagerScript : MonoBehaviour {
 
     private void Start()
     {
-        catHeadSilouette.SetActive(true);
-        RemoveBlackCatSilhouetteForeground(null);
+        InitUI();
 
-        if (isNormalLevel) {
-
-            Loader.photoCollection = new Photo[Constants.TOTAL_PHOTO_SLOTS];
-
-            for (int i = 0; i < Loader.photoCollection.Length; i++) {
-                Loader.photoCollection[i] = new Photo();
-                Loader.photoCollection[i].photoIsSaved = false;
-                Loader.photoCollection[i].photoAnimalName = OrganismObject.AnimalName.typeGeneric;
-                Loader.photoCollection[i].photoAnimalType = OrganismObject.AnimalType.typeGeneric;
-
-            }
-        }        
+        if (isFieldLevel)
+            ResetPhotoCollection();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown("f1")) {
             SceneManager.LoadScene(nextLevel);
+        }
+    }
+
+    private void InitUI() {
+        catHeadSilouette.SetActive(true);
+        RemoveBlackCatSilhouetteForeground(null);
+    }
+
+    private void ResetPhotoCollection() {
+        Loader.photoCollection = new Photo[Constants.TOTAL_PHOTO_SLOTS];
+
+        for (int i = 0; i < Loader.photoCollection.Length; i++) {
+            Loader.photoCollection[i] = new Photo();
+            Loader.photoCollection[i].photoIsSaved = false;
+            Loader.photoCollection[i].photoAnimalName = OrganismObject.AnimalName.typeGeneric;
+            Loader.photoCollection[i].photoAnimalType = OrganismObject.AnimalType.typeGeneric;
+
         }
     }
 
@@ -219,8 +225,12 @@ public class GameManagerScript : MonoBehaviour {
     }
 
     public void HelpConversation() {
-        playerIsTalking = true;
+        //playerIsTalking = true;
         helpConversation.TriggerTextAction();                
+    }
+
+    public void RestartCurrentScene() {
+        SetBlackCatSilhouetteForeground(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));        
     }
 
 }

@@ -18,12 +18,15 @@ public class BoardController : MonoBehaviour
     public Camera boardCamera;
     public TextTrigger initialBoardConversation;
     public TextTrigger nextLevelBoardConversation;
+    public TextTrigger helpConversation;
 
     private const float DISTANCE_FROM_SLOT = 0.3f;
 
     public BoardReviewObject[] boardsForReview;
 
     public Transform checkedPhotosLocation;
+
+    private bool isShowingPhoto = false;
 
     private void Awake()
     {
@@ -41,11 +44,17 @@ public class BoardController : MonoBehaviour
 
     private void Update()
     {
+
+        CheckForPhotos();
+
         if (Input.GetMouseButtonDown(0)) {
 
             if (!canTouchPhotos) {
                 return;
             }
+
+            if (GameManagerScript.instance.playerIsTalking)
+                return;
 
             RaycastHit hit;
             Ray ray = boardCamera.ScreenPointToRay(Input.mousePosition);
@@ -56,9 +65,11 @@ public class BoardController : MonoBehaviour
                 {
                   currentSelectedPhoto = hit.transform.gameObject.GetComponent<Photo>();
 
+                    currentSelectedPhoto.AnimatePhoto();
+
                     if (currentSelectedPhoto.isOnBoardSlot)
                     {
-                        MovePhotoToStartingPosition();
+                        //MovePhotoToStartingPosition(currentSelectedPhoto);
                     }
                 }
                 else if (hit.transform.gameObject.tag == GameStringConstants.photoSlot) 
@@ -67,6 +78,32 @@ public class BoardController : MonoBehaviour
                         MovePhotoToSlot(hit);
                     }
                 }
+            }
+        }
+    }
+
+    private void CheckForPhotos() {
+
+        RaycastHit hit;
+        Ray ray = boardCamera.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit)) {
+            if (hit.transform.gameObject.tag == GameStringConstants.photo) {
+
+                if (isShowingPhoto)
+                    return;
+
+                Photo photo = hit.transform.gameObject.GetComponent<Photo>();
+
+                if (photo.isOnBoardSlot)
+                    return;
+
+                isShowingPhoto = true;
+                EventManager.instance.OnShowPhotoPreview(photo);
+            }
+            else {
+                isShowingPhoto = false;
+                EventManager.instance.OnHidePhotoPreview();
             }
         }
     }
@@ -81,15 +118,16 @@ public class BoardController : MonoBehaviour
                                           currentSelectedSlot.transform.position.y,
                                           currentSelectedSlot.transform.position.z - DISTANCE_FROM_SLOT);
 
-        currentSelectedPhoto.transform.DOMove(newPhotoPos, 0.5f).OnComplete(() => { 
+        currentSelectedPhoto.transform.DOMove(newPhotoPos, 0.5f).OnComplete(() => {
+            currentSelectedPhoto.ResetAnimation();
             canTouchPhotos = true; 
             currentSelectedPhoto = null; 
         });
 
     }
 
-    private void MovePhotoToStartingPosition() {
-        currentSelectedPhoto.transform.DOMove(currentSelectedPhoto.startingPosition, 0.5f).OnComplete(() => { currentSelectedPhoto.isOnBoardSlot = false; });
+    private void MovePhotoToStartingPosition(Photo photo) {
+        photo.transform.DOMove(photo.startingPosition, 0.5f).OnComplete(() => { photo.isOnBoardSlot = false; });
     }
 
     void InitializeBoard() {
@@ -171,6 +209,21 @@ public class BoardController : MonoBehaviour
 
         }
 
+    }
+
+    public void ResetBoard() {
+        
+        foreach (var photo in boardPhotos) {
+
+            if (photo.checkedForReview) {
+                MovePhotoToStartingPosition(photo);
+            }
+
+        }
+    }
+
+    public void HelpConversation() {
+        helpConversation.TriggerTextAction();
     }
 
 }

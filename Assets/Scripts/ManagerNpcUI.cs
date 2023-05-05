@@ -49,7 +49,7 @@ public class ManagerNpcUI : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E) && !GameManagerScript.instance.playerIsTalking)
             {
-                GameManagerScript.instance.playerIsTalking = true;
+                //GameManagerScript.instance.playerIsTalking = true;
                 EventManager.instance.OnShowPromptActionUI(false);
 
                 if (dialogTrigger != null) {
@@ -82,7 +82,7 @@ public class ManagerNpcUI : MonoBehaviour
     {
         if (other.gameObject.tag == "Player") {
             playerOnRange = false;
-            GameManagerScript.instance.playerIsTalking = false;
+            //GameManagerScript.instance.playerIsTalking = false;
             EventManager.instance.OnShowPromptActionUI(false);
         }
     }

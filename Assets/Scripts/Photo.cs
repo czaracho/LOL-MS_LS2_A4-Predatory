@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +25,8 @@ public class Photo : MonoBehaviour
     public bool slotIsOccupied = false;
     
     public OrganismIdentifier photoSlotForReview; //This is for the review
+
+    public GameObject signGraphic;
 
     private void Start() {
         photoSlotForReview = new OrganismIdentifier();
@@ -52,12 +55,10 @@ public class Photo : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
+    private void OnTriggerExit(Collider other) {
         if (!gameObject.CompareTag(GameStringConstants.photoSlot)) return;
 
-        if (other.gameObject.CompareTag(GameStringConstants.photo))
-        {
+        if (other.gameObject.CompareTag(GameStringConstants.photo)) {
             Photo photo = other.GetComponent<Photo>();
 
             if (photo.id != id) {
@@ -67,18 +68,40 @@ public class Photo : MonoBehaviour
             else {
                 Debug.Log("Los ID SI son iguales");
             }
-                
 
-            if (photo.slotIsOccupied) {
-                isOnBoardSlot = false;
+
+            if (slotIsOccupied) {
+                photo.isOnBoardSlot = false;
                 checkedForReview = false;
-                photo.photoSlotForReview.animalName = OrganismObject.AnimalName.typeGeneric;
-                photo.photoSlotForReview.animalType = OrganismObject.AnimalType.typeGeneric;
-                photo.slotIsOccupied = false;
+                photoSlotForReview.animalName = OrganismObject.AnimalName.typeGeneric;
+                photoSlotForReview.animalType = OrganismObject.AnimalType.typeGeneric;
+                slotIsOccupied = false;
                 id = 0;
             }
 
         }
+    }
+
+    public void AnimatePhoto() {
+
+        if (signGraphic != null) {
+            signGraphic.SetActive(true);
+        }
+
+        Sequence mySequence = DOTween.Sequence();
+        mySequence.Append(this.gameObject.transform.DOScale(new Vector3(1.05f, 1.05f, 1), 0.5f)).SetLoops(-1, LoopType.Yoyo);
+
+
+    }
+
+    public void ResetAnimation() {
+
+        if (signGraphic != null) {
+            signGraphic.SetActive(false);
+        }
+
+        Sequence mySequence = DOTween.Sequence();
+        mySequence.Append(this.gameObject.transform.DOScale(new Vector3(1, 1, 1), 0.25f));
     }
 
 }
