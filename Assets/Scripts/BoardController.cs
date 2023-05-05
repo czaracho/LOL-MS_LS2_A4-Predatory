@@ -67,10 +67,10 @@ public class BoardController : MonoBehaviour
 
                     currentSelectedPhoto.AnimatePhoto();
 
-                    if (currentSelectedPhoto.isOnBoardSlot)
-                    {
-                        //MovePhotoToStartingPosition(currentSelectedPhoto);
-                    }
+                    //if (currentSelectedPhoto.isOnBoardSlot)
+                    //{
+                    //    MovePhotoToStartingPosition(currentSelectedPhoto);
+                    //}
                 }
                 else if (hit.transform.gameObject.tag == GameStringConstants.photoSlot) 
                 {

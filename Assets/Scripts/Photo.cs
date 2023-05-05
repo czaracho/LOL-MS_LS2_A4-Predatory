@@ -23,10 +23,8 @@ public class Photo : MonoBehaviour
     [HideInInspector]
     public bool isOnBoardSlot = false;
     public bool slotIsOccupied = false;
-    
+   
     public OrganismIdentifier photoSlotForReview; //This is for the review
-
-    public GameObject signGraphic;
 
     private void Start() {
         photoSlotForReview = new OrganismIdentifier();
@@ -38,8 +36,6 @@ public class Photo : MonoBehaviour
         if (!gameObject.CompareTag(GameStringConstants.photo)) return;
 
         if (other.gameObject.CompareTag(GameStringConstants.photoSlot)) {
-
-            Debug.Log("Entramos al slot capo: " + photoAnimalName);
 
             Photo photoSlot = other.GetComponent<Photo>();
 
@@ -83,25 +79,12 @@ public class Photo : MonoBehaviour
     }
 
     public void AnimatePhoto() {
-
-        if (signGraphic != null) {
-            signGraphic.SetActive(true);
-        }
-
-        Sequence mySequence = DOTween.Sequence();
-        mySequence.Append(this.gameObject.transform.DOScale(new Vector3(1.05f, 1.05f, 1), 0.5f)).SetLoops(-1, LoopType.Yoyo);
-
-
+        gameObject.transform.DOScale(new Vector3(1.01f, 1.01f, 1), 0.35f).SetLoops(-1, LoopType.Yoyo).SetId("PhotoAnimation");
     }
 
     public void ResetAnimation() {
-
-        if (signGraphic != null) {
-            signGraphic.SetActive(false);
-        }
-
-        Sequence mySequence = DOTween.Sequence();
-        mySequence.Append(this.gameObject.transform.DOScale(new Vector3(1, 1, 1), 0.25f));
+        DOTween.Kill("");
+        gameObject.transform.DOScale(new Vector3(1, 1, 1), 0.35f);
     }
 
 }

@@ -76955,6 +76955,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d0f3313b4718047b47b1895ed84d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &5238138501977325317
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238138501977325315}
+  m_Enabled: 1
 --- !u!114 &5238138501977325319
 MonoBehaviour:
   m_ObjectHideFlags: 0
