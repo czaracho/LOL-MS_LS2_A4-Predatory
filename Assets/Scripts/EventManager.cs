@@ -34,6 +34,7 @@ public class EventManager : MonoBehaviour
     public event Action ResetNPCFirstDialogue;
     public event Action<Photo> ShowPhotoPreview;
     public event Action HidePhotoPreview;
+    public event Action ShowIncorrectBoardDialogue;
 
 
     public void OnTakePicture()
@@ -98,5 +99,9 @@ public class EventManager : MonoBehaviour
 
     public void OnHidePhotoPreview() {
         HidePhotoPreview?.Invoke();
+    }
+
+    public void OnShowIncorrectBoardDialogue() { 
+        ShowIncorrectBoardDialogue?.Invoke();
     }
 }

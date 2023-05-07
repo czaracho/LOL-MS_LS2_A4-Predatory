@@ -14,37 +14,20 @@ public class BoardReviewObject : MonoBehaviour
 
     public void ReviewBoard() {
 
-        int objectivesCounter = 0;
-
-        //if (checkByRelationShip) {
-
-        //    foreach (var photoSlotForReview in photoSlotsForReview) {
-
-        //        isMatch = photoSlotForReview.photoAnimalName == photoSlotForReview.photoSlotForReview.animalName;
-
-        //        if (isMatch) {
-        //            objectivesCounter++;
-        //        }
-
-        //    }
-        //}
-
-
         foreach (var photoSlotForReview in photoSlotsForReview) {
 
             isMatch = checkObjectivesByType ? photoSlotForReview.photoAnimalType == photoSlotForReview.photoSlotForReview.animalType : 
                 (photoSlotForReview.photoAnimalName == photoSlotForReview.photoSlotForReview.animalName || 
                 photoSlotForReview.photoAnimalNameAdditional == photoSlotForReview.photoSlotForReview.animalName);
 
-            if (isMatch) {
-                //Do something
-                Debug.Log("Is match ok");
-            }
-            else {
-                //Do something
+            if (!isMatch) {
+
                 Debug.Log("Not matched");
+                EventManager.instance.OnShowIncorrectBoardDialogue();
+
                 return;
             }
+
 
         }
 

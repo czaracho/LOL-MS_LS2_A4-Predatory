@@ -83,8 +83,9 @@ public class Photo : MonoBehaviour
     }
 
     public void ResetAnimation() {
-        DOTween.Kill("");
-        gameObject.transform.DOScale(new Vector3(1, 1, 1), 0.35f);
+        Debug.Log("Reset animation test");
+        DOTween.Kill("PhotoAnimation", true);
+        gameObject.transform.DOScale(new Vector3(0.75f, 0.75f, 1), 0.35f);
     }
 
 }

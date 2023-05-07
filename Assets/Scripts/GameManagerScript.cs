@@ -73,6 +73,8 @@ public class GameManagerScript : MonoBehaviour {
 
         if (isFieldLevel)
             ResetPhotoCollection();
+
+        Debug.Log("La cantidad de fotos es: ");
     }
 
     private void Update()
@@ -88,6 +90,9 @@ public class GameManagerScript : MonoBehaviour {
     }
 
     private void ResetPhotoCollection() {
+
+        SnapshotController.photosTakenQuantity = 0;
+
         Loader.photoCollection = new Photo[Constants.TOTAL_PHOTO_SLOTS];
 
         for (int i = 0; i < Loader.photoCollection.Length; i++) {

@@ -19,6 +19,9 @@ public class MainMenuScript : MonoBehaviour
 
 
     public void GoToTutorialLevel() {
+
+        SoundSfxController.instance.PlayClick();
+
         Sequence mySequence = DOTween.Sequence();
 
         mySequence.Append(CatHeadSilhouette.transform.DOScale(new Vector3(6f, 6f, 1), Constants.SET_DURATION)).OnComplete(() => {

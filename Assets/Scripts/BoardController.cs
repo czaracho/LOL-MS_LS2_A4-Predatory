@@ -19,6 +19,7 @@ public class BoardController : MonoBehaviour
     public TextTrigger initialBoardConversation;
     public TextTrigger nextLevelBoardConversation;
     public TextTrigger helpConversation;
+    public TextTrigger incorrectBoardConversation;
 
     private const float DISTANCE_FROM_SLOT = 0.3f;
 
@@ -31,11 +32,13 @@ public class BoardController : MonoBehaviour
     private void Awake()
     {
         EventManager.instance.GenericAction += ShowNextBoard;
+        EventManager.instance.ShowIncorrectBoardDialogue += IncorrectBoardConversation;
     }
 
     private void OnDestroy()
     {
         EventManager.instance.GenericAction -= ShowNextBoard;
+        EventManager.instance.ShowIncorrectBoardDialogue -= IncorrectBoardConversation;
     }
 
     private void Start(){         
@@ -44,7 +47,6 @@ public class BoardController : MonoBehaviour
 
     private void Update()
     {
-
         CheckForPhotos();
 
         if (Input.GetMouseButtonDown(0)) {
@@ -65,12 +67,9 @@ public class BoardController : MonoBehaviour
                 {
                   currentSelectedPhoto = hit.transform.gameObject.GetComponent<Photo>();
 
-                    currentSelectedPhoto.AnimatePhoto();
+                    if (!currentSelectedPhoto.isOnBoardSlot)
+                        currentSelectedPhoto.AnimatePhoto();
 
-                    //if (currentSelectedPhoto.isOnBoardSlot)
-                    //{
-                    //    MovePhotoToStartingPosition(currentSelectedPhoto);
-                    //}
                 }
                 else if (hit.transform.gameObject.tag == GameStringConstants.photoSlot) 
                 {
@@ -99,7 +98,9 @@ public class BoardController : MonoBehaviour
                     return;
 
                 isShowingPhoto = true;
-                EventManager.instance.OnShowPhotoPreview(photo);
+
+                if (!photo.isOnBoardSlot) 
+                    EventManager.instance.OnShowPhotoPreview(photo);
             }
             else {
                 isShowingPhoto = false;
@@ -110,6 +111,8 @@ public class BoardController : MonoBehaviour
 
     private void MovePhotoToSlot(RaycastHit newHit) {
 
+        currentSelectedPhoto.ResetAnimation();
+
         canTouchPhotos = false;
 
         currentSelectedSlot = newHit.transform.gameObject.GetComponent<Photo>();
@@ -119,7 +122,6 @@ public class BoardController : MonoBehaviour
                                           currentSelectedSlot.transform.position.z - DISTANCE_FROM_SLOT);
 
         currentSelectedPhoto.transform.DOMove(newPhotoPos, 0.5f).OnComplete(() => {
-            currentSelectedPhoto.ResetAnimation();
             canTouchPhotos = true; 
             currentSelectedPhoto = null; 
         });
@@ -224,6 +226,10 @@ public class BoardController : MonoBehaviour
 
     public void HelpConversation() {
         helpConversation.TriggerTextAction();
+    }
+
+    public void IncorrectBoardConversation() { 
+        incorrectBoardConversation.TriggerTextAction();
     }
 
 }

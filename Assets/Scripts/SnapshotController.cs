@@ -136,7 +136,11 @@ public class SnapshotController : MonoBehaviour
             //tex.Apply();
 
             //Camera flash
-            flashImage.DOColor(Color.white, 0.15f).SetLoops(2, LoopType.Yoyo).OnComplete(() => { ShowPhoto(newPhoto.picture); });
+            flashImage.DOColor(Color.white, 0.15f).OnComplete(() => { ShowPhoto(newPhoto.picture); });
+
+            if (SoundSfxController.instance != null) {
+                SoundSfxController.instance.PlayCameraShutter();
+            }            
             
             EventManager.instance.OnTakePicture();
             StartCoroutine(WaitForPolaroidClose(1.5f));
@@ -213,6 +217,9 @@ public class SnapshotController : MonoBehaviour
 
     void ShowPhoto(Texture2D photo)
     {
+        Color transparentColor = new Color(1,1,1,0);
+        flashImage.DOColor(transparentColor, 0.05f);
+
         Sprite photoSprite = Sprite.Create(photo, new Rect(0.0f, 0.0f, photo.width, photo.height), new Vector2(0.5f, 0.5f), 100.0f);
         photoDisplayArea.sprite = photoSprite;
         photoFrame.SetActive(true);

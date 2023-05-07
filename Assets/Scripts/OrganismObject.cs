@@ -22,10 +22,12 @@ public class OrganismObject : MonoBehaviour
         rabbit,
         earthworm,
         flower,
+        squirrel,
         bee,
         deadtree,
         fungi,
         boltflies,
+        acorn,
         typeGeneric,
         laptop
     }
@@ -53,6 +55,9 @@ public class OrganismObject : MonoBehaviour
     JSONNode _lang;
     public bool isForMainMenu = false;
 
+    public float positionOffsetY = 1.5f;
+    public float positionOffsetX = 0f;
+
 
 
     private void Start()
@@ -70,6 +75,13 @@ public class OrganismObject : MonoBehaviour
 
         organismNameUI = Instantiate(organismNameUIPrefab, animalNameCanvas.transform).GetComponent<OrganismNameUI>();
         organismNameUI.InitilizeAnimalName(animalName, polaroidCamera, this.transform.gameObject);
+
+        AdjustLabelOffset();
+    }
+
+    private void AdjustLabelOffset() { 
+        organismNameUI.positionOffsetX = positionOffsetX;
+        organismNameUI.positionOffsetY = positionOffsetY;
     }
 
     IEnumerator WaitForAnimationStart() {

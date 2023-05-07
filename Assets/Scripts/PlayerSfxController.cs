@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class PlayerSfxController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    int counterSound = 0;
+
+    public void PlayeStepSound() {
+
+
+        if (GameManagerScript.instance.isFieldLevel) {
+            SoundSfxController.instance.PlayStepGrass();
+        }
+        else {
+            SoundSfxController.instance.PlayStepWood();
+        }
+
+        counterSound++;
+        Debug.Log("CurrentSound counter: " + counterSound);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
