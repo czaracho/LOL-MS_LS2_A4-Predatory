@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestLevel.unity
     guid: 8f6bb1e0222caa543a51d4e03783e380
+  - enabled: 1
+    path: Assets/Scenes/TentLevel2.unity
+    guid: 176c1c99545e4b940b50a9b7c7f5661c
+  - enabled: 1
+    path: Assets/Scenes/EndGameLevel.unity
+    guid: 134e7f17f76b9544fbc4557dee724c62
   m_configObjects: {}

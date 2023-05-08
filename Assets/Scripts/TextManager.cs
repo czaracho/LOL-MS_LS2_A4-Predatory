@@ -95,25 +95,24 @@ public class TextManager : MonoBehaviour
 
     public void DisplayNextSentence() {
 
-        //Debug.Log("sentences left: " + sentences.Count);
-
         if (!canGoNextSentence)
             return;
 
         if (sentences.Count == 0) {
-            //Debug.Log("papu los sentences son 0");
             EndDialogue(true);
             return;
         }
 
 
         dialog dialog = sentences.Dequeue();
-        //Debug.Log("Hacemos dequeue a esto");
 
         if (_lang == null)
         {
             _lang = SharedState.LanguageDefs;
         }
+
+        //Text to speech
+        LOLSDK.Instance.SpeakText(dialog.sentenceId);
 
         string dialogeLine = _lang[dialog.sentenceId];
         nameOfCat = dialog.nameOfCat;
@@ -240,7 +239,7 @@ public class TextManager : MonoBehaviour
                 EventManager.instance.OnShowIngameUI(true);
                 break;
             case GameManagerScript.GameAction.levelCompleted:
-                SceneManager.LoadScene(gameManagerScript.nextLevel);
+                GameManagerScript.instance.SetBlackCatSilhouetteForeground(() => SceneManager.LoadScene(gameManagerScript.nextLevel));
                 break;
             case GameManagerScript.GameAction.checkObjective:
                 gameManagerScript.checkObjectives();
@@ -262,6 +261,12 @@ public class TextManager : MonoBehaviour
                 break;
             case GameManagerScript.GameAction.none:
                 EventManager.instance.OnShowIngameUI(true);
+                break;
+            case GameManagerScript.GameAction.incorrectBoard:
+                EventManager.instance.OnShowIngameUI(false);
+                break;
+            case GameManagerScript.GameAction.gameCompleted:
+                EventManager.instance.OnShowIngameUI(false);
                 break;
             default:
                 break;        

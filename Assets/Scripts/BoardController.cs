@@ -28,17 +28,20 @@ public class BoardController : MonoBehaviour
     public Transform checkedPhotosLocation;
 
     private bool isShowingPhoto = false;
+    private bool playerIsOnBoard = false;
 
     private void Awake()
     {
         EventManager.instance.GenericAction += ShowNextBoard;
         EventManager.instance.ShowIncorrectBoardDialogue += IncorrectBoardConversation;
+        EventManager.instance.MakePlayerOnBoardStatus += PlayerIsOnTheBoard;
     }
 
     private void OnDestroy()
     {
         EventManager.instance.GenericAction -= ShowNextBoard;
         EventManager.instance.ShowIncorrectBoardDialogue -= IncorrectBoardConversation;
+        EventManager.instance.MakePlayerOnBoardStatus -= PlayerIsOnTheBoard;
     }
 
     private void Start(){         
@@ -47,16 +50,21 @@ public class BoardController : MonoBehaviour
 
     private void Update()
     {
-        CheckForPhotos();
+        if (GameManagerScript.instance.playerIsTalking)
+            return;
 
+        if (playerIsOnBoard) {
+            CheckForPhotos();
+        }
+        
         if (Input.GetMouseButtonDown(0)) {
 
             if (!canTouchPhotos) {
                 return;
             }
 
-            if (GameManagerScript.instance.playerIsTalking)
-                return;
+            //if (GameManagerScript.instance.playerIsTalking)
+            //    return;
 
             RaycastHit hit;
             Ray ray = boardCamera.ScreenPointToRay(Input.mousePosition);
@@ -65,7 +73,12 @@ public class BoardController : MonoBehaviour
             {
                 if (hit.transform.gameObject.tag == GameStringConstants.photo)
                 {
-                  currentSelectedPhoto = hit.transform.gameObject.GetComponent<Photo>();
+                    if (currentSelectedPhoto != null) {
+                        currentSelectedPhoto.ResetAnimation();
+                        currentSelectedPhoto = null;
+                    }
+
+                    currentSelectedPhoto = hit.transform.gameObject.GetComponent<Photo>();
 
                     if (!currentSelectedPhoto.isOnBoardSlot)
                         currentSelectedPhoto.AnimatePhoto();
@@ -81,7 +94,7 @@ public class BoardController : MonoBehaviour
         }
     }
 
-    private void CheckForPhotos() {
+    private void CheckForPhotos() {        
 
         RaycastHit hit;
         Ray ray = boardCamera.ScreenPointToRay(Input.mousePosition);
@@ -164,7 +177,7 @@ public class BoardController : MonoBehaviour
 
         foreach (var photo in boardPhotos) {
 
-            if (photo.checkedForReview) {
+            if (photo.isOnBoardSlot) {
                 photo.transform.position = checkedPhotosLocation.position;
                 photo.gameObject.SetActive(false);
             }
@@ -217,7 +230,7 @@ public class BoardController : MonoBehaviour
         
         foreach (var photo in boardPhotos) {
 
-            if (photo.checkedForReview) {
+            if (photo.isOnBoardSlot) {
                 MovePhotoToStartingPosition(photo);
             }
 
@@ -230,6 +243,10 @@ public class BoardController : MonoBehaviour
 
     public void IncorrectBoardConversation() { 
         incorrectBoardConversation.TriggerTextAction();
+    }
+
+    public void PlayerIsOnTheBoard() {
+        playerIsOnBoard = true;
     }
 
 }

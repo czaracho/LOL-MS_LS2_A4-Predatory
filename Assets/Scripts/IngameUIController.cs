@@ -19,6 +19,14 @@ public class IngameUIController : MonoBehaviour
     public GameObject playerStartPosition;
     public GameObject ingameCanvas;
 
+    //Objectives
+    public GameObject showObjectivesArrow;
+    public GameObject hideObjectivesArrow;
+    public GameObject objectivesListText;
+
+
+    private bool showObjectives = true;
+
     private void Awake()
     {
         if (instance != null)
@@ -65,11 +73,35 @@ public class IngameUIController : MonoBehaviour
         }
     }
 
-    public void CellphoneTeleportCat() {
-        playerCat.transform.position = playerStartPosition.transform.position;
-        playerCatFirstPerson.transform.position = new Vector3(playerCat.transform.position.x, playerCat.transform.position.y, playerCat.transform.position.z);
-
+    public void CellphoneTeleportCatTransition() {
+        GameManagerScript.instance.SetBlackCatSilhouetteForeground(() => TeleportPlayerFadeOut());
     }
 
+    public void TeleportPlayerFadeOut() {
+        PlayerTeleport();
+       GameManagerScript.instance.RemoveBlackCatSilhouetteForeground(null);
+    }
 
+    public void PlayerTeleport() {
+        playerCat.transform.position = playerStartPosition.transform.position;
+        //playerCatFirstPerson.transform.position = new Vector3(playerCat.transform.position.x, playerCat.transform.position.y, playerCat.transform.position.z);
+        playerCatFirstPerson.transform.position = new Vector3(playerCat.transform.position.x, playerCat.transform.position.y + 0.5f, playerCat.transform.position.z); ;
+    }
+
+    public void ShowHideObjectives() {
+
+        if (showObjectives) {
+            objectivesListText.SetActive(false);
+            showObjectivesArrow.SetActive(false);
+            hideObjectivesArrow.SetActive(true);
+            showObjectives = false;
+        }
+        else {
+            objectivesListText.SetActive(true);
+            showObjectivesArrow.SetActive(true);
+            hideObjectivesArrow.SetActive(false);
+            showObjectives = true;
+        }
+
+    }
 }

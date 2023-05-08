@@ -41,7 +41,7 @@ public class Photo : MonoBehaviour
 
             if (!photoSlot.slotIsOccupied) {
                 isOnBoardSlot = true;
-                checkedForReview = true;
+                //checkedForReview = true;
                 photoSlot.id = id;
                 photoSlot.photoSlotForReview.animalName = photoAnimalName;
                 photoSlot.photoSlotForReview.animalType = photoAnimalType;
@@ -68,7 +68,7 @@ public class Photo : MonoBehaviour
 
             if (slotIsOccupied) {
                 photo.isOnBoardSlot = false;
-                checkedForReview = false;
+                //checkedForReview = false;
                 photoSlotForReview.animalName = OrganismObject.AnimalName.typeGeneric;
                 photoSlotForReview.animalType = OrganismObject.AnimalType.typeGeneric;
                 slotIsOccupied = false;

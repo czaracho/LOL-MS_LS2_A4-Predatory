@@ -39,7 +39,6 @@ public class GameManagerScript : MonoBehaviour {
 
     public TextTrigger helpConversation;
 
-
     public enum GameAction
     {
         none,
@@ -51,7 +50,9 @@ public class GameManagerScript : MonoBehaviour {
         objectivesReview,
         switchToBoard,
         nextDialogue,
-        genericAction
+        genericAction,
+        incorrectBoard,
+        gameCompleted
     }
 
     [HideInInspector]
@@ -236,6 +237,11 @@ public class GameManagerScript : MonoBehaviour {
 
     public void RestartCurrentScene() {
         SetBlackCatSilhouetteForeground(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));        
+    }
+
+    public void AddGameProgress() {
+        LOLSDK.Instance.SubmitProgress(1, Loader.CURRENT_PROGRESS, -1);
+        Loader.SaveData();
     }
 
 }

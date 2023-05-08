@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e10a34acd1813a4caccc878ddc00124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalName: 16
+  animalName: 17
   animalType: 3
   organismNameUIPrefab: {fileID: 876087496037323476, guid: 53ae6364eaebf0c42bef32e661eb869f,
     type: 3}

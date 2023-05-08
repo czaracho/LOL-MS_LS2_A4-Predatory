@@ -90,8 +90,6 @@ public class CamerasController : MonoBehaviour
 
             }
 
-            //Debug.Log("La posición del fps es de: " + firstPersonCharacter.transform.position);
-            //Debug.Log("La posición del TPS es de: " + thirdPersonCharacter.transform.position);
         }
     }
 
@@ -124,7 +122,7 @@ public class CamerasController : MonoBehaviour
     public void SwitchToBoardCamera() {
         NewActionVoidDelegate newDelegate = ChangeCameras;
         GameManagerScript.instance.SetBlackCatSilhouetteForeground(newDelegate);
-        //GameManagerScript.instance.playerIsTalking = false;
+        EventManager.instance.OnMakePlayerOnBoardStatus();
     }
 
     public void ChangeCameras() {

@@ -2719,6 +2719,9 @@ MonoBehaviour:
   playerCatFirstPerson: {fileID: 0}
   playerStartPosition: {fileID: 0}
   ingameCanvas: {fileID: 436813143}
+  showObjectivesArrow: {fileID: 0}
+  hideObjectivesArrow: {fileID: 0}
+  objectivesListText: {fileID: 0}
 --- !u!4 &230360257
 Transform:
   m_ObjectHideFlags: 0
@@ -7574,6 +7577,7 @@ MonoBehaviour:
   interactionSignPositionOffsetY: 0
   dialogTrigger:
   - {fileID: 1646039038}
+  dialogReview: {fileID: 0}
 --- !u!4 &586868966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4385986969744507264, guid: 13d5aff3720dca14b9734f82260231e1,
@@ -13948,7 +13952,7 @@ MonoBehaviour:
       sentenceId: incorrect_board_2
   currentTextElement: {fileID: 1644912964}
   typeOfText: 2
-  action: 4
+  action: 10
 --- !u!850595691 &1022754504
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -24996,7 +25000,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1856742074}
   - component: {fileID: 1856742073}
-  - component: {fileID: 1856742072}
   m_Layer: 0
   m_Name: BoardCamera
   m_TagString: Untagged
@@ -25004,14 +25007,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!81 &1856742072
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856742071}
-  m_Enabled: 1
 --- !u!20 &1856742073
 Camera:
   m_ObjectHideFlags: 0
@@ -30693,7 +30688,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5238138501977325315}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &5238138501977325319
 MonoBehaviour:
   m_ObjectHideFlags: 0

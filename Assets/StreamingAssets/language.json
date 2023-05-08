@@ -30,6 +30,9 @@
 		"predator": "predator",
 		"type_prey": "prey",
 		"type_plant": "plant",
+		"info_laptop": "A common laptop computer",
+		"ok_text": "ok",
+		"delete_text": "delete",
 		"tutorial_text1":"Hey Pebbles! Are you ready to go on an adventure?",
 		"tutorial_text2":"Great! But first, let's remember the basics on how that fancy camera of yours works",
 		"tutorial_text3":"You can switch to the camera view using the 'space' button",
@@ -49,14 +52,15 @@
 		"tutorial_text17":"You can check and manage the pictures inside of your album. To open the album press the 'check album' button",
 		"rules_for_pictures":"Rules for taking pictures",
 		"correct_photo_rule":"Correct: Photo labeled with the animal's name",
-		"incorrect_photo_rule":"Correct: Photo labeled with the animal's name",
+		"incorrect_photo_rule":"Incorrect: Photo without the label indicating the animal's name",
 		"click_to_continue":"Click to continue...",
 		"objectives_text":"Objectives",
 		"ldline_1":"Ok, we need to take pictures to complete the objectives for the research",
 		"ldline_2":"Once you have all the pictures, come to me to review them",
-		"ldline_3":"You can also use your phone and I'll pick you if you don't want to walk all the way here",
+		"ldline_3":"You can also use your phone and I'll pick you if you don't want to walk all the way here to review the photos",
 		"ldline_4":"So please, go for a walk and and take the pictures we need",
 		"ldline_4_1":"You can take as many photos of the animals as you want, but careful to not fill your album too quickly!",
+		"ldline_4_1_1":"You can also read useful information about the organisms by pressing the 'i' button on each photo",
 		"ldline_4_2":"If you fill your album, you can always delete the photos with the delete button inside of it",
 		"ldline_5":"Hey, did you got all the photos?",
 		"ldline_6":"Alright, let me see...",
@@ -85,45 +89,28 @@
 		"savanna_objective_3": "2 animals in a mutualism type relationship\n",
 		"savanna_objective_4": "2 animals competing for a resource\n",
 		"savanna_objective_5": "1 parasite in a parasitic relationship\n",
+		"forest_objective_1": "1 predator and 1 prey\n",
+		"forest_objective_2": "2 organisms in a commensalism\n relationship (look for dead trees)\n",
+		"forest_objective_3": "2 predators of the same especies\n competing for resources\n",
+		"forest_objective_4": "2 small prey animals and 1 resource\n they are competing for\n",
+		"forest_objective_5": "1 insect and 1 plant in a mutualistic\n relationship\n",
+		"forest_objective_6": "1 small invertebrate organism in a mutualistic\n relationship with the trees and soil",
 		"tent1":"",
-		"info_lion": "Lions are the world's most social felines that roam the African savannas and grasslands, hunting cooperatively and raising cubs in prides. Their prime habitat" 
-		"is open woodlands, thick grasslands, and brush areas, providing enough cover for hunting and denning. These grassland habitats also offer food for the herbivores that lions "
-		"prey upon. Lions hunt antelope, ungulates, rodents, reptiles, insects, and even crocodiles. They also scavenge or steal prey from other predators like leopards, cheetahs, hyenas, "
-		"or African hunting dogs. Lions digest their food quickly, allowing them to return soon for a second helping after gorging themselves the first time.",
-		"info_buffalo": "The African buffalo, also known as the Cape buffalo, is a large herbivorous mammal found in sub-Saharan Africa. They are known for their tough hide and massive "
-		"horns, which they use for defense against predators. African buffalo are social animals that live in large herds and feed on a variety of grasses, leaves, and other vegetation."
-		"African buffalo are primarily grazers and require a diet rich in protein and other nutrients to maintain their strength and vitality.",
-		"info_hyena": "The African hyena is a carnivorous mammal found in various parts of Africa. They are known for their unique physical characteristics, including a sloping back, powerful" 
-		"jaws, and keen sense of smell. African hyenas are social animals that live in groups called clans and are primarily nocturnal hunters, although they also scavenge for food."
-		"As carnivores, African hyenas have a diet that consists mainly of meat. They are opportunistic hunters that prey on a variety of animals, including antelopes, zebras, and wildebeests,"
-		" as well as smaller mammals like rodents and birds. Hyenas are also scavengers that feed on carrion and will eat just about any animal that has died, including those killed by other predators.",
-		"info_antelope": "Antelopes are fascinating animals that live in Africa and parts of Asia. They have long, slender legs and unique horns, making them a sight to see!" 
-		"Antelopes are herbivores and often gather in groups called herds to stay safe from predators like lions and hyenas. There are many different types of antelopes," 
-		"ranging in size from the small dik-dik to the large eland, but all are known for their impressive leaping and running abilities.",
-		"info_rhino": "The rhinoceros, also known as rhino, is a large herbivorous mammal found in Africa and Asia. They are known for their distinctive horns and tough, armored skin, "
-		"which provide protection against predators. Rhinos are social animals that can live in groups, although they are often solitary creatures."
-		" As herbivores, rhinos have a diet that consists mainly of plants, such as grasses, leaves, and fruits. They have a unique digestive system that allows them to extract"
-		" the maximum amount of nutrients from their food. Rhinos also play an important role in their ecosystems by grazing on vegetation and helping to maintain the balance of plant populations.",
-		"info_pecker": "The oxpecker, also known as the tickbird, is a bird found in parts of Africa. They are known for their unique symbiotic relationship with large mammals such as rhinos, "
-		"giraffes, and zebras. Oxpeckers feed on the ticks, lice, and other parasites that infest the skin and fur of these animals, providing them with a valuable service by keeping them free of pests."
-		"Oxpeckers have a specialized beak that allows them to easily pick and remove parasites from the skin and fur of their hosts. They also consume earwax and other secretions from their hosts, "
-		"which provides them with additional nutrients. This relationship is beneficial to both the oxpecker and the host animal, as it helps prevent the spread of diseases and improves the overall"
-		" health of the animal.",
-		"Oxpeckers are important birds in their ecosystems, as they help maintain the health of large mammals and play a vital role in controlling tick populations. However, they are also threatened "
-		"by habitat loss and other factors, and conservation efforts are needed to ensure their survival in the wild.",
-		"info_fox": "info fox"
-		"info_acorn": "acorn info",
-		"info_squirrel": "info squirrel",
-		"info_rabbit": "info rabbit",
-		"info_dead_tree": "info dead tree",
-		"info_botfly": "Botflies are insects belonging to the family Oestridae. They are known for their parasitic larvae that infest the skin of various mammals, including humans, in a process called myiasis."
-		"Adult female botflies lay their eggs on a host mammal, often near an opening like the nostrils or a wound in the skin."
-		"When the larvae hatch, they burrow into the host's skin and feed on its tissues, causing pain, irritation, and sometimes infection."
-		"The larvae eventually leave the host to pupate, and the adult botflies emerge to repeat the life cycle."
-		"The botfly benefits from the host's resources, while the host suffers from the damage caused by the larvae.",
-		"info_earthworm": "earthworm info",
-		"info_fungi": "info fungi",
-		"info_bee": "info bee",
+		"info_lion": "Lions are the world's most social felines that roam the African savannas and grasslands, hunting cooperatively and raising cubs in prides. Their prime habitat is open woodlands, thick grasslands, and brush areas, providing enough cover for hunting and denning. These grassland habitats also offer food for the herbivores that lions prey upon. Lions hunt antelope, ungulates, rodents, reptiles, insects, and even crocodiles. They also scavenge or steal prey from other predators like leopards, cheetahs, hyenas, or African hunting dogs. Lions digest their food quickly, allowing them to return soon for a second helping after gorging themselves the first time.",
+		"info_buffalo": "The African buffalo, also known as the Cape buffalo, is a large herbivorous mammal found in sub-Saharan Africa. They are known for their tough hide and massive horns, which they use for defense against predators. African buffalo are social animals that live in large herds and feed on a variety of grasses, leaves, and other vegetation. African buffalo are primarily grazers and require a diet rich in protein and other nutrients to maintain their strength and vitality.",
+		"info_hyena": "The African hyena is a carnivorous mammal found in various parts of Africa. They are known for their unique physical characteristics, including a sloping back, powerful jaws, and keen sense of smell. African hyenas are social animals that live in groups called clans and are primarily nocturnal hunters, although they also scavenge for food. As carnivores, African hyenas have a diet that consists mainly of meat. They are opportunistic hunters that prey on a variety of animals, including antelopes, zebras, and wildebeests, as well as smaller mammals like rodents and birds. Hyenas are also scavengers that feed on carrion and will eat just about any animal that has died, including those killed by other predators.",
+		"info_antelope": "Antelopes are fascinating animals that live in Africa and parts of Asia. They have long, slender legs and unique horns, making them a sight to see! Antelopes are herbivores and often gather in groups called herds to stay safe from predators like lions and hyenas. There are many different types of antelopes, ranging in size from the small dik-dik to the large eland, but all are known for their impressive leaping and running abilities.",
+		"info_rhino": "The rhinoceros, also known as rhino, is a large herbivorous mammal found in Africa and Asia. They are known for their distinctive horns and tough, armored skin, which provide protection against predators. Rhinos are social animals that can live in groups, although they are often solitary creatures. As herbivores, rhinos have a diet that consists mainly of plants, such as grasses, leaves, and fruits. They have a unique digestive system that allows them to extract the maximum amount of nutrients from their food. Rhinos also play an important role in their ecosystems by grazing on vegetation and helping to maintain the balance of plant populations.",
+		"info_pecker": "The oxpecker, also known as the tickbird, is a bird found in parts of Africa. They are known for their unique symbiotic relationship with large mammals such as rhinos, giraffes, and zebras. Oxpeckers feed on the ticks, lice, and other parasites that infest the skin and fur of these animals, providing them with a valuable service by keeping them free of pests. Oxpeckers have a specialized beak that allows them to easily pick and remove parasites from the skin and fur of their hosts. They also consume earwax and other secretions from their hosts, which provides them with additional nutrients. This relationship is beneficial to both the oxpecker and the host animal, as it helps prevent the spread of diseases and improves the overall health of the animal. Oxpeckers are important birds in their ecosystems, as they help maintain the health of large mammals and play a vital role in controlling tick populations. However, they are also threatened by habitat loss and other factors, and conservation efforts are needed to ensure their survival in the wild.",
+		"info_fox": "With its keen senses of sight, smell, and hearing, the fox is well-equipped to hunt a wide variety of prey, including small mammals like mice, voles, and rabbits, as well as birds, insects, and even fruits and berries when food is scarce. As predators, foxes play a crucial role in maintaining the balance of their ecosystem. By hunting and consuming smaller animals, foxes help regulate the populations of their prey species and prevent overpopulation, which could otherwise lead to the depletion of resources and disruption of the delicate equilibrium of the forest community.",
+		"info_acorn": "Acorns are the nut-like seeds produced by oak trees (Quercus species), which are part of the beech family (Fagaceae). They play a significant role in the forest ecosystem, serving as a vital food source for a variety of animals and helping to propagate oak trees. Acorns come in various shapes and sizes, depending on the oak species, but generally have a characteristic oval or round shape with a hard, woody shell and a small, pointed cap called a cupule.",
+		"info_squirrel": "In the forest ecosystem, squirrels play a vital role in seed dispersal, helping to maintain and regenerate the vegetation that provides habitat and food for countless other species. Squirrels are primarily herbivores, feeding on a diverse diet that includes seeds, nuts, fruits, fungi, and the occasional insects or bird eggs. One of their favorite food sources is acorns, the seeds of oak trees. Squirrels have a unique relationship with oak trees, as they help to disperse acorns while also relying on them as a crucial food source.",
+		"info_rabbit": "Rabbits are small, herbivorous mammals that play an important role in the forest ecosystem. Rabbits are an essential food source for many predators in the forest ecosystem, such as foxes, coyotes, birds of prey, and even large reptiles. Their presence supports a diverse array of carnivorous species and contributes to the complex food web that sustains the forest's biodiversity.",
+		"info_dead_tree": "Dead trees play a crucial role in the forest ecosystem by providing habitat and food for various organisms, contributing to nutrient cycling, and promoting soil formation and stabilization. Their presence and decomposition processes support the overall health, stability, and biodiversity of the forest environment.",
+		"info_botfly": "Botflies are insects belonging to the family Oestridae. They are known for their parasitic larvae that infest the skin of various mammals, including humans, in a process called myiasis. Adult female botflies lay their eggs on a host mammal, often near an opening like the nostrils or a wound in the skin. When the larvae hatch, they burrow into the host's skin and feed on its tissues, causing pain, irritation, and sometimes infection. The larvae eventually leave the host to pupate, and the adult botflies emerge to repeat the life cycle. The botfly benefits from the host's resources, while the host suffers from the damage caused by the larvae.",
+		"info_earthworm": "Earthworms are small, elongated, and segmented invertebrates that play a vital role in the forest ecosystem, particularly in maintaining soil health and fertility. They are often referred to as 'nature's plow' or 'ecosystem engineers' because of their significant impact on soil structure, nutrient cycling, and plant growth.",
+		"info_fungi": "Fungi are a diverse group of organisms that play a critical role in the forest ecosystem, particularly in the decomposition of organic matter and nutrient cycling. One of the essential functions of fungi in the forest is the breakdown of dead trees and other woody debris. These fungi, known as saprotrophic or decomposer fungi, help recycle the nutrients and energy stored in dead trees back into the ecosystem.",
+		"info_bee": "Bees are flying insects known for their vital role in pollination and honey production. Bees play a vital role in ecosystems as pollinators, biodiversity promoters, honey producers, and indicators of environmental health. Their activities support plant reproduction, contribute to food security, and provide valuable economic and ecological services.",
 		"predator_prey1": "Predator-prey relations refer to the interactions between two species where one species is the hunted food source for the other",
 		"predator_prey2": "The organism that feeds is called the predator and the organism that is fed upon is the prey",
 		"ldline_board_success":"Nice! You got everything right!",
@@ -153,6 +140,44 @@
 		"ldline_board_next_level1":"Great! We got a better idea of some of the relationships in the savanna ecosystem",
 		"ldline_board_next_level2":"Now, we need to get ready to see the relationships in the next ecosystem...",
 		"ldline_board_next_level3":"The forest!",
-		"info_laptop": "A common laptop computer"
+		"prey_predator_tent2_1":"In a forest ecosystem, predator-prey relationships are crucial for maintaining balance and overall health.",
+		"prey_predator_tent2_2":"Foxes, as predators, play a vital role in controlling the populations of prey species like rabbits and squirrels.",
+		"prey_predator_tent2_3":"By hunting and consuming these prey animals, foxes prevent their populations from becoming too large, which could lead to overgrazing of vegetation and degradation of the forest habitat.",
+		"commensalism_tent2_1":"Commensalism is a type of ecological relationship where one organism benefits while the other is neither harmed nor helped.",
+		"commensalism_tent2_2":"In the case of fungi and dead trees, the relationship can be seen as commensal, as the fungi benefit from the dead trees without causing any further harm to them.",
+		"commensalism_tent2_3":"Fungi, specifically saprotrophic fungi, play a crucial role in breaking down dead organic matter in forest ecosystems, including dead trees.",
+		"commensalism_tent2_4":"They release enzymes that decompose complex compounds like cellulose and lignin found in the wood.",
+		"commensalism_tent2_5":"The decomposition process carried out by the fungi contributes to nutrient cycling and habitat creation within the forest ecosystem",
+		"commensalism_tent2_6":"The fungi benefit from the dead trees as a source of nutrients and habitat, while the dead trees are neither harmed nor helped by the fungi's presence.",	
+		"competition_predators_tent2_1":"In the forest ecosystem, competition for resources can occur among organisms of the same species, including predators like foxes.",
+		"competition_predators_tent2_2":"When resources such as food, territory, or mates become limited, individuals within the same species may compete with each other",
+		"competition_predators_tent2_3":"to obtain these necessities for survival and reproduction.",
+		"competition_predators_tent2_4":"Foxes, as predators, primarily hunt for small mammals, birds, and insects.",
+		"competition_predators_tent2_5":"When prey populations decline or become scarce, foxes may experience increased competition amongst themselves for these limited food resources.",
+		"competition_predators_tent2_6":"This competition can lead to aggressive encounters between foxes, with individuals attempting to secure food sources for themselves and their offspring.",
+		"competition_prey_tent2_1":"Competition within the same species, also known as intraspecific competition, is common among prey animals in the forest ecosystem, such as squirrels.",
+		"competition_prey_tent2_2":"This competition occurs when individuals within the same species compete for limited resources like food, territory, or mates.",
+		"competition_prey_tent2_3":"In the case of squirrels, food resources such as nuts, seeds, and fruits are essential for their survival and reproduction.",
+		"competition_prey_tent2_4":"During times of scarcity or when food resources are unevenly distributed, competition between squirrels can intensify",
+		"competition_prey_tent2_5":"as they attempt to secure enough sustenance for themselves and their offspring.",
+		"competition_prey_tent2_6":"This competition can manifest in various ways, such as aggressive encounters, hoarding, or resource guarding.",
+		"mutualism_insect_tent2_1":"In the forest ecosystem, a mutualistic relationship exists between bees and flowering plants.",
+		"mutualism_insect_tent2_2":"In this case, bees act as pollinators, transferring pollen from one flower to another, while the flowering plants provide bees with nectar and pollen as food sources.",
+		"mutualism_insect_tent2_3":"When bees forage for nectar and pollen, they inadvertently pick up pollen from the male reproductive parts (anthers) of a flower.",
+		"mutualism_insect_tent2_4":"As the bees move from flower to flower, some of the pollen they have collected rubs off onto the female reproductive parts (stigmas) of other flowers.",
+		"mutualism_insect_tent2_5":"This process is called pollination and is critical for plant reproduction, as it enables the fertilization of the ovules and the production of seeds and fruits.",
+		"mutualism_insect_tent2_6":"This mutualistic relationship between bees and flowering plants plays a vital role in the forest ecosystem.",
+		"mutualism_insect_tent2_7":"It not only ensures the survival and reproduction of both species involved but also contributes to plant diversity,",
+		"mutualism_insect_tent2_8":"supports complex food webs, and promotes the overall health and stability of the ecosystem.",
+		"mutualism_worm_tent2_1":"In the forest ecosystem, there exists a mutualistic relationship between earthworms and plants.",
+		"mutualism_worm_tent2_2":"Earthworms are known as ecosystem engineers because they influence the physical, chemical, and biological properties of the soil.",
+		"mutualism_worm_tent2_3":"They help to break down organic matter, such as dead leaves and plant material, and mix it with the mineral soil.",
+		"mutualism_worm_tent2_4":"As earthworms digest this organic matter, they produce nutrient-rich excretions called castings, which improve soil fertility and structure.",
+		"ldline_finish_1": "Awesome Pebbles! Now we've got a clearer understanding of the fascinating symbiotic relationships in the forest ecosystem.",
+		"ldline_finish_2": "As we've seen, these relationships can be complex, but it's crucial to grasp how they work to appreciate the delicate balance of nature.",
+		"ldline_finish_3": "From the tiniest insects to the most powerful predators, every organism plays a part and relies on these connections to thrive.",
+		"ldline_finish_4": "You've done an excellent job capturing those images and organizing the board!",
+		"ldline_finish_5": "Thank you for your fantastic help, and keep exploring the wonders of the natural world!",
+		"ldline_finish_game1": "Thanks for playing!"
    }
 }

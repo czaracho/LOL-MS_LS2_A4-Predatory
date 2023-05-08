@@ -22,6 +22,8 @@ public class ManagerNpcUI : MonoBehaviour
     private bool playerOnRange = false;
     
     public TextTrigger[] dialogTrigger;
+    public TextTrigger dialogReview;
+    
 
     private void Awake() {
         EventManager.instance.ResetNPCFirstDialogue += ResetDialogTrigger;
@@ -105,5 +107,9 @@ public class ManagerNpcUI : MonoBehaviour
 
     public void ResetDialogTrigger() {
         dialogTrigger = null;
+    }
+
+    public void ReviewPhotosConversation() {
+        dialogReview.TriggerTextAction();
     }
 }

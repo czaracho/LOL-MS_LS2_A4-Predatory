@@ -21,17 +21,14 @@ public class BoardReviewObject : MonoBehaviour
                 photoSlotForReview.photoAnimalNameAdditional == photoSlotForReview.photoSlotForReview.animalName);
 
             if (!isMatch) {
-
-                Debug.Log("Not matched");
                 EventManager.instance.OnShowIncorrectBoardDialogue();
-
                 return;
             }
 
 
         }
 
-        Debug.Log("Board successful.");
+        GameManagerScript.instance.AddGameProgress();
         checkedForObjectivesReview = true;
         EventManager.instance.OnResetNPCFirstDialogue();
         successMessage.TriggerTextAction();
