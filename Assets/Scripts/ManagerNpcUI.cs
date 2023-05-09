@@ -22,12 +22,7 @@ public class ManagerNpcUI : MonoBehaviour
     private bool playerOnRange = false;
     
     public TextTrigger[] dialogTrigger;
-    public TextTrigger dialogReview;
-    
-
-    private void Awake() {
-        EventManager.instance.ResetNPCFirstDialogue += ResetDialogTrigger;
-    }
+    public TextTrigger dialogReview;   
 
     private void OnDestroy() {
         EventManager.instance.ResetNPCFirstDialogue -= ResetDialogTrigger;
@@ -35,6 +30,8 @@ public class ManagerNpcUI : MonoBehaviour
 
     private void Start()
     {
+        EventManager.instance.ResetNPCFirstDialogue += ResetDialogTrigger;
+
         exclamationSign = Instantiate(exclamationSignPrefab, npcCanvas.transform).GetComponent<Image>();
         interactionBgSign = Instantiate(interactionSignPrefab, npcCanvas.transform).GetComponent<Image>();
         exclamationSign.gameObject.SetActive(false);

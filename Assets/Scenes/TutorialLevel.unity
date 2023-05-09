@@ -1900,7 +1900,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2756,6 +2756,9 @@ MonoBehaviour:
   playerCatFirstPerson: {fileID: 4459864851413139611}
   playerStartPosition: {fileID: 1778056922}
   ingameCanvas: {fileID: 436813143}
+  showObjectivesArrow: {fileID: 0}
+  hideObjectivesArrow: {fileID: 0}
+  objectivesListText: {fileID: 0}
 --- !u!4 &230360257
 Transform:
   m_ObjectHideFlags: 0
@@ -5019,7 +5022,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
@@ -7435,6 +7438,7 @@ MonoBehaviour:
   dialogTrigger:
   - {fileID: 1854596711}
   - {fileID: 862745652}
+  dialogReview: {fileID: 0}
 --- !u!4 &586868966 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4385986969744507264, guid: 13d5aff3720dca14b9734f82260231e1,
@@ -10609,7 +10613,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -13796,7 +13800,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -14454,7 +14458,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -14756,6 +14760,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FadeInOutCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984099019577100943, guid: c2b2a183e9e4446419fe7e1e71b052e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3984099020565817836, guid: c2b2a183e9e4446419fe7e1e71b052e1,
         type: 3}
@@ -21210,7 +21219,7 @@ MonoBehaviour:
       sentenceId: tutorial_text8
   currentTextElement: {fileID: 1644912964}
   typeOfText: 2
-  action: 9
+  action: 12
 --- !u!1 &1862858281
 GameObject:
   m_ObjectHideFlags: 0
@@ -21637,7 +21646,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -21747,7 +21756,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_TargetDisplay: 0
@@ -25837,18 +25846,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5238138501977325315}
   m_Enabled: 1
---- !u!114 &5238138501977325319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5238138501977325315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffa30c67495ac406aa3a8efd10c35d52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5568374632796446311
 GameObject:
   m_ObjectHideFlags: 0

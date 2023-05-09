@@ -36,6 +36,7 @@ public class EventManager : MonoBehaviour
     public event Action HidePhotoPreview;
     public event Action ShowIncorrectBoardDialogue;
     public event Action MakePlayerOnBoardStatus;
+    public event Action ShowTakePicturesRules;
 
 
     public void OnTakePicture()
@@ -108,5 +109,9 @@ public class EventManager : MonoBehaviour
 
     public void OnMakePlayerOnBoardStatus() { 
         MakePlayerOnBoardStatus?.Invoke();
+    }
+
+    public void OnShowTakePicturesRules() { 
+        ShowTakePicturesRules?.Invoke();
     }
 }

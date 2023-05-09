@@ -52,7 +52,8 @@ public class GameManagerScript : MonoBehaviour {
         nextDialogue,
         genericAction,
         incorrectBoard,
-        gameCompleted
+        gameCompleted,
+        showTakingPhotoRules
     }
 
     [HideInInspector]
@@ -80,9 +81,9 @@ public class GameManagerScript : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown("f1")) {
-            SceneManager.LoadScene(nextLevel);
-        }
+        //if (Input.GetKeyDown("f1")) {
+        //    SceneManager.LoadScene(nextLevel);
+        //}
     }
 
     private void InitUI() {
@@ -218,12 +219,12 @@ public class GameManagerScript : MonoBehaviour {
     public void SetBlackCatSilhouetteForeground(NewActionVoidDelegate newActionVoidDelegate)
     {
         Sequence mySequence = DOTween.Sequence();
-        mySequence.Append(catHeadSilouette.transform.DOScale(new Vector3(6f, 6f, 1), Constants.SET_DURATION)).OnComplete(() => { newActionVoidDelegate();});
+        mySequence.Append(catHeadSilouette.transform.DOScale(new Vector3(6f, 6f, 1), Constants.SET_DURATION)).OnComplete(() => { newActionVoidDelegate?.Invoke();});
     }
 
     public void RemoveBlackCatSilhouetteForeground(NewActionVoidDelegate newActionVoidDelegate) {
         Sequence mySequence = DOTween.Sequence();
-        mySequence.Append(catHeadSilouette.transform.DOScale(new Vector3(0, 0, 0), Constants.REMOVE_DURATION)).OnComplete(()=> { newActionVoidDelegate();});
+        mySequence.Append(catHeadSilouette.transform.DOScale(new Vector3(0, 0, 0), Constants.REMOVE_DURATION)).OnComplete(()=> { newActionVoidDelegate?.Invoke();});
     }
 
     public void MovePlayerAwayFromNPC() {

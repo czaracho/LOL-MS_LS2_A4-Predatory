@@ -259,6 +259,10 @@ public class TextManager : MonoBehaviour
             case GameManagerScript.GameAction.genericAction:
                 EventManager.instance.OnGenericAction();
                 break;
+            case GameManagerScript.GameAction.showTakingPhotoRules:
+                Debug.Log("############## Check end dialog action show taking photo rules ##############");
+                EventManager.instance.OnShowTakePicturesRules();
+                break;
             case GameManagerScript.GameAction.none:
                 EventManager.instance.OnShowIngameUI(true);
                 break;

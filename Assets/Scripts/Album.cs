@@ -26,11 +26,6 @@ public class Album : MonoBehaviour
 
     public TextManager textManager;
 
-    private void Awake() {
-        EventManager.instance.ShowPhotoPreview += ShowPhotoPreview;
-        EventManager.instance.HidePhotoPreview += HidePhotoPreview;
-    }
-
     private void OnDestroy() {
         EventManager.instance.TakePicture -= FillPhotoAlbum;
         EventManager.instance.ShowPhotoPreview -= ShowPhotoPreview;
@@ -40,6 +35,8 @@ public class Album : MonoBehaviour
 
     private void Start()
     {
+        EventManager.instance.ShowPhotoPreview += ShowPhotoPreview;
+        EventManager.instance.HidePhotoPreview += HidePhotoPreview;
         EventManager.instance.TakePicture += FillPhotoAlbum;
 
         int i = 0;
@@ -159,6 +156,7 @@ public class Album : MonoBehaviour
     }
 
     public void ShowPhotoPreview(Photo photo ) {
+        Debug.Log("Show the photo preview bro");
         albumViewerCanvas.SetActive(true);
         Sprite photoSprite = Sprite.Create(photo.picture, new Rect(0.0f, 0.0f, photo.picture.width, photo.picture.height), new Vector2(0.5f, 0.5f), 100.0f);
         photoAlbumViewer.gameObject.GetComponent<Image>().sprite = photoSprite;
@@ -167,6 +165,7 @@ public class Album : MonoBehaviour
     }
 
     public void HidePhotoPreview() {
+        Debug.Log("Hide the photo preview");
         albumViewerCanvas.SetActive(false);
     }
 }

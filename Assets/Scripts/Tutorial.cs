@@ -19,15 +19,12 @@ public class Tutorial : MonoBehaviour
     private bool canClickScreen = false;
     private bool movementTutorialAllowed = true;
 
-    private void Awake() {
-        EventManager.instance.GenericAction += showCameraTutorialLayout;
-    }
-
     private void OnDestroy() {
-        EventManager.instance.GenericAction -= showCameraTutorialLayout;
+        EventManager.instance.ShowTakePicturesRules -= showCameraTutorialLayout;
     }
 
     public void Start() {
+        EventManager.instance.ShowTakePicturesRules += showCameraTutorialLayout;
         StartCoroutine(InitTutorialElements());        
     }
 
@@ -48,7 +45,8 @@ public class Tutorial : MonoBehaviour
     }
 
     public void HideTutorialLayout() {
-        
+
+        Debug.Log("******** Hide the tutorial Layout ********");
         playerController.playerCanMoveTps = true;
         GameManagerScript.instance.playerIsTalking = false;
         pebblesTutorialCharacter.SetActive(false);
@@ -99,6 +97,7 @@ public class Tutorial : MonoBehaviour
     }
 
     public void showCameraTutorialLayout() {
+        Debug.Log("******** Show the camera tutorial layout ********");
         cameraTutorialLayout.SetActive(true);
     }
 }

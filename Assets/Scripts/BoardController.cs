@@ -30,13 +30,6 @@ public class BoardController : MonoBehaviour
     private bool isShowingPhoto = false;
     private bool playerIsOnBoard = false;
 
-    private void Awake()
-    {
-        EventManager.instance.GenericAction += ShowNextBoard;
-        EventManager.instance.ShowIncorrectBoardDialogue += IncorrectBoardConversation;
-        EventManager.instance.MakePlayerOnBoardStatus += PlayerIsOnTheBoard;
-    }
-
     private void OnDestroy()
     {
         EventManager.instance.GenericAction -= ShowNextBoard;
@@ -44,7 +37,12 @@ public class BoardController : MonoBehaviour
         EventManager.instance.MakePlayerOnBoardStatus -= PlayerIsOnTheBoard;
     }
 
-    private void Start(){         
+    private void Start(){
+
+        EventManager.instance.GenericAction += ShowNextBoard;
+        EventManager.instance.ShowIncorrectBoardDialogue += IncorrectBoardConversation;
+        EventManager.instance.MakePlayerOnBoardStatus += PlayerIsOnTheBoard;
+
         InitializeBoard();
     }
 
