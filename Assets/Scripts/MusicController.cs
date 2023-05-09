@@ -7,8 +7,6 @@ public class MusicController : MonoBehaviour
     AudioSource audioSource;
     public static MusicController instance;
     public AudioClip savannaMusic;
-    public AudioClip forestMusic;
-    public AudioClip endingSong;
     public float secondsToFadeOut = 1;
 
     private void Awake() {
@@ -29,9 +27,6 @@ public class MusicController : MonoBehaviour
         audioSource.Play();
     }
 
-    public void PlayFinalTheme() {
-        PlayFinalSong();
-    }
 
     public void StopMainSong() {
         StartCoroutine(FadeOutSong());
@@ -50,12 +45,6 @@ public class MusicController : MonoBehaviour
 
         // Stop Music
         audioSource.Stop();
-    }
-
-    void PlayFinalSong() {
-        audioSource.volume = 0.35f;
-        audioSource.clip = endingSong;
-        audioSource.Play();
     }
 
     public void DebugLowVolume() {
