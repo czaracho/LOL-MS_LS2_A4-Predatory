@@ -44,6 +44,10 @@ public class ManagerNpcUI : MonoBehaviour
     {
         if (playerOnRange) {
 
+            if (!GameManagerScript.instance.isFieldLevel && BoardController.instance.playerIsOnBoard) {
+                return;
+            }
+
             interactionBgSign.gameObject.SetActive(true);
 
             if (Input.GetKeyDown(KeyCode.E) && !GameManagerScript.instance.playerIsTalking)

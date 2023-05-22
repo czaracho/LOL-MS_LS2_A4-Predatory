@@ -738,6 +738,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &59786201
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1218,6 +1219,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &115027684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2160,6 +2162,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &200551247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2292,6 +2295,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &212679379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3093,6 +3097,106 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
+--- !u!1 &268269371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 268269372}
+  - component: {fileID: 268269373}
+  m_Layer: 0
+  m_Name: DescriptionMutualism
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &268269372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268269371}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &268269373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268269371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent1_board_hint_mutualism
+  currentTextElement: {fileID: 985762022}
+  typeOfText: 1
+  action: 4
+--- !u!1 &283191691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 283191692}
+  - component: {fileID: 283191693}
+  m_Layer: 0
+  m_Name: ParasiticDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &283191692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283191691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &283191693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283191691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent1_board_hint_parasitic
+  currentTextElement: {fileID: 1762722540}
+  typeOfText: 1
+  action: 4
 --- !u!1 &284191411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3170,6 +3274,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284191411}
   m_CullTransparentMesh: 0
+--- !u!1 &286803399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286803400}
+  - component: {fileID: 286803401}
+  m_Layer: 0
+  m_Name: CompetitionDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &286803400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286803399}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &286803401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286803399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent1_board_description_competition
+  currentTextElement: {fileID: 951959901}
+  typeOfText: 1
+  action: 4
 --- !u!4 &292381152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7120900344667113506, guid: 895760c7aac6ee540b4c3e64d01595c1,
@@ -3259,6 +3413,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &293814662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3872,6 +4027,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &342345579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4169,6 +4325,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!1 &353029568
 GameObject:
   m_ObjectHideFlags: 0
@@ -4233,6 +4390,7 @@ MonoBehaviour:
     animalType: 4
     checkByName: 1
     isChecked: 0
+    organismId: 0
 --- !u!54 &353029571
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4444,6 +4602,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &358064843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4718,6 +4877,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &399679359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4793,6 +4953,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &401585486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5656,6 +5817,7 @@ MonoBehaviour:
     animalType: 3
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &458491747
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6735,6 +6897,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &541630032
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7617,6 +7780,13 @@ Transform:
   - {fileID: 1461675231}
   - {fileID: 1006040428}
   - {fileID: 1012969064}
+  - {fileID: 1318154234}
+  - {fileID: 1536669788}
+  - {fileID: 268269372}
+  - {fileID: 1864435661}
+  - {fileID: 286803400}
+  - {fileID: 1216879134}
+  - {fileID: 283191692}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7868,6 +8038,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &626935343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8243,6 +8414,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &641976591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8558,6 +8730,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &648612289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8733,7 +8906,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: put the organism that is the one that benefits from a parasitic relationship
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
   m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
@@ -9202,6 +9375,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &713471684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10010,6 +10184,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &757637717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10180,6 +10355,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &767122838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11571,6 +11747,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &845442865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12047,6 +12224,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &860994153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12737,7 +12915,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Put two animals that are were competing for food
+  m_text: Put two animals that are competing for food
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
   m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
@@ -12974,6 +13152,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &964625265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13116,6 +13295,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &980272541
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13207,6 +13387,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &985302932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13277,7 +13458,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Put two animals that are in a mutualism relationship
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
   m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
@@ -14225,6 +14406,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &1085981879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16139,6 +16321,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216266125}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1216879133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1216879134}
+  - component: {fileID: 1216879135}
+  m_Layer: 0
+  m_Name: CompetitionHint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1216879134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216879133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1216879135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216879133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent1_board_hint_competition
+  currentTextElement: {fileID: 1277625460}
+  typeOfText: 1
+  action: 4
 --- !u!1 &1218120276
 GameObject:
   m_ObjectHideFlags: 0
@@ -16217,6 +16449,7 @@ MonoBehaviour:
     animalType: 3
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &1218120280
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17527,6 +17760,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313174999}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1318154233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1318154234}
+  - component: {fileID: 1318154235}
+  m_Layer: 0
+  m_Name: PredatorText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1318154234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318154233}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1318154235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318154233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent1_board_predator_text
+  currentTextElement: {fileID: 1368417252}
+  typeOfText: 1
+  action: 4
 --- !u!1 &1324917994
 GameObject:
   m_ObjectHideFlags: 0
@@ -17871,6 +18154,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &1339867851
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18998,6 +19282,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &1398010836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19498,6 +19783,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1435117360
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21007,6 +21293,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &1519763291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21087,6 +21374,56 @@ Transform:
   m_Father: {fileID: 1166168318}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1536669787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1536669788}
+  - component: {fileID: 1536669789}
+  m_Layer: 0
+  m_Name: PreyText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1536669788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536669787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1536669789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536669787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent1_board_prey_text
+  currentTextElement: {fileID: 1001963374}
+  typeOfText: 1
+  action: 4
 --- !u!1 &1539607640
 GameObject:
   m_ObjectHideFlags: 0
@@ -22138,6 +22475,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1624547788
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22213,6 +22551,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1630559149
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22889,6 +23228,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1693793064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22964,6 +23304,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1695554960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23039,6 +23380,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1696233182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23634,7 +23976,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hint: this organism lays its eggs in the skin of larger animals'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
   m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
@@ -24184,6 +24526,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &1817068631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24853,6 +25196,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862858281}
   m_CullTransparentMesh: 0
+--- !u!1 &1864435660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1864435661}
+  - component: {fileID: 1864435662}
+  m_Layer: 0
+  m_Name: HintMutualism
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1864435661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864435660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1864435662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864435660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent1_board_hint_mutualism
+  currentTextElement: {fileID: 1997478157}
+  typeOfText: 1
+  action: 4
 --- !u!1 &1882134517
 GameObject:
   m_ObjectHideFlags: 0
@@ -25258,6 +25651,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!1 &1912974406
 GameObject:
   m_ObjectHideFlags: 0
@@ -26427,6 +26821,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &1962877285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26727,6 +27122,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1984704840
 BoxCollider:
   m_ObjectHideFlags: 0

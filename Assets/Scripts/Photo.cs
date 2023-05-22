@@ -15,12 +15,11 @@ public class Photo : MonoBehaviour
     [HideInInspector]
     public bool photoIsSaved = false;
     [HideInInspector]
-    public int indexPhoto;
+    public int indexPhoto = 999;
     [HideInInspector]
     public bool checkedForReview = false;
     [HideInInspector]
     public Vector3 startingPosition;
-    [HideInInspector]
     public bool isOnBoardSlot = false;
     public bool slotIsOccupied = false;
    
@@ -33,11 +32,17 @@ public class Photo : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
 
+        //If this is a photoslot, then it does nothing (YOU'LL DO NUTHING)
         if (!gameObject.CompareTag(GameStringConstants.photo)) return;
+
 
         if (other.gameObject.CompareTag(GameStringConstants.photoSlot)) {
 
             Photo photoSlot = other.GetComponent<Photo>();
+
+            if (BoardController.instance.currentSelectedSlot != photoSlot) {
+                return;
+            }
 
             if (!photoSlot.slotIsOccupied) {
                 isOnBoardSlot = true;
@@ -52,6 +57,7 @@ public class Photo : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other) {
+
         if (!gameObject.CompareTag(GameStringConstants.photoSlot)) return;
 
         if (other.gameObject.CompareTag(GameStringConstants.photo)) {

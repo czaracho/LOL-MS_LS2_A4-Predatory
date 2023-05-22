@@ -99,6 +99,8 @@ public class OrganismIdentifier{
     public bool checkByName = false;
     [SerializeField]
     public bool isChecked;
+    [SerializeField]
+    public int organismId = 0;
 }
 
 [System.Serializable]

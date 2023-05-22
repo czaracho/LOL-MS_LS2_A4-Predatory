@@ -76,21 +76,12 @@ public class SnapshotController : MonoBehaviour
         {
             takeScreenshotOnNextFrame = false;
 
-            //renderTexture = photoCamera.targetTexture;
-            //Debug.Log("renderTexture.width: " + renderTexture.width + " - " + "renderTexture.height: " + renderTexture.height);
-            //renderResult = new Texture2D(renderTexture.width/2, renderTexture.height/2, TextureFormat.RGB24, false);
-            //rect = new Rect(0, 0, renderTexture.width, renderTexture.height);
-            //renderResult.ReadPixels(rect, 0, 0);
-
-
-
             renderResult = new Texture2D(500, 500, TextureFormat.RGB24, false);
             // ReadPixels looks at the active RenderTexture.
             RenderTexture.active = rTex;
             renderResult.ReadPixels(new Rect(0, 0, rTex.width, rTex.height), 0, 0);
 
             RenderTexture.ReleaseTemporary(renderTexture);
-            //photoCamera.targetTexture = null;
 
             //AssetDatabase.Refresh();
             renderResult.Apply();

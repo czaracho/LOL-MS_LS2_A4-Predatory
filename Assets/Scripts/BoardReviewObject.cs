@@ -25,7 +25,6 @@ public class BoardReviewObject : MonoBehaviour
                 return;
             }
 
-
         }
 
         GameManagerScript.instance.AddGameProgress();

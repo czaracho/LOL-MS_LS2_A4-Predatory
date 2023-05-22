@@ -13,7 +13,8 @@ public class BoardController : MonoBehaviour
 
     public Photo[] boardPhotos = new Photo[Constants.TOTAL_PHOTO_SLOTS];
     private Photo currentSelectedPhoto = null;
-    private Photo currentSelectedSlot = null;
+    [SerializeField]
+    public Photo currentSelectedSlot = null;
 
     public Camera boardCamera;
     public TextTrigger initialBoardConversation;
@@ -28,7 +29,20 @@ public class BoardController : MonoBehaviour
     public Transform checkedPhotosLocation;
 
     private bool isShowingPhoto = false;
-    private bool playerIsOnBoard = false;
+    [SerializeField]
+    public bool playerIsOnBoard = false;
+
+    public static BoardController instance;
+
+
+    private void Awake() {
+        if (instance != null) {
+            return;
+        }
+        else {
+            instance = this;
+        }
+    }
 
     private void OnDestroy()
     {
@@ -205,26 +219,41 @@ public class BoardController : MonoBehaviour
 
     }
 
-    public void ShowNextBoard() {
-        
+    private void ShowNextBoard() {
+        StartCoroutine(iShowNextBoard());
+    }
+
+    public IEnumerator iShowNextBoard() {
+
+        ResetBoard();
+
+        yield return new WaitForSeconds(1.0f);
+
         Debug.Log("We show the next board. First review successful");
-        HideCheckedPhotos();
+        //HideCheckedPhotos();
+        BoardObjectiveActivator();
+
+
+    }
+
+    private void BoardObjectiveActivator() {
 
         foreach (var board in boardsForReview) {
 
             if (board.checkedForObjectivesReview) {
+                Debug.Log("Board checked for objectives review");
                 board.gameObject.SetActive(false);
             }
             else {
+                Debug.Log("Board activo kpo");
                 board.gameObject.SetActive(true);
                 return;
-            }                
+            }
 
         }
-
     }
 
-    public void ResetBoard() {
+    private void ResetBoard() {
         
         foreach (var photo in boardPhotos) {
 

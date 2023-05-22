@@ -22,7 +22,6 @@ public class GameManagerScript : MonoBehaviour {
     [HideInInspector]
     public bool isCheckingObjectives = false;
 
-    //public OrganismObject[] organismsForObjectivesOld;
     public GameObject outerGate;
     public GameObject catHeadSilouette;
     public TextTrigger levelCompleteDialog;
@@ -38,6 +37,8 @@ public class GameManagerScript : MonoBehaviour {
     public OrganismIdentifier[] objectivesOrganisms;
 
     public TextTrigger helpConversation;
+
+    public ObjectiveField[] objectives;
 
     public enum GameAction
     {
@@ -81,9 +82,9 @@ public class GameManagerScript : MonoBehaviour {
 
     private void Update()
     {
-        //if (Input.GetKeyDown("f1")) {
-        //    SceneManager.LoadScene(nextLevel);
-        //}
+        if (Input.GetKeyDown("f1")) {
+            SceneManager.LoadScene("SavannaLevel");
+        }
     }
 
     private void InitUI() {
@@ -108,6 +109,27 @@ public class GameManagerScript : MonoBehaviour {
 
     public void checkObjectives() {
 
+        int totalObjectivesAccomplished = 0;
+
+        for (int i = 0; i < objectives.Length; i++) {
+
+            if (objectives[i].objectivesAccomplished) {
+                totalObjectivesAccomplished++;
+            }
+
+        }
+
+        if (totalObjectivesAccomplished == objectives.Length) {
+            ObjectivesAccomplished();
+        }
+        else {
+            ObjectivesUnaccomplished(); 
+        }
+
+    }
+
+    private void checkObjectivesByOrganism() {
+
         UncheckReviewedPhotos();
 
         objectivesAccomplishedCounter = 0;
@@ -121,15 +143,12 @@ public class GameManagerScript : MonoBehaviour {
                 if (Loader.photoCollection[j].checkedForReview)
                     continue;
 
-                //if (objectivesOrganisms[i].isChecked)
-                //    continue;
 
                 if (objectivesOrganisms[i].checkByName) {
 
                     if (objectivesOrganisms[i].animalName == Loader.photoCollection[j].photoAnimalName) {
 
                         objectivesAccomplishedCounter++;
-                        //objectivesOrganisms[i].isChecked = true;
                         Loader.photoCollection[j].checkedForReview = true;
 
                         Debug.Log("###########CHECKEDBYNAME###############");
@@ -150,7 +169,6 @@ public class GameManagerScript : MonoBehaviour {
                     if (objectivesOrganisms[i].animalType == Loader.photoCollection[j].photoAnimalType) {
 
                         objectivesAccomplishedCounter++;
-                        //objectivesOrganisms[i].isChecked = true;
                         Loader.photoCollection[j].checkedForReview = true;
 
                         Debug.Log("###########CHECKEDBYTYPE###############");
@@ -165,12 +183,13 @@ public class GameManagerScript : MonoBehaviour {
                             return;
                         }
                     }
-                }                
+                }
 
             }
         }
 
         ObjectivesUnaccomplished();
+
     }
 
     private void UncheckReviewedPhotos() {

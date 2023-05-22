@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using LoLSDK;
 
 public class Album : MonoBehaviour
 {
@@ -35,9 +36,9 @@ public class Album : MonoBehaviour
 
     private void Start()
     {
+        EventManager.instance.TakePicture += FillPhotoAlbum;
         EventManager.instance.ShowPhotoPreview += ShowPhotoPreview;
         EventManager.instance.HidePhotoPreview += HidePhotoPreview;
-        EventManager.instance.TakePicture += FillPhotoAlbum;
 
         int i = 0;
         foreach (Transform child in photoGridParent.transform) {
@@ -70,14 +71,35 @@ public class Album : MonoBehaviour
                 Loader.photoCollection[i].infoId = SnapshotController.newPhoto.infoId;
                 Loader.photoCollection[i].photoIsSaved = true;
                 Loader.photoCollection[i].indexPhoto = i;
+                SnapshotController.newPhoto.indexPhoto = i;
+                SnapshotController.newPhoto.checkedForReview = false;
 
                 Sprite photoSprite = Sprite.Create(Loader.photoCollection[i].picture, new Rect(0.0f, 0.0f, Loader.photoCollection[i].picture.width, Loader.photoCollection[i].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
                 photoGridParentChilds[i].transform.localScale = new Vector3(0.8f, 0.8f, 1);
                 photoAlbumObjects[i].SetActive(true);
                 photoAlbumImage[i].sprite = photoSprite;
-               
+             
                 break;
             }
+        }
+
+        //Update objectives
+        foreach (var objective in GameManagerScript.instance.objectives) {
+
+            Debug.Log("El estado checked de la foto es: " + SnapshotController.newPhoto.checkedForReview);
+
+            if (SnapshotController.newPhoto.checkedForReview)
+                return;
+
+            if (!objective.objectivesAccomplished) {
+
+                bool objectiveIsAccomplished = objective.checkObjectives(SnapshotController.newPhoto);
+
+                if (objectiveIsAccomplished) {
+                    return;
+                }
+            }
+
         }
     }
 
@@ -124,6 +146,11 @@ public class Album : MonoBehaviour
 
     public void DeletePhoto()
     {
+        Debug.Log("Borramos foto con index: " + selectedPhotoIndex);
+        foreach (var objective in GameManagerScript.instance.objectives) {
+            objective.checkForDeletedPhoto(selectedPhotoIndex);
+        }
+
         SnapshotController.photosTakenQuantity--;
         Loader.photoCollection[selectedPhotoIndex] = new Photo();
         Loader.photoCollection[selectedPhotoIndex].photoAnimalName = OrganismObject.AnimalName.typeGeneric;
@@ -145,18 +172,22 @@ public class Album : MonoBehaviour
         string infoOfAnimal = "";
 
         infoOfAnimal = textManager.DisplayInfo(Loader.photoCollection[selectedPhotoIndex].infoId);
-        
+        LOLSDK.Instance.SpeakText(Loader.photoCollection[selectedPhotoIndex].infoId);
+
+
         if (infoOfAnimal != "") {
             infoText.text = infoOfAnimal;
         }
     }
 
     public void CloseInfo() {
+
+        ((ILOLSDK_EXTENSION)LOLSDK.Instance.PostMessage).CancelSpeakText();
+
         infoScreen.SetActive(false);
     }
 
     public void ShowPhotoPreview(Photo photo ) {
-        Debug.Log("Show the photo preview bro");
         albumViewerCanvas.SetActive(true);
         Sprite photoSprite = Sprite.Create(photo.picture, new Rect(0.0f, 0.0f, photo.picture.width, photo.picture.height), new Vector2(0.5f, 0.5f), 100.0f);
         photoAlbumViewer.gameObject.GetComponent<Image>().sprite = photoSprite;
@@ -165,7 +196,6 @@ public class Album : MonoBehaviour
     }
 
     public void HidePhotoPreview() {
-        Debug.Log("Hide the photo preview");
         albumViewerCanvas.SetActive(false);
     }
 }

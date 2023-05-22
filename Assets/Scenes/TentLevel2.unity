@@ -368,6 +368,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &28709019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 28709020}
+  - component: {fileID: 28709021}
+  m_Layer: 0
+  m_Name: PreysDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &28709020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28709019}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &28709021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28709019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent2_board_description_preys
+  currentTextElement: {fileID: 777524286}
+  typeOfText: 1
+  action: 4
 --- !u!1 &32832757
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +526,7 @@ GameObject:
   - component: {fileID: 33389201}
   - component: {fileID: 33389200}
   m_Layer: 0
-  m_Name: Description Text
+  m_Name: PredatorPreyDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -820,6 +870,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &59786201
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -833,141 +884,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7022095, y: 0.76218194, z: 0.8}
   m_Center: {x: 0.010957718, y: 0.0120636625, z: 0.2050333}
---- !u!1 &69960853
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 69960854}
-  - component: {fileID: 69960856}
-  - component: {fileID: 69960855}
-  m_Layer: 0
-  m_Name: Description Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &69960854
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69960853}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1589151158}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.2312012, y: 0}
-  m_SizeDelta: {x: 522.54, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &69960855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69960853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 'Hint: '
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
-  m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
-    type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4284835482
-  m_fontColor: {r: 0.6039216, g: 0.40000004, b: 0.39607847, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: -33.655914, y: 0, z: -31.19397, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &69960856
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69960853}
-  m_CullTransparentMesh: 0
 --- !u!1 &76744075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,6 +1351,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &115027684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2582,6 +2499,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &200551247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2791,6 +2709,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &212679379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3241,7 +3160,7 @@ GameObject:
   - component: {fileID: 234714711}
   - component: {fileID: 234714710}
   m_Layer: 0
-  m_Name: Description Text
+  m_Name: PreysHint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3286,7 +3205,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hint: these animals loves to hoard seeds and nuts'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
   m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
@@ -3893,6 +3812,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &293814662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4591,6 +4511,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &342345579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4888,6 +4809,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!1 &357124594
 GameObject:
   m_ObjectHideFlags: 0
@@ -5072,6 +4994,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &358064843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5342,6 +5265,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &399679359
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5417,6 +5341,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &401585486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5442,7 +5367,7 @@ GameObject:
   - component: {fileID: 402131998}
   - component: {fileID: 402131997}
   m_Layer: 0
-  m_Name: Description Text
+  m_Name: MutualismWormHint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5487,7 +5412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Usually, these organism have a strong relationship with the trees and soil
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
   m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
@@ -6332,7 +6257,7 @@ MonoBehaviour:
   id: 0
   photoAnimalName: 17
   photoAnimalType: 4
-  photoAnimalNameAdditional: 17
+  photoAnimalNameAdditional: 16
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -6346,6 +6271,7 @@ MonoBehaviour:
     animalType: 4
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &458491747
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6628,6 +6554,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &485688105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485688106}
+  - component: {fileID: 485688107}
+  m_Layer: 0
+  m_Name: PredatorPreyDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &485688106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485688105}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485688107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485688105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent2_board_description_predatorprey
+  currentTextElement: {fileID: 33389200}
+  typeOfText: 1
+  action: 4
 --- !u!1 &487364945
 GameObject:
   m_ObjectHideFlags: 0
@@ -6944,7 +6920,6 @@ RectTransform:
   - {fileID: 142586706}
   - {fileID: 1615973984}
   - {fileID: 1736359321}
-  - {fileID: 1915609314}
   m_Father: {fileID: 323935268}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7470,6 +7445,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548284969}
   m_CullTransparentMesh: 0
+--- !u!1 &549224838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 549224839}
+  - component: {fileID: 549224840}
+  m_Layer: 0
+  m_Name: PredatorsDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &549224839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549224838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &549224840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549224838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent2_board_description_predators
+  currentTextElement: {fileID: 951959901}
+  typeOfText: 1
+  action: 4
 --- !u!1 &549445196
 GameObject:
   m_ObjectHideFlags: 0
@@ -8409,6 +8434,17 @@ Transform:
   - {fileID: 996607743}
   - {fileID: 1006040428}
   - {fileID: 1012969064}
+  - {fileID: 485688106}
+  - {fileID: 736509031}
+  - {fileID: 2142146478}
+  - {fileID: 1535565394}
+  - {fileID: 793651282}
+  - {fileID: 549224839}
+  - {fileID: 28709020}
+  - {fileID: 1429840694}
+  - {fileID: 988866640}
+  - {fileID: 1917872060}
+  - {fileID: 1154188976}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8662,6 +8698,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &626935343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9120,6 +9157,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &641976591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9339,6 +9377,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &648612289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9900,6 +9939,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &713471684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10234,6 +10274,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723703305}
   m_CullTransparentMesh: 0
+--- !u!1 &736509030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 736509031}
+  - component: {fileID: 736509032}
+  m_Layer: 0
+  m_Name: PredatorText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &736509031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736509030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736509032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736509030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent1_board_predator_text
+  currentTextElement: {fileID: 1368417252}
+  typeOfText: 1
+  action: 4
 --- !u!1 &736840783
 GameObject:
   m_ObjectHideFlags: 0
@@ -10791,6 +10881,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &757637717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10961,6 +11052,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &767122838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11128,7 +11220,7 @@ GameObject:
   - component: {fileID: 777524287}
   - component: {fileID: 777524286}
   m_Layer: 0
-  m_Name: Description Text
+  m_Name: PreysDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11173,7 +11265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Put two prey animals of the same species fighting for a resource
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
   m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
@@ -11474,6 +11566,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 757915300}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &793651281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 793651282}
+  - component: {fileID: 793651283}
+  m_Layer: 0
+  m_Name: CommensalismHint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &793651282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793651281}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &793651283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793651281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent2_board_hint_commensalism
+  currentTextElement: {fileID: 1997478157}
+  typeOfText: 1
+  action: 4
 --- !u!1 &796606198
 GameObject:
   m_ObjectHideFlags: 0
@@ -12411,6 +12553,7 @@ MonoBehaviour:
     animalType: 4
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!1 &832465606
 GameObject:
   m_ObjectHideFlags: 0
@@ -12696,6 +12839,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &845442865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13255,6 +13399,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &860994153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13824,7 +13969,7 @@ GameObject:
   - component: {fileID: 951959902}
   - component: {fileID: 951959901}
   m_Layer: 0
-  m_Name: Description Text
+  m_Name: PredatorsDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13869,7 +14014,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Put two predators of the same species competing for a resource
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
   m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
@@ -14106,6 +14251,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &964625265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14248,6 +14394,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &980272541
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14339,6 +14486,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &985302932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14364,7 +14512,7 @@ GameObject:
   - component: {fileID: 985762023}
   - component: {fileID: 985762022}
   m_Layer: 0
-  m_Name: Description Text
+  m_Name: CommensalismDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14409,7 +14557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Put two organisms in a commensalistic relationship
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
   m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
@@ -14487,6 +14635,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985762020}
   m_CullTransparentMesh: 0
+--- !u!1 &988866639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 988866640}
+  - component: {fileID: 988866641}
+  m_Layer: 0
+  m_Name: MutualismBeeDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &988866640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988866639}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &988866641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988866639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent2_board_description_mutualism_bee
+  currentTextElement: {fileID: 1891641786}
+  typeOfText: 1
+  action: 4
 --- !u!1 &996607742
 GameObject:
   m_ObjectHideFlags: 0
@@ -14567,7 +14765,7 @@ GameObject:
   - component: {fileID: 1001963375}
   - component: {fileID: 1001963374}
   m_Layer: 0
-  m_Name: preyText
+  m_Name: PreyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15348,6 +15546,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &1085981879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16484,6 +16683,56 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1154188975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1154188976}
+  - component: {fileID: 1154188977}
+  m_Layer: 0
+  m_Name: MutualismWormHint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1154188976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154188975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1154188977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154188975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent2_board_hint_mutualism_worm
+  currentTextElement: {fileID: 402131997}
+  typeOfText: 1
+  action: 4
 --- !u!1 &1158564536
 GameObject:
   m_ObjectHideFlags: 0
@@ -16597,7 +16846,6 @@ RectTransform:
   m_Children:
   - {fileID: 458812065}
   - {fileID: 1291551952}
-  - {fileID: 1589151158}
   m_Father: {fileID: 323935268}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17381,7 +17629,7 @@ MonoBehaviour:
   id: 0
   photoAnimalName: 16
   photoAnimalType: 2
-  photoAnimalNameAdditional: 16
+  photoAnimalNameAdditional: 17
   infoId: 
   picture: {fileID: 0}
   photoIsSaved: 0
@@ -17395,6 +17643,7 @@ MonoBehaviour:
     animalType: 4
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &1218120280
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17638,6 +17887,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &1241071546
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18257,141 +18507,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275748888}
-  m_CullTransparentMesh: 0
---- !u!1 &1277625458
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1277625459}
-  - component: {fileID: 1277625461}
-  - component: {fileID: 1277625460}
-  m_Layer: 0
-  m_Name: Description Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1277625459
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277625458}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1915609314}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.2312012, y: 0}
-  m_SizeDelta: {x: 522.54, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1277625460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277625458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: 
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
-  m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
-    type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4284835482
-  m_fontColor: {r: 0.6039216, g: 0.40000004, b: 0.39607847, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: -33.655914, y: 0, z: -31.19397, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1277625461
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277625458}
   m_CullTransparentMesh: 0
 --- !u!1 &1291551951
 GameObject:
@@ -19618,6 +19733,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &1368260361
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19659,7 +19775,7 @@ GameObject:
   - component: {fileID: 1368417253}
   - component: {fileID: 1368417252}
   m_Layer: 0
-  m_Name: predatorText
+  m_Name: PredatorText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20268,6 +20384,7 @@ MonoBehaviour:
     animalType: 4
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!1 &1398010832
 GameObject:
   m_ObjectHideFlags: 0
@@ -20351,6 +20468,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &1398010836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20706,6 +20824,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1429840693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1429840694}
+  - component: {fileID: 1429840695}
+  m_Layer: 0
+  m_Name: PreysHint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1429840694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429840693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1429840695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429840693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent2_board_hint_preys
+  currentTextElement: {fileID: 234714710}
+  typeOfText: 1
+  action: 4
 --- !u!1 &1435117357
 GameObject:
   m_ObjectHideFlags: 0
@@ -20768,6 +20936,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1435117360
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22145,6 +22314,7 @@ MonoBehaviour:
     animalType: 4
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!1 &1493565446
 GameObject:
   m_ObjectHideFlags: 0
@@ -22504,6 +22674,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &1519763291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22582,6 +22753,56 @@ Transform:
   m_Father: {fileID: 1166168318}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1535565393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1535565394}
+  - component: {fileID: 1535565395}
+  m_Layer: 0
+  m_Name: CommensalismDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1535565394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535565393}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1535565395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535565393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent2_board_description_commensalism
+  currentTextElement: {fileID: 985762022}
+  typeOfText: 1
+  action: 4
 --- !u!1 &1537685289
 GameObject:
   m_ObjectHideFlags: 0
@@ -23329,7 +23550,7 @@ GameObject:
   - component: {fileID: 1580066572}
   - component: {fileID: 1580066571}
   m_Layer: 0
-  m_Name: Description Text
+  m_Name: MutualismWormDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23530,83 +23751,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583379473}
-  m_CullTransparentMesh: 0
---- !u!1 &1589151157
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1589151158}
-  - component: {fileID: 1589151160}
-  - component: {fileID: 1589151159}
-  m_Layer: 0
-  m_Name: TextBG - Description (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1589151158
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589151157}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 69960854}
-  m_Father: {fileID: 1161217580}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -115.2}
-  m_SizeDelta: {x: 700, y: 80}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1589151159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589151157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 5348476292978303511, guid: ffac4f8c03648fc4284fee880ee0ca50,
-    type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1589151160
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1589151157}
   m_CullTransparentMesh: 0
 --- !u!1 &1607342352
 GameObject:
@@ -24101,6 +24245,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1624547788
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24176,6 +24321,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1630559149
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24754,6 +24900,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1693793064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24829,6 +24976,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1695554960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24904,6 +25052,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1696233182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25895,6 +26044,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &1817068631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26708,7 +26858,7 @@ GameObject:
   - component: {fileID: 1891641787}
   - component: {fileID: 1891641786}
   m_Layer: 0
-  m_Name: Description Text
+  m_Name: MutualismDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26753,7 +26903,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Put an insect and a plant in a mutualistic relationship
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
   m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
@@ -27027,6 +27177,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!1 &1912974406
 GameObject:
   m_ObjectHideFlags: 0
@@ -27185,7 +27336,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1915609313
+--- !u!1 &1917872059
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27193,75 +27344,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1915609314}
-  - component: {fileID: 1915609316}
-  - component: {fileID: 1915609315}
+  - component: {fileID: 1917872060}
+  - component: {fileID: 1917872061}
   m_Layer: 0
-  m_Name: TextBG - Description (3)
+  m_Name: MutualismWormDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1915609314
-RectTransform:
+  m_IsActive: 1
+--- !u!4 &1917872060
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915609313}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1917872059}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1277625459}
-  m_Father: {fileID: 515772928}
-  m_RootOrder: 3
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -120.76}
-  m_SizeDelta: {x: 700, y: 80}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1915609315
+--- !u!114 &1917872061
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915609313}
+  m_GameObject: {fileID: 1917872059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 5348476292978303511, guid: ffac4f8c03648fc4284fee880ee0ca50,
-    type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1915609316
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915609313}
-  m_CullTransparentMesh: 0
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent2_board_description_mutualism_worm
+  currentTextElement: {fileID: 1580066571}
+  typeOfText: 1
+  action: 4
 --- !u!1 &1924734840
 GameObject:
   m_ObjectHideFlags: 0
@@ -27408,6 +27532,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &1931673288
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28131,6 +28256,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!54 &1962877285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28431,6 +28557,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!65 &1984704840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28456,7 +28583,7 @@ GameObject:
   - component: {fileID: 1997478158}
   - component: {fileID: 1997478157}
   m_Layer: 0
-  m_Name: Description Text
+  m_Name: CommensalismHint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28501,7 +28628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hint: the organism you need to put in the right slot doesn''t get benefited'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 78c00cd502e6c684db442af4a5b670f3, type: 2}
   m_sharedMaterial: {fileID: 8325457746064996737, guid: 78c00cd502e6c684db442af4a5b670f3,
@@ -30440,6 +30567,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2142146477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2142146478}
+  - component: {fileID: 2142146479}
+  m_Layer: 0
+  m_Name: PreyText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2142146478
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142146477}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2142146479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142146477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent1_board_prey_text
+  currentTextElement: {fileID: 1001963374}
+  typeOfText: 1
+  action: 4
 --- !u!1 &2143215354
 GameObject:
   m_ObjectHideFlags: 0
