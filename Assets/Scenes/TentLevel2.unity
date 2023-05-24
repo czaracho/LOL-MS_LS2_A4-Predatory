@@ -4858,6 +4858,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  currentSelectedSlot: {fileID: 0}
   boardCamera: {fileID: 1856742073}
   initialBoardConversation: {fileID: 1646039038}
   nextLevelBoardConversation: {fileID: 0}
@@ -4871,6 +4872,7 @@ MonoBehaviour:
   - {fileID: 1161217581}
   - {fileID: 1479673083}
   checkedPhotosLocation: {fileID: 1051205334}
+  playerIsOnBoard: 0
 --- !u!4 &357124596
 Transform:
   m_ObjectHideFlags: 0
@@ -14752,7 +14754,7 @@ MonoBehaviour:
       sentenceId: ldline_finish_5
   currentTextElement: {fileID: 1644912964}
   typeOfText: 2
-  action: 11
+  action: 3
 --- !u!1 &1001963372
 GameObject:
   m_ObjectHideFlags: 0

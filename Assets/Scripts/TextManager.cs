@@ -146,7 +146,8 @@ public class TextManager : MonoBehaviour
             catLanaPortrait.DOColor(hightlightedColor, 0.5f);
             catPebblesPortrait.DOColor(darkerColor, 0.5f);
 
-            nextLine = " - " + dialogeLine;
+            //nextLine = " - " + dialogeLine;
+            nextLine = dialogeLine;
         }
 
 
@@ -184,7 +185,8 @@ public class TextManager : MonoBehaviour
         string currentLine = _lang[dialog.sentenceId];
         string nextLine;
         nextLine = currentLine;
-        currentObjectivesText = currentObjectivesText + "-" + nextLine;
+        //currentObjectivesText = currentObjectivesText + "-" + nextLine;
+        currentObjectivesText = currentObjectivesText + nextLine;
 
         if (typeOfText == TextTrigger.TypeOfText.objectivesTitle) {
             currentTMPElement.text = nextLine;
@@ -209,7 +211,10 @@ public class TextManager : MonoBehaviour
             EventManager.instance.OnShowPromptActionUI(true);
         }
 
-        tpsController.playerCanMoveTps = true;
+        if (tpsController != null) {
+            tpsController.playerCanMoveTps = true;
+        }
+        
         GameManagerScript.instance.playerIsTalking = false;
         CheckEndDialogAction();        
     }

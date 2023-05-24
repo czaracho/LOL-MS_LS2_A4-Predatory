@@ -122,6 +122,8 @@ public class Album : MonoBehaviour
 
     public void CheckSelectedPhoto(int indexOfPhoto) {
 
+        Debug.Log("Entramos al check selected photo");
+
         if (Loader.photoCollection[indexOfPhoto].photoIsSaved)
         {
             selectedPhotoIndex = indexOfPhoto;
@@ -130,7 +132,10 @@ public class Album : MonoBehaviour
 
             if (Loader.photoCollection[indexOfPhoto].photoAnimalName != OrganismObject.AnimalName.typeGeneric) {
                 animalName.text = Loader.photoCollection[indexOfPhoto].photoAnimalName.ToString();
-            }            
+            }
+            else {
+                animalName.text = "";
+            }
 
             if (Loader.photoCollection[indexOfPhoto].photoAnimalType!= OrganismObject.AnimalType.typeGeneric) {
                 infoButton.SetActive(true);
@@ -190,8 +195,16 @@ public class Album : MonoBehaviour
     public void ShowPhotoPreview(Photo photo ) {
         albumViewerCanvas.SetActive(true);
         Sprite photoSprite = Sprite.Create(photo.picture, new Rect(0.0f, 0.0f, photo.picture.width, photo.picture.height), new Vector2(0.5f, 0.5f), 100.0f);
-        photoAlbumViewer.gameObject.GetComponent<Image>().sprite = photoSprite;
-        animalName.text = photo.photoAnimalName.ToString();
+        photoAlbumViewer.gameObject.GetComponent<Image>().sprite = photoSprite;        
+
+        if (photo.photoAnimalName != OrganismObject.AnimalName.typeGeneric) {
+            Debug.Log("El animal no es generic: " + photo.photoAnimalName.ToString());
+            animalName.text = photo.photoAnimalName.ToString();
+        }
+        else {
+            Debug.Log("El animal ES UN GENÉRICO STEENERICO");
+            animalName.text = "";
+        }
 
     }
 

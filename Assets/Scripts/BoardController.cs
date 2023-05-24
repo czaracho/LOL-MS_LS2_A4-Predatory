@@ -165,7 +165,7 @@ public class BoardController : MonoBehaviour
         {
 
             boardPhotos[i] = boardPhotosMain.transform.GetChild(i).GetComponent<Photo>();
-            boardPhotos[i].id = i;          
+            boardPhotos[i].id = i;                
             boardPhotos[i].photoAnimalName = Loader.photoCollection[i].photoAnimalName;
             boardPhotos[i].photoAnimalType = Loader.photoCollection[i].photoAnimalType;
             boardPhotos[i].picture = Loader.photoCollection[i].picture;

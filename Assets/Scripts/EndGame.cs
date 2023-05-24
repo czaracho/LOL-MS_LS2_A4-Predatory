@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class EndGame : MonoBehaviour
 {
-    public TextTrigger finalDialog;
-
     public void Start() {
+        Debug.Log("Meowsnap game completed");
         LOLSDK.Instance.CompleteGame();
     }
 }

@@ -5,7 +5,8 @@ using UnityEngine;
 public class ObjectiveField : MonoBehaviour
 {
     [SerializeField] private string label;
-    int totalObjectivesAccomplished = 0;
+    [HideInInspector]
+    public int totalObjectivesAccomplished = 0;
 
 
     public OrganismIdentifier[] objectives;
@@ -62,9 +63,10 @@ public class ObjectiveField : MonoBehaviour
             
             if (objectiveOrganism.organismId == photoIndex) {
                 Debug.Log("Borramos al organismId: " + objectiveOrganism.organismId);
-
+                totalObjectivesAccomplished = 0;
                 objectiveOrganism.organismId = 0;
                 objectivesAccomplished = false;
+                objectiveOrganism.isChecked = false;
                 checkedObjectiveImg.SetActive(false);
             }
         }

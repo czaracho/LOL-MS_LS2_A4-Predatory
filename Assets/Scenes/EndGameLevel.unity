@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3399772, g: 0.63407034, b: 0.9647301, a: 1}
+  m_IndirectSpecularColor: {r: 0.33945042, g: 0.6339372, b: 0.9655846, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6684,6 +6684,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &212679379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9111,6 +9112,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &293814662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11250,6 +11252,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &358064843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19632,7 +19635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &619495866
 Transform:
   m_ObjectHideFlags: 0
@@ -20011,6 +20014,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &626935343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20721,6 +20725,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &641976591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21109,6 +21114,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &648612289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22727,6 +22733,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &713471684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24731,6 +24738,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &767122838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28225,6 +28233,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &845442865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28983,6 +28992,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &860994153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32776,6 +32786,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &964625265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35897,6 +35908,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &1085981879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46000,6 +46012,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &1398010836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50543,6 +50556,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &1519763291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51202,6 +51216,78 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1532688906}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1533993906
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1533993908}
+  - component: {fileID: 1533993907}
+  - component: {fileID: 1533993909}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1533993907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533993906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d0f3313b4718047b47b1895ed84d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkForObjectiveName: 1
+  isFieldLevel: 1
+  objectivesAccomplished: 0
+  playerIsTalking: 0
+  isCheckingObjectives: 0
+  outerGate: {fileID: 0}
+  catHeadSilouette: {fileID: 1665771776}
+  levelCompleteDialog: {fileID: 0}
+  levelNonCompletedDialog: {fileID: 0}
+  nextLevel: TentLevel1
+  player: {fileID: 0}
+  playerStartingPosition: {fileID: 0}
+  objectivesOrganisms: []
+  helpConversation: {fileID: 0}
+  objectives: []
+  gameAction: 0
+--- !u!4 &1533993908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533993906}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -39.332554, y: 3.3060212, z: -44.430862}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1533993909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533993906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc36493b98b5de84aa00882f05fe4044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1534055048
 GameObject:
   m_ObjectHideFlags: 0
@@ -59437,6 +59523,7 @@ MonoBehaviour:
     animalType: 0
     checkByName: 0
     isChecked: 0
+    organismId: 0
 --- !u!114 &1817068631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67712,7 +67799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2080310008
 Transform:
   m_ObjectHideFlags: 0
@@ -67749,7 +67836,7 @@ MonoBehaviour:
   hightlightedColor: {r: 1, g: 1, b: 1, a: 1}
   darkerColor: {r: 0.39215687, g: 0.39215687, b: 0.39215687, a: 1}
   tpsController: {fileID: 0}
-  gameManagerScript: {fileID: 0}
+  gameManagerScript: {fileID: 1533993907}
 --- !u!1001 &2084830543
 PrefabInstance:
   m_ObjectHideFlags: 0

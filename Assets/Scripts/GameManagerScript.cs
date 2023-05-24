@@ -77,14 +77,13 @@ public class GameManagerScript : MonoBehaviour {
         if (isFieldLevel)
             ResetPhotoCollection();
 
-        Debug.Log("La cantidad de fotos es: ");
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown("f1")) {
-            SceneManager.LoadScene("SavannaLevel");
-        }
+        //if (Input.GetKeyDown("f1")) {
+        //    SceneManager.LoadScene(nextLevel);
+        //}
     }
 
     private void InitUI() {

@@ -3143,7 +3143,7 @@ MonoBehaviour:
   dialogue:
     sentences:
     - nameOfCat: 0
-      sentenceId: tent1_board_hint_mutualism
+      sentenceId: tent1_board_description_mutualism
   currentTextElement: {fileID: 985762022}
   typeOfText: 1
   action: 4
@@ -3158,7 +3158,7 @@ GameObject:
   - component: {fileID: 283191692}
   - component: {fileID: 283191693}
   m_Layer: 0
-  m_Name: ParasiticDescription
+  m_Name: ParasiticHint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3176,7 +3176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 619495866}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &283191693
 MonoBehaviour:
@@ -3847,6 +3847,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308486770}
   m_CullTransparentMesh: 0
+--- !u!1 &315097823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 315097824}
+  - component: {fileID: 315097825}
+  m_Layer: 0
+  m_Name: ParasiticDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &315097824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315097823}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 619495866}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &315097825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315097823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61a8361eda8f63c49a4cbf64a4f7e5d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    sentences:
+    - nameOfCat: 0
+      sentenceId: tent1_board_description_parasitic
+  currentTextElement: {fileID: 681590796}
+  typeOfText: 1
+  action: 4
 --- !u!1 &317557036
 GameObject:
   m_ObjectHideFlags: 0
@@ -4468,6 +4518,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  currentSelectedSlot: {fileID: 0}
   boardCamera: {fileID: 1856742073}
   initialBoardConversation: {fileID: 1646039038}
   nextLevelBoardConversation: {fileID: 0}
@@ -4479,6 +4530,7 @@ MonoBehaviour:
   - {fileID: 515772929}
   - {fileID: 1803884167}
   checkedPhotosLocation: {fileID: 1051205334}
+  playerIsOnBoard: 0
 --- !u!4 &357124596
 Transform:
   m_ObjectHideFlags: 0
@@ -7786,6 +7838,7 @@ Transform:
   - {fileID: 1864435661}
   - {fileID: 286803400}
   - {fileID: 1216879134}
+  - {fileID: 315097824}
   - {fileID: 283191692}
   m_Father: {fileID: 0}
   m_RootOrder: 14
