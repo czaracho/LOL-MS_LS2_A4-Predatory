@@ -165,6 +165,9 @@
       "tutorial_text4":"When you are in the camera view, you can use the mouse or trackpad to aim with the camera",
       "forest_objective_5":"- 1 insect and 1 plant in a mutualistic relationship",
       "ldline_4_2":"If you fill your album, you can always delete the photos with the delete button inside of it",
+	  "ldline_4_3":"One last thing! Remember you can view your map by pressing the 'M' button",
+	  "ldline_4_4":"I already pointed possible locations of the animals in your map. They are represented by colored dots.",
+	  "ldline_4_5":"If you want to see the names on the map, just put your mouse pointer on top of the dots I mentioned.",
       "mutualism_info2":"This cooperation helps them survive better in their environment",
       "info_laptop":"A common laptop computer",
       "parasitic_info3":"Parasitic relationships can have significant impacts on host populations, influencing their survival, reproduction, and overall health.",
@@ -188,6 +191,8 @@
 	  "tent2_board_hint_preys":"Hint: these animals loves to hoard seeds and nuts",
 	  "tent2_board_description_mutualism_bee":"Put an insect and a plant in a mutualistic relationship",
 	  "tent2_board_description_mutualism_worm":"Put a small terrestrial invertebrate organism",
-	  "tent2_board_hint_mutualism_worm":"Hint: Usually, these organism have a strong relationship with the trees and soil"
+	  "tent2_board_hint_mutualism_worm":"Hint: Usually, these organism have a strong relationship with the trees and soil",
+	  "open_camera_text":"to open camera",
+	  "open_map":"M : open map"
    }
 }

@@ -81,9 +81,9 @@ public class GameManagerScript : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown("f1")) {
-            SceneManager.LoadScene(nextLevel);
-        }
+        //if (Input.GetKeyDown("f1")) {
+        //    SceneManager.LoadScene(nextLevel);
+        //}
     }
 
     private void InitUI() {

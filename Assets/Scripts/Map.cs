@@ -23,17 +23,8 @@ public class Map : MonoBehaviour
     
     public void Update() {
 
-        if (Input.GetKeyDown(KeyCode.M) && camerasController.isThirdPerson && !camerasController.mapIsActive) {
-            objectivesCanvas.SetActive(false);
-            npcCanvas.SetActive(false);
-            mainCamera.SetActive(false);
-            mapCamera.gameObject.SetActive(true);
-            mapCanvas.SetActive(true);
-            mapIcons.SetActive(true);
-            ingameCanvas.SetActive(false);
-            playerController.playerCanMoveTps = false;
-            camerasController.mapIsActive = true;
-            
+        if (Input.GetKeyDown(KeyCode.M) && camerasController.isThirdPerson && !camerasController.mapIsActive) {           
+            OpenMap();
         }
 
         RaycastHit hit;
@@ -65,6 +56,18 @@ public class Map : MonoBehaviour
         ingameCanvas.SetActive(true);
         playerController.playerCanMoveTps = true;
         camerasController.mapIsActive = false;
+    }
+
+    public void OpenMap() {
+        objectivesCanvas.SetActive(false);
+        npcCanvas.SetActive(false);
+        mainCamera.SetActive(false);
+        mapCamera.gameObject.SetActive(true);
+        mapCanvas.SetActive(true);
+        mapIcons.SetActive(true);
+        ingameCanvas.SetActive(false);
+        playerController.playerCanMoveTps = false;
+        camerasController.mapIsActive = true;
     }
 
 
