@@ -81,9 +81,9 @@ public class GameManagerScript : MonoBehaviour {
 
     private void Update()
     {
-        //if (Input.GetKeyDown("f1")) {
-        //    SceneManager.LoadScene(nextLevel);
-        //}
+        if (Input.GetKeyDown("f1")) {
+            SceneManager.LoadScene(nextLevel);
+        }
     }
 
     private void InitUI() {
@@ -259,7 +259,8 @@ public class GameManagerScript : MonoBehaviour {
     }
 
     public void AddGameProgress() {
-        LOLSDK.Instance.SubmitProgress(1, Loader.CURRENT_PROGRESS, -1);
+        Loader.CURRENT_PROGRESS++;
+        LOLSDK.Instance.SubmitProgress(1, Loader.CURRENT_PROGRESS, Loader.MAX_PROGRESS);
         Loader.SaveData();
     }
 

@@ -3,10 +3,8 @@ using UnityEngine;
 
 namespace Supercyan.AnimalPeopleSample
 {
-    public class SimpleSampleCharacterControl : MonoBehaviour
-    {
-        private enum ControlMode
-        {
+    public class SimpleSampleCharacterControl : MonoBehaviour {
+        private enum ControlMode {
             /// <summary>
             /// Up moves the character forward, left and right turn the character gradually and down moves the character backwards
             /// </summary>
@@ -25,6 +23,7 @@ namespace Supercyan.AnimalPeopleSample
         [SerializeField] private Rigidbody m_rigidBody = null;
 
         [SerializeField] private ControlMode m_controlMode = ControlMode.Direct;
+        [SerializeField] private GameObject playerIcon;
 
         private float m_currentV = 0;
         private float m_currentH = 0;
@@ -218,5 +217,6 @@ namespace Supercyan.AnimalPeopleSample
                 m_animator.SetTrigger("Jump");
             }
         }
+
     }
 }

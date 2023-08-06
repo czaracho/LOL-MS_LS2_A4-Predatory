@@ -13,6 +13,7 @@ public class ProgressData {
 public class Loader : MonoBehaviour
 {
     public static int CURRENT_PROGRESS = 0;
+    public static int MAX_PROGRESS = 10;	
     public static Photo[] photoCollection;
 
     // Relative to Assets /StreamingAssets/

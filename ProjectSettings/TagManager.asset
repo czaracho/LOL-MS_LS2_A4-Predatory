@@ -7,6 +7,7 @@ TagManager:
   - Animal
   - Photo
   - PhotoSlot
+  - Icon
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - 
   - Photo
-  - 
+  - Minimap
   - 
   - 
   - 

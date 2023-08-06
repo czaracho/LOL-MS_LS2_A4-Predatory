@@ -7,6 +7,8 @@ using static Delegates;
 public class CamerasController : MonoBehaviour
 {
     public bool isThirdPerson = true;
+    [HideInInspector]
+    public bool mapIsActive = false;
     
     public GameObject thirdPersonCharacter;
     public GameObject thirdPersonCamera;
@@ -41,6 +43,8 @@ public class CamerasController : MonoBehaviour
 
     public void SwitchCamera() {
 
+        if (mapIsActive)
+            return;
 
         if (!GameManagerScript.instance.playerIsTalking && GameManagerScript.instance.isFieldLevel) {
             
