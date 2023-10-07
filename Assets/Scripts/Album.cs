@@ -59,22 +59,25 @@ public class Album : MonoBehaviour
 
     public void FillPhotoAlbum() {
 
-        Debug.Log("Loader.Photocollection: " + Loader.photoCollection.Length);
+        //Debug.Log("Loader.Photocollection: " + Loader.photoCollection.Length);
 
-        for (int i = 0; i < Loader.photoCollection.Length; i++)
+        for (int i = 0; i < Loader.PROGRESS_DATA.photoCollection.Length; i++)
         {
-            if (!Loader.photoCollection[i].photoIsSaved)
+            if (!Loader.PROGRESS_DATA.photoCollection[i].photoIsSaved)
             {
-                Loader.photoCollection[i].photoAnimalName = SnapshotController.newPhoto.photoAnimalName;
-                Loader.photoCollection[i].photoAnimalType = SnapshotController.newPhoto.photoAnimalType;
-                Loader.photoCollection[i].picture = SnapshotController.newPhoto.picture;
-                Loader.photoCollection[i].infoId = SnapshotController.newPhoto.infoId;
-                Loader.photoCollection[i].photoIsSaved = true;
-                Loader.photoCollection[i].indexPhoto = i;
+                Loader.PROGRESS_DATA.photoCollection[i].photoAnimalName = SnapshotController.newPhoto.photoAnimalName;
+                Loader.PROGRESS_DATA.photoCollection[i].photoAnimalType = SnapshotController.newPhoto.photoAnimalType;
+                Loader.PROGRESS_DATA.photoCollection[i].picture = SnapshotController.newPhoto.picture;
+                Loader.PROGRESS_DATA.photoCollection[i].infoId = SnapshotController.newPhoto.infoId;
+                Loader.PROGRESS_DATA.photoCollection[i].photoIsSaved = true;
+                Loader.PROGRESS_DATA.photoCollection[i].indexPhoto = i;
                 SnapshotController.newPhoto.indexPhoto = i;
                 SnapshotController.newPhoto.checkedForReview = false;
 
-                Sprite photoSprite = Sprite.Create(Loader.photoCollection[i].picture, new Rect(0.0f, 0.0f, Loader.photoCollection[i].picture.width, Loader.photoCollection[i].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
+                Texture2D photoTexture = Loader.PROGRESS_DATA.photoCollection[i].ByteArrayToTexture();
+
+                //Sprite photoSprite = Sprite.Create(Loader.PROGRESS_DATA.photoCollection[i].picture, new Rect(0.0f, 0.0f, Loader.PROGRESS_DATA.photoCollection[i].picture.width, Loader.PROGRESS_DATA.photoCollection[i].picture.height), new Vector2(0.5f, 0.5f), 100.0f);
+                Sprite photoSprite = Sprite.Create(photoTexture, new Rect(0.0f, 0.0f, photoTexture.width, photoTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
                 photoGridParentChilds[i].transform.localScale = new Vector3(0.8f, 0.8f, 1);
                 photoAlbumObjects[i].SetActive(true);
                 photoAlbumImage[i].sprite = photoSprite;
@@ -124,20 +127,20 @@ public class Album : MonoBehaviour
 
         Debug.Log("Entramos al check selected photo");
 
-        if (Loader.photoCollection[indexOfPhoto].photoIsSaved)
+        if (Loader.PROGRESS_DATA.photoCollection[indexOfPhoto].photoIsSaved)
         {
             selectedPhotoIndex = indexOfPhoto;
             albumViewerCanvas.SetActive(true);
             photoAlbumViewer.gameObject.GetComponent<Image>().sprite = photoAlbumImage[indexOfPhoto].sprite;
 
-            if (Loader.photoCollection[indexOfPhoto].photoAnimalName != OrganismObject.AnimalName.typeGeneric) {
-                animalName.text = Loader.photoCollection[indexOfPhoto].photoAnimalName.ToString();
+            if (Loader.PROGRESS_DATA.photoCollection[indexOfPhoto].photoAnimalName != OrganismObject.AnimalName.typeGeneric) {
+                animalName.text = Loader.PROGRESS_DATA.photoCollection[indexOfPhoto].photoAnimalName.ToString();
             }
             else {
                 animalName.text = "";
             }
 
-            if (Loader.photoCollection[indexOfPhoto].photoAnimalType!= OrganismObject.AnimalType.typeGeneric) {
+            if (Loader.PROGRESS_DATA.photoCollection[indexOfPhoto].photoAnimalType!= OrganismObject.AnimalType.typeGeneric) {
                 infoButton.SetActive(true);
             }
             else
@@ -157,13 +160,14 @@ public class Album : MonoBehaviour
         }
 
         SnapshotController.photosTakenQuantity--;
-        Loader.photoCollection[selectedPhotoIndex] = new Photo();
-        Loader.photoCollection[selectedPhotoIndex].photoAnimalName = OrganismObject.AnimalName.typeGeneric;
-        Loader.photoCollection[selectedPhotoIndex].photoAnimalType = OrganismObject.AnimalType.typeGeneric;
-        Loader.photoCollection[selectedPhotoIndex].checkedForReview = false;
-        Loader.photoCollection[selectedPhotoIndex].indexPhoto = selectedPhotoIndex;
-        Loader.photoCollection[selectedPhotoIndex].picture = null;
-        Loader.photoCollection[selectedPhotoIndex].photoIsSaved = false;
+        Loader.PROGRESS_DATA.photoCollection[selectedPhotoIndex] = new Photo();
+        Loader.PROGRESS_DATA.photoCollection[selectedPhotoIndex].photoAnimalName = OrganismObject.AnimalName.typeGeneric;
+        Loader.PROGRESS_DATA.photoCollection[selectedPhotoIndex].photoAnimalType = OrganismObject.AnimalType.typeGeneric;
+        Loader.PROGRESS_DATA.photoCollection[selectedPhotoIndex].checkedForReview = false;
+        Loader.PROGRESS_DATA.photoCollection[selectedPhotoIndex].indexPhoto = selectedPhotoIndex;
+        Loader.PROGRESS_DATA.photoCollection[selectedPhotoIndex].picture = null;
+        Loader.PROGRESS_DATA.photoCollection[selectedPhotoIndex].photoIsSaved = false;
+        //Loader.PROGRESS_DATA.photoCollection[selectedPhotoIndex].byteArrayPicture = null;
 
         photoAlbumImage[selectedPhotoIndex].sprite = null;
         photoAlbumObjects[selectedPhotoIndex].SetActive(false);
@@ -176,8 +180,8 @@ public class Album : MonoBehaviour
         infoScreen.SetActive(true);
         string infoOfAnimal = "";
 
-        infoOfAnimal = textManager.DisplayInfo(Loader.photoCollection[selectedPhotoIndex].infoId);
-        LOLSDK.Instance.SpeakText(Loader.photoCollection[selectedPhotoIndex].infoId);
+        infoOfAnimal = textManager.DisplayInfo(Loader.PROGRESS_DATA.photoCollection[selectedPhotoIndex].infoId);
+        LOLSDK.Instance.SpeakText(Loader.PROGRESS_DATA.photoCollection[selectedPhotoIndex].infoId);
 
 
         if (infoOfAnimal != "") {
@@ -194,7 +198,8 @@ public class Album : MonoBehaviour
 
     public void ShowPhotoPreview(Photo photo ) {
         albumViewerCanvas.SetActive(true);
-        Sprite photoSprite = Sprite.Create(photo.picture, new Rect(0.0f, 0.0f, photo.picture.width, photo.picture.height), new Vector2(0.5f, 0.5f), 100.0f);
+        Texture2D photoTexture = photo.ByteArrayToTexture();
+        Sprite photoSprite = Sprite.Create(photoTexture, new Rect(0.0f, 0.0f, photoTexture.width, photoTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
         photoAlbumViewer.gameObject.GetComponent<Image>().sprite = photoSprite;        
 
         if (photo.photoAnimalName != OrganismObject.AnimalName.typeGeneric) {

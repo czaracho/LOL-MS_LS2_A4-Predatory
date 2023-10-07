@@ -97,7 +97,8 @@ public class SnapshotController : MonoBehaviour
                     newPhoto.photoAnimalName = animal.animalName;
                     newPhoto.photoAnimalType = animal.animalType;
                     newPhoto.infoId = animal.infoId;
-                    newPhoto.picture = renderResult;
+                    //newPhoto.picture = renderResult;
+                    newPhoto.picture = newPhoto.TextureToByteArray(renderResult);
                 }
                 else
                 {
@@ -105,7 +106,8 @@ public class SnapshotController : MonoBehaviour
                     newPhoto.photoAnimalName = OrganismObject.AnimalName.typeGeneric;
                     newPhoto.photoAnimalType = OrganismObject.AnimalType.typeGeneric;
                     newPhoto.infoId = "no_id";
-                    newPhoto.picture = renderResult;
+                    //newPhoto.picture = renderResult;
+                    newPhoto.picture = newPhoto.TextureToByteArray(renderResult);
                 }
 
             }
@@ -114,9 +116,10 @@ public class SnapshotController : MonoBehaviour
                 newPhoto.photoAnimalName = OrganismObject.AnimalName.typeGeneric;
                 newPhoto.photoAnimalType = OrganismObject.AnimalType.typeGeneric;
                 newPhoto.infoId = "no_id";
-                newPhoto.picture = renderResult;
+                //newPhoto.picture = renderResult;
+                newPhoto.picture = newPhoto.TextureToByteArray(renderResult);
             }
-            
+
             screenshotId++;
             photosTakenQuantity++;
 
@@ -127,7 +130,7 @@ public class SnapshotController : MonoBehaviour
             //tex.Apply();
 
             //Camera flash
-            flashImage.DOColor(Color.white, 0.15f).OnComplete(() => { ShowPhoto(newPhoto.picture); });
+            flashImage.DOColor(Color.white, 0.15f).OnComplete(() => { ShowPhoto(newPhoto.ByteArrayToTexture()); });
 
             if (SoundSfxController.instance != null) {
                 SoundSfxController.instance.PlayCameraShutter();

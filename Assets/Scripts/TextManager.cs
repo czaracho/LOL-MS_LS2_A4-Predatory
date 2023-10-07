@@ -39,8 +39,12 @@ public class TextManager : MonoBehaviour
     {
         sentences = new Queue<dialog>();
         _lang = SharedState.LanguageDefs;
-        nextButton.onClick.AddListener(DisplayNextSentence);
-        tpsController = FindObjectOfType<SimpleSampleCharacterControl>();
+
+        if (nextButton != null)
+            nextButton.onClick.AddListener(DisplayNextSentence);
+        
+        if (tpsController != null)
+            tpsController = FindObjectOfType<SimpleSampleCharacterControl>();
     }
 
     public void StartDialogue(Dialogue dialogue, GameManagerScript.GameAction gameAction, TextMeshProUGUI currentTextElement) {
@@ -57,9 +61,15 @@ public class TextManager : MonoBehaviour
 
         canGoNextSentence = true;
         gameManagerScript.gameAction = gameAction;
-        catLanaPortrait.gameObject.SetActive(false);
-        catPebblesPortrait.gameObject.SetActive(false);
-        dialogBox.gameObject.SetActive(true);
+        
+        if (catLanaPortrait.gameObject != null)
+            catLanaPortrait.gameObject.SetActive(false);
+
+        if (catPebblesPortrait.gameObject != null)
+            catPebblesPortrait.gameObject.SetActive(false);
+
+        if (dialogBox.gameObject != null)
+            dialogBox.gameObject.SetActive(true);
 
         if (dialogueBackground != null)
             dialogueBackground.SetActive(true);
@@ -215,7 +225,9 @@ public class TextManager : MonoBehaviour
             tpsController.playerCanMoveTps = true;
         }
         
-        GameManagerScript.instance.playerIsTalking = false;
+        if (GameManagerScript.instance != null)
+            GameManagerScript.instance.playerIsTalking = false;
+
         CheckEndDialogAction();        
     }
 
@@ -244,7 +256,7 @@ public class TextManager : MonoBehaviour
                 EventManager.instance.OnShowIngameUI(true);
                 break;
             case GameManagerScript.GameAction.levelCompleted:
-                GameManagerScript.instance.SetBlackCatSilhouetteForeground(() => SceneManager.LoadScene(gameManagerScript.nextLevel));
+                LevelCompletedAction();
                 break;
             case GameManagerScript.GameAction.checkObjective:
                 gameManagerScript.checkObjectives();
@@ -280,5 +292,9 @@ public class TextManager : MonoBehaviour
             default:
                 break;        
         }
+    }
+
+    private void LevelCompletedAction() {      
+        GameManagerScript.instance.SetBlackCatSilhouetteForeground(() => SceneManager.LoadScene(gameManagerScript.nextLevel));
     }
 }

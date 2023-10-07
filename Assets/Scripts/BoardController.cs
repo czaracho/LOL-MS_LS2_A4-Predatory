@@ -166,15 +166,16 @@ public class BoardController : MonoBehaviour
 
             boardPhotos[i] = boardPhotosMain.transform.GetChild(i).GetComponent<Photo>();
             boardPhotos[i].id = i;                
-            boardPhotos[i].photoAnimalName = Loader.photoCollection[i].photoAnimalName;
-            boardPhotos[i].photoAnimalType = Loader.photoCollection[i].photoAnimalType;
-            boardPhotos[i].picture = Loader.photoCollection[i].picture;
+            boardPhotos[i].photoAnimalName = Loader.PROGRESS_DATA.photoCollection[i].photoAnimalName;
+            boardPhotos[i].photoAnimalType = Loader.PROGRESS_DATA.photoCollection[i].photoAnimalType;
+            boardPhotos[i].picture = Loader.PROGRESS_DATA.photoCollection[i].picture;
             boardPhotos[i].startingPosition = boardPhotos[i].transform.position;
 
             Material newMaterial = new Material(Shader.Find("Unlit/Texture"));
 
             boardPhotos[i].transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material = newMaterial;
-            boardPhotos[i].transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.mainTexture = boardPhotos[i].picture;
+            //boardPhotos[i].transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.mainTexture = boardPhotos[i].picture;
+            boardPhotos[i].transform.GetChild(0).GetChild(0).GetComponent<Renderer>().material.mainTexture = boardPhotos[i].ByteArrayToTexture();
 
             if (boardPhotos[i].picture != null)
             {

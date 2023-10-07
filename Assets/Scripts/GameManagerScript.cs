@@ -29,6 +29,7 @@ public class GameManagerScript : MonoBehaviour {
 
     public static GameManagerScript instance;
 
+    public string currentLevel = "";
     public string nextLevel = "TentLevel1";
 
     public GameObject player;
@@ -77,13 +78,16 @@ public class GameManagerScript : MonoBehaviour {
         if (isFieldLevel)
             ResetPhotoCollection();
 
+        Loader.PROGRESS_DATA.currentLevel = currentLevel;
+        Loader.SaveData();
+
     }
 
     private void Update()
     {
-        //if (Input.GetKeyDown("f1")) {
-        //    SceneManager.LoadScene(nextLevel);
-        //}
+        if (Input.GetKeyDown("f1")) {
+            SceneManager.LoadScene(nextLevel);
+        }
     }
 
     private void InitUI() {
@@ -95,14 +99,17 @@ public class GameManagerScript : MonoBehaviour {
 
         SnapshotController.photosTakenQuantity = 0;
 
-        Loader.photoCollection = new Photo[Constants.TOTAL_PHOTO_SLOTS];
+        //Loader.photoCollection = new Photo[Constants.TOTAL_PHOTO_SLOTS];
+        //Debug.Log("ProgressData test: " + Loader.PROGRESS_DATA.photoCollection.Length);
+        Loader.PROGRESS_DATA.photoCollection = new Photo[Constants.TOTAL_PHOTO_SLOTS];
 
-        for (int i = 0; i < Loader.photoCollection.Length; i++) {
-            Loader.photoCollection[i] = new Photo();
-            Loader.photoCollection[i].photoIsSaved = false;
-            Loader.photoCollection[i].photoAnimalName = OrganismObject.AnimalName.typeGeneric;
-            Loader.photoCollection[i].photoAnimalType = OrganismObject.AnimalType.typeGeneric;
-
+        for (int i = 0; i < Loader.PROGRESS_DATA.photoCollection.Length; i++) {
+            Loader.PROGRESS_DATA.photoCollection[i] = new Photo();
+            Loader.PROGRESS_DATA.photoCollection[i].photoIsSaved = false;
+            Loader.PROGRESS_DATA.photoCollection[i].photoAnimalName = OrganismObject.AnimalName.typeGeneric;
+            Loader.PROGRESS_DATA.photoCollection[i].photoAnimalType = OrganismObject.AnimalType.typeGeneric;
+            Loader.PROGRESS_DATA.photoCollection[i].picture = null;
+            //Loader.PROGRESS_DATA.photoCollection[i].byteArrayPicture = null;
         }
     }
 
@@ -133,27 +140,27 @@ public class GameManagerScript : MonoBehaviour {
 
         objectivesAccomplishedCounter = 0;
         Debug.Log("Total objectives organisms: " + objectivesOrganisms.Length);
-        Debug.Log("Total en el Loader.photoCollection.Length: " + Loader.photoCollection.Length);
+        Debug.Log("Total en el Loader.photoCollection.Length: " + Loader.PROGRESS_DATA.photoCollection.Length);
 
 
         for (int i = 0; i < objectivesOrganisms.Length; i++) {
-            for (int j = 0; j < Loader.photoCollection.Length; j++) {
+            for (int j = 0; j < Loader.PROGRESS_DATA.photoCollection.Length; j++) {
 
-                if (Loader.photoCollection[j].checkedForReview)
+                if (Loader.PROGRESS_DATA.photoCollection[j].checkedForReview)
                     continue;
 
 
                 if (objectivesOrganisms[i].checkByName) {
 
-                    if (objectivesOrganisms[i].animalName == Loader.photoCollection[j].photoAnimalName) {
+                    if (objectivesOrganisms[i].animalName == Loader.PROGRESS_DATA.photoCollection[j].photoAnimalName) {
 
                         objectivesAccomplishedCounter++;
-                        Loader.photoCollection[j].checkedForReview = true;
+                        Loader.PROGRESS_DATA.photoCollection[j].checkedForReview = true;
 
                         Debug.Log("###########CHECKEDBYNAME###############");
                         Debug.Log("Matched the organism by name");
                         Debug.Log("objectivesOrganisms[i].animalName: " + objectivesOrganisms[i].animalName);
-                        Debug.Log("Loader.photoCollection[j].photoAnimalName: " + Loader.photoCollection[j].photoAnimalName);
+                        Debug.Log("Loader.photoCollection[j].photoAnimalName: " + Loader.PROGRESS_DATA.photoCollection[j].photoAnimalName);
                         Debug.Log("Current counter: " + objectivesAccomplishedCounter);
 
                         if (objectivesAccomplishedCounter == objectivesOrganisms.Length) {
@@ -165,15 +172,15 @@ public class GameManagerScript : MonoBehaviour {
                 }
                 else {
 
-                    if (objectivesOrganisms[i].animalType == Loader.photoCollection[j].photoAnimalType) {
+                    if (objectivesOrganisms[i].animalType == Loader.PROGRESS_DATA.photoCollection[j].photoAnimalType) {
 
                         objectivesAccomplishedCounter++;
-                        Loader.photoCollection[j].checkedForReview = true;
+                        Loader.PROGRESS_DATA.photoCollection[j].checkedForReview = true;
 
                         Debug.Log("###########CHECKEDBYTYPE###############");
                         Debug.Log("Matched the organism type");
                         Debug.Log("objectivesOrganisms[i].animalType: " + objectivesOrganisms[i].animalType);
-                        Debug.Log("Loader.photoCollection[j].photoAnimalType: " + Loader.photoCollection[j].photoAnimalType);
+                        Debug.Log("Loader.photoCollection[j].photoAnimalType: " + Loader.PROGRESS_DATA.photoCollection[j].photoAnimalType);
                         Debug.Log("Current counter: " + objectivesAccomplishedCounter);
 
                         if (objectivesAccomplishedCounter == objectivesOrganisms.Length) {
@@ -193,8 +200,8 @@ public class GameManagerScript : MonoBehaviour {
 
     private void UncheckReviewedPhotos() {
         
-        for (int i = 0; i < Loader.photoCollection.Length; i++) {
-            Loader.photoCollection[i].checkedForReview = false;
+        for (int i = 0; i < Loader.PROGRESS_DATA.photoCollection.Length; i++) {
+            Loader.PROGRESS_DATA.photoCollection[i].checkedForReview = false;
         }
     }
 
@@ -259,8 +266,9 @@ public class GameManagerScript : MonoBehaviour {
     }
 
     public void AddGameProgress() {
-        Loader.CURRENT_PROGRESS++;
-        LOLSDK.Instance.SubmitProgress(1, Loader.CURRENT_PROGRESS, Loader.MAX_PROGRESS);
+        
+        Loader.PROGRESS_DATA.currentProgress++;
+        LOLSDK.Instance.SubmitProgress(1, Loader.PROGRESS_DATA.currentProgress, Loader.PROGRESS_DATA.maxProgress);
         Loader.SaveData();
     }
 

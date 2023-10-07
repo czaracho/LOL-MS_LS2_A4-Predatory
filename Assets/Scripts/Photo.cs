@@ -11,14 +11,14 @@ public class Photo : MonoBehaviour
     public OrganismObject.AnimalName photoAnimalNameAdditional;
     [HideInInspector]
     public string infoId;       //id of the info
-    public Texture2D picture;   //picture of the animal
+    public byte[] picture;
     [HideInInspector]
     public bool photoIsSaved = false;
     [HideInInspector]
     public int indexPhoto = 999;
     [HideInInspector]
     public bool checkedForReview = false;
-    [HideInInspector]
+    [HideInInspector]    
     public Vector3 startingPosition;
     public bool isOnBoardSlot = false;
     public bool slotIsOccupied = false;
@@ -32,7 +32,6 @@ public class Photo : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
 
-        //If this is a photoslot, then it does nothing (YOU'LL DO NUTHING)
         if (!gameObject.CompareTag(GameStringConstants.photo)) return;
 
 
@@ -94,4 +93,29 @@ public class Photo : MonoBehaviour
         gameObject.transform.DOScale(new Vector3(0.75f, 0.75f, 1), 0.35f);
     }
 
+    public byte[] TextureToByteArray(Texture2D picture) {
+        if (picture != null) {
+            return picture.EncodeToPNG();
+        }
+        else {
+            return null;
+        }
+    }
+
+    public Texture2D ByteArrayToTexture() {
+        Texture2D texture = new Texture2D(2, 2); // Size doesn't matter; it'll be replaced by LoadImage
+        texture.LoadImage(picture);
+        return texture;
+    }
+}
+
+public class SerializablePhoto {
+    public int id;
+    public OrganismObject.AnimalName photoAnimalName;   
+    public OrganismObject.AnimalType photoAnimalType;   
+    public OrganismObject.AnimalName photoAnimalNameAdditional;
+    public string infoId;       
+    public byte[] picture;
+    public bool photoIsSaved = false;
+    public int indexPhoto = 999;
 }

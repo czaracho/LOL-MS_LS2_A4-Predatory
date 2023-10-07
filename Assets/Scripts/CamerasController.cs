@@ -27,6 +27,7 @@ public class CamerasController : MonoBehaviour
         EventManager.instance.ShowIngameUI += ShowIngameTpsCanvas;
         EventManager.instance.ShowFpsUI += ShowFPSCanvas;
         EventManager.instance.GoToBoard += SwitchToBoardCamera;
+        
     }
 
     private void Update(){
