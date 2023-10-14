@@ -93,13 +93,17 @@ public class Photo : MonoBehaviour
         gameObject.transform.DOScale(new Vector3(0.75f, 0.75f, 1), 0.35f);
     }
 
-    public byte[] TextureToByteArray(Texture2D picture) {
-        if (picture != null) {
-            return picture.EncodeToPNG();
-        }
-        else {
-            return null;
-        }
+    //public byte[] TextureToByteArray(Texture2D picture) {
+    //    if (picture != null) {
+    //        return picture.EncodeToPNG();
+    //    }
+    //    else {
+    //        return null;
+    //    }
+    //}
+
+    public byte[] TextureToByteArray(Texture2D texture) {
+        return texture.EncodeToJPG(quality: 65);  // JPG with 65% quality, adjust as needed
     }
 
     public Texture2D ByteArrayToTexture() {
@@ -111,11 +115,12 @@ public class Photo : MonoBehaviour
 
 public class SerializablePhoto {
     public int id;
-    public OrganismObject.AnimalName photoAnimalName;   
-    public OrganismObject.AnimalType photoAnimalType;   
+    public OrganismObject.AnimalName photoAnimalName;
+    public OrganismObject.AnimalType photoAnimalType;
     public OrganismObject.AnimalName photoAnimalNameAdditional;
-    public string infoId;       
-    public byte[] picture;
+    public string infoId;
+    //public byte[] picture;
+    public string picture;
     public bool photoIsSaved = false;
     public int indexPhoto = 999;
 }

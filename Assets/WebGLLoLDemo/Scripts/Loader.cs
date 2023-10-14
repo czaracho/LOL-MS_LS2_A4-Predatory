@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using LoLSDK;
 using SimpleJSON;
 using System.IO;
+using System;
 
 public class ProgressData {
     public int currentProgress = 0;
@@ -13,6 +14,9 @@ public class ProgressData {
     public Photo[] photoCollection = new Photo[Constants.TOTAL_PHOTO_SLOTS];
 
     public ProgressData() {
+
+
+
         for (int i = 0; i < photoCollection.Length; i++) {
             photoCollection[i] = new Photo();
             photoCollection[i].photoIsSaved = false;
@@ -36,9 +40,11 @@ public class ProgressData {
                 currentProgress = serializedData.currentProgress;
                 break;
             case "TentLevel1":
+                currentLevel = "SavannaLevel";
                 currentProgress = 0;
                 break;
             case "TentLevel2":
+                currentLevel = "ForestLevel";
                 currentProgress = 4;    //The number of progress from the first tent level
                 break;
             case "EndGameLevel":
@@ -48,21 +54,40 @@ public class ProgressData {
                 break;
         }
 
-        LoadSerializedPhotos(serializedData.photoCollection);
+        //LoadSerializedPhotos(serializedData.photoCollection);
 
     }
 
     private void LoadSerializedPhotos(SerializablePhoto[] serializedPhotoCollection) {
+
+        Debug.Log("Start of serialized photos deconverter");
+
         for (int i = 0; i < photoCollection.Length; i++) {
+
+
+            Debug.Log("Animal name: " + serializedPhotoCollection[i].photoAnimalName);
+            Debug.Log("Serialized photo: " + serializedPhotoCollection[i].picture);
+
+
             photoCollection[i].id = serializedPhotoCollection[i].id;
             photoCollection[i].photoAnimalName = serializedPhotoCollection[i].photoAnimalName;
             photoCollection[i].photoAnimalType = serializedPhotoCollection[i].photoAnimalType;
             photoCollection[i].photoAnimalNameAdditional = serializedPhotoCollection[i].photoAnimalNameAdditional;
             photoCollection[i].infoId = serializedPhotoCollection[i].infoId;
-            photoCollection[i].picture = serializedPhotoCollection[i].picture;
+            //photoCollection[i].picture = serializedPhotoCollection[i].picture;
+            if (photoCollection[i].picture != null) {
+                photoCollection[i].picture = Convert.FromBase64String(serializedPhotoCollection[i].picture);
+            }
+            else {
+                photoCollection[i].picture = null;
+            }
+            
             photoCollection[i].photoIsSaved = serializedPhotoCollection[i].photoIsSaved;
             photoCollection[i].indexPhoto = serializedPhotoCollection[i].indexPhoto;
         }
+
+        Debug.Log("End of of serialized photos deconverter");
+
     }
 }
 
@@ -83,18 +108,41 @@ public class SerializedProgressData {
 
     public void LoadSerializedPhotos(Photo[] progressDataCollection) {
 
+
+        Debug.Log("Start of LoadSerializedPhotos (saving)");
+        
+
+
         for (int i = 0; i < progressDataCollection.Length; i++) {
             photoCollection[i].id = progressDataCollection[i].id;
             photoCollection[i].photoAnimalName = progressDataCollection[i].photoAnimalName;
             photoCollection[i].photoAnimalType = progressDataCollection[i].photoAnimalType;
             photoCollection[i].photoAnimalNameAdditional = progressDataCollection[i].photoAnimalNameAdditional;
             photoCollection[i].infoId = progressDataCollection[i].infoId;
-            photoCollection[i].picture = progressDataCollection[i].picture;
+            //photoCollection[i].picture = progressDataCollection[i].picture;
+            
+            if (progressDataCollection[i].picture == null) {
+                photoCollection[i].picture = null;
+            }
+            else {
+                photoCollection[i].picture = Convert.ToBase64String(progressDataCollection[i].picture);
+            }
+            
             photoCollection[i].photoIsSaved = progressDataCollection[i].photoIsSaved;
             photoCollection[i].indexPhoto = progressDataCollection[i].indexPhoto;
         }
 
-        LOLSDK.Instance.SaveState(this);
+        Debug.Log("first animal name is: " + photoCollection[0].photoAnimalName);
+        Debug.Log("first animal picture is is: " + photoCollection[0].picture);
+        Debug.Log("End of LoadSerializedPhotos");
+
+
+        //LOLSDK.Instance.SaveState(this);
+        //var localStorage = new LocalStorageManager();
+        //SerializedProgressData myData = this;  // This could be your base64 encoded or compressed image data
+        //string myData = JsonUtility.ToJson(this);
+        //localStorage.SaveData("saved_photos", myData);
+        Debug.Log("Data has been saved!");
     }
 
     public void SaveSerializedData() {
@@ -103,12 +151,22 @@ public class SerializedProgressData {
         currentProgress = Loader.PROGRESS_DATA.currentProgress;
         currentLevel = Loader.PROGRESS_DATA.currentLevel;
 
-        try {
-            LoadSerializedPhotos(Loader.PROGRESS_DATA.photoCollection);
-        }
-        catch {
-            Debug.Log("No photos at start");
-        }
+        Debug.Log("Saved current level is: " + currentLevel);
+        Debug.Log("Saved the basic stuff");
+        LOLSDK.Instance.SaveState(this);
+
+
+
+
+        //LoadSerializedPhotos(Loader.PROGRESS_DATA.photoCollection);
+
+
+        //try {
+        //    LoadSerializedPhotos(Loader.PROGRESS_DATA.photoCollection);
+        //}
+        //catch {
+        //    Debug.Log("Error trying to save serialized data");
+        //}
 
     }
 }
@@ -274,5 +332,6 @@ public class Loader : MonoBehaviour
     public static void LoadLoader(SerializedProgressData savedData) {      
         PROGRESS_DATA.LoadProgressData(savedData);
     }
+
 
 }

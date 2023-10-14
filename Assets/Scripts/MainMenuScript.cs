@@ -1,5 +1,7 @@
 using DG.Tweening;
 using LoLSDK;
+using SimpleJSON;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,19 +49,65 @@ public class MainMenuScript : MonoBehaviour
     }
 
     void ContinueButtonHandler() {
+
+
+        //var localStorage = new LocalStorageManager();
+        //string serializedDataString = localStorage.LoadData("saved_photos");
+
+
+        //if (serializedDataString != "empty") {
+
+        //    Debug.Log("Data is not empty");
+
+        //    SerializedProgressData deserializedData = JsonUtility.FromJson<SerializedProgressData>(serializedDataString);
+
+        //    if (deserializedData != null) {
+
+
+        //        Debug.Log("DeserializedData is not null");
+        //        Debug.Log("El nivel es: " + deserializedData.currentLevel);
+        //        Debug.Log("El current progress es: " + deserializedData.currentProgress);
+
+
+        //        if (deserializedData.currentLevel == "" || deserializedData.currentLevel == null)
+        //            return;
+
+        //        if (deserializedData.currentLevel != "TutorialLevel" || deserializedData.currentLevel != "EndGameLevel") {
+
+        //            Loader.LoadLoader(deserializedData);
+        //            Debug.Log("Guaranteed");
+
+        //            //if (deserializedData.currentLevel == "SavannaLevel" || deserializedData.currentLevel == "ForestLevel") {
+        //            //    Debug.Log("It was from the savannah level");
+        //            //    Loader.PROGRESS_DATA.photoCollection = new Photo[Constants.TOTAL_PHOTO_SLOTS];
+        //            //}
+
+        //            continueButton.SetActive(true);
+        //        }
+
+        //    }
+        //}
+        //else {
+        //    Debug.Log("Data is empty");
+        //}
+
+
+
+
         LOLSDK.Instance.LoadState<SerializedProgressData>(state => {
             if (state != null) {
 
                 if (state.data.currentLevel == "" || state.data.currentLevel == null)
-                    return;               
+                    return;
 
                 if (state.data.currentLevel != "TutorialLevel" || state.data.currentLevel != "EndGameLevel") {
-                                       
-                    Loader.LoadLoader(state.data);
 
-                    if (state.data.currentLevel == "SavannaLevel" || state.data.currentLevel == "ForestLevel") { 
+                    Loader.LoadLoader(state.data);
+                    Debug.Log("Current level at start is: " + Loader.PROGRESS_DATA.currentLevel);
+
+                    if (state.data.currentLevel == "SavannaLevel" || state.data.currentLevel == "ForestLevel") {
                         Loader.PROGRESS_DATA.photoCollection = new Photo[Constants.TOTAL_PHOTO_SLOTS];
-                    }                  
+                    }
 
                     continueButton.SetActive(true);
                 }
